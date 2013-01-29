@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  {% load assets %}
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Hackpoint'13 Череповец</title>
+  
+  <!-- Included CSS Files (Compressed) -->
+  {% block extracss %}{% endblock extracss %}
+  {% assets "all_css" %}
+    <style type="text/css" media="screen">
+        /* <![CDATA[ */
+        @import '{{ ASSET_URL }}';
+        /* ]]> */
+    </style>
+  {% endassets %}
+  <script src="{{ STATIC_URL }}js/modernizr.foundation.js"></script>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h2>Hackpoint'13 Che</h2>
+      <p>Хакатон <strong>19-20 мая</strong> Социалистическая 25, г. Череповец</p>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <div class="panel">
+        <div class="row">
+          <div class="eight columns">
+            <p>Регистрация на хакатон откроется 12 марта.</p>
+          </div>
+
+          <div class="four columns">
+            <a class="button right disabled" href="#">Зарегистрироваться</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="four columns">
+      <h3>Время</h3>
+      <p><strong>19-20 мая 2013 года</strong> <br>Начало: 11:00</p>
+
+      <h3>Место</h3>
+      <p>ул. Социалистическая 25, г. Череповец</p>
+    </div>
+
+    <div class="eight columns">
+      <div id="map" style="height:250px;"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <h3>Спонсоры</h3>
+      <div class="panel">
+        <div class="row">
+          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
+          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
+          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
+          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="eight columns">
+
+      <div class="row">
+        <div class="twelve columns">
+
+          <ul class="accordion">
+            <li class="active">
+              <div class="title">
+                <h5>О хакатоне</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <h5>Программа</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <h5>Номинации и призы</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <h5>FAQ</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <h5>Менторы и наставники</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+            <li>
+              <div class="title">
+                <h5>Питание</h5>
+              </div>
+              <div class="content">
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="four columns">
+      <script type="text/javascript" src="//vk.com/js/api/openapi.js?78"></script>
+      <!-- VK Widget -->
+      <div id="vk_groups"></div>
+      <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {
+          mode: 0,
+          width: "280",
+          height: "290"
+        }, 48879545);
+      </script>
+
+      <hr>
+
+      <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+      <script>
+      new TWTR.Widget({
+        version: 2,
+        //type: 'search',
+        type: 'profile',
+        search: '#hackpoint_che',
+        interval: 30000,
+        title: 'hackpoint\'13',
+        subject: '#hackpoint',
+        width: 280,
+        height: 300,
+        theme: {
+          shell: {
+            background: '#d8f0c0',
+            color: '#6aaa2b'
+          },
+          tweets: {
+          background: '#ffffff',
+          color: '#444444',
+          links: '#6aaa2b'
+          }
+        },
+        features: {
+          scrollbar: false,
+          loop: true,
+          live: true,
+          hashtags: true,
+          timestamp: true,
+          avatars: true,
+          toptweets: true,
+          behavior: 'default'
+        }
+      }).render().setUser('hackpoint_che').start();
+      </script>
+
+      <h4>Other Resources</h4>
+      <p>Once you've exhausted the fun in this document, you should check out:</p>
+      <ul class="disc">
+        <li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</li>
+        <li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</li>
+        <li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Included JS Files (Compressed) -->
+  <script src="{{ STATIC_URL }}js/jquery.js"></script>
+
+  {% assets  "all_js" %}
+    <script type="text/javascript" language="javascript" src="{{ ASSET_URL }}" charset="utf-8">
+        // <![CDATA[// ]]>
+    </script>
+  {% endassets %}
+  
+  <script>
+  $(window).load(function(){
+    $("#featured").orbit();
+  });
+  </script> 
+  <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+    var myMap,
+        placeMark;
+
+    function init(){     
+      myMap = new ymaps.Map ("map", {
+        center: [59.122021, 37.931599],
+        zoom: 16,
+      });
+
+      placeMark = new ymaps.Placemark([59.122021, 37.931599], {
+        content: 'Череповец',
+        balloonContent: 'Фотостудия'
+      });
+      myMap.geoObjects.add(placeMark);
+    }
+  </script>
+  
+</body>
+</html>

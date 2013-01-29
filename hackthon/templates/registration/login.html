@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Sign in' %}{% endblock %}
+
+{% block pagetitle %}
+  <h2>{% trans 'Sign in' %}</h2>
+{% endblock %}
+
+{% block content %}
+    <form action="." method="POST" class='login-form form form-stacked'>
+        {{form.as_p}}
+        {% csrf_token %}
+        <input value="{% trans 'Login' %}" type="submit" class="btn">
+    </form>
+{% endblock %}

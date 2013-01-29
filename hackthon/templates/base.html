@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load jquery_validation %}
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        {% load assets i18n %}
+        <meta charset="UTF-8">
+
+        <title>{% block title %}Поиск ПП{% endblock %}</title>
+
+        {% block metadata %}
+        {% endblock metadata %}
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {% block favicons %}
+        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">
+        <link rel="apple-touch-icon" href="{{ STATIC_URL }}apple-touch-icon.png">
+        {% endblock favicons %}
+
+        {% assets "all_css" %}
+        <style type="text/css" media="screen">
+            /* <![CDATA[ */
+            @import '{{ ASSET_URL }}';
+            /* ]]> */
+        </style>
+        {% endassets %}
+
+        {% block extrahead %}{% endblock extrahead %}
+        {% block extracss %}{% endblock extracss %}
+        <script src="{{ STATIC_URL }}js/modernizr.foundation.js"></script>
+
+        <!--[if lt IE 9]>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/ie.css">
+        <![endif]-->
+
+
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+      {% spaceless %}
+        <div id="header-container">
+            <header class="wrapper">
+            </header>
+        </div>
+
+        <div id="main" class="container-fluid">
+          <h2>{% block pagetitle %}{% trans 'Patent Attorney Search' %}{% endblock %}</h2>
+          {% block content %}{% endblock %}
+        </div>
+        <div class="clearfooter"></div>
+        <div id="footer-container">
+            <footer class="wrapper">
+            </footer>
+        </div>
+        <div id="loading"></div>
+
+{% if request.LANGUAGE_CODE == 'ru' %}
+        <script type="text/javascript" src="{% url django.views.i18n.null_javascript_catalog %}"></script>
+{% else %}
+        <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+{% endif %}
+
+        {% block js-libs %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ STATIC_URL }}js/jquery.js"%3E%3C/script%3E'))</script>
+        {% endblock js-libs %}
+
+        {% assets  "all_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}" charset="utf-8"></script>
+        {% endassets %}
+
+        {% assets  "plugin_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}" charset="utf-8"></script>
+        {% endassets %}
+
+        {% include 'messages.html' %}
+        {% block extrajs %}{% endblock extrajs %}
+        {% ajax_validate form %}
+
+        <!--[if lt IE 7 ]>
+        <script src="{{ STATIC_URL }}js/libs/dd_belatedpng.js"></script>
+        <script> DD_belatedPNG.fix('img, .png_bg');</script>
+        <![endif]-->
+
+      {% endspaceless %}
+    </body>
+</html>
