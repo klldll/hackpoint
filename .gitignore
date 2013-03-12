@@ -1,0 +1,12 @@
+*.pyc
+*.swo
+*~
+.idea
+.ropeproject/
+*.egg-info/
+dist/
+*.swp
+*.zip
+*.orig
+.env
+static/.webassets-cache
