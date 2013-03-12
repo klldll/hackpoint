@@ -10,7 +10,9 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
 
+  {% block pagetitle %}
   <title>Hackpoint'13 Череповец</title>
+  {% endblock %}
   
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
@@ -26,6 +28,7 @@
 
 <body>
 
+{% block body %}
   <div class="row">
     <div class="twelve columns">
       <h2>Hackpoint'13 Che</h2>
@@ -52,10 +55,10 @@
 
   <div class="row">
     <div class="four columns">
-      <h3>Время</h3>
+      <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
       <p><strong>19-20 мая 2013 года</strong> <br>Начало: 11:00</p>
 
-      <h3>Место</h3>
+      <h3><i class="foundicon-location"></i>&nbsp;Место</h3>
       <p>ул. Социалистическая 25, г. Череповец</p>
     </div>
 
@@ -128,6 +131,18 @@
               </div>
             </li>
           </ul>
+
+          <div id="mc-container"></div>
+          <script type="text/javascript">
+          var mcSite = '17202';
+          (function() {
+          var mc = document.createElement('script');
+          mc.type = 'text/javascript';
+          mc.async = true;
+          mc.src = 'http://cackle.me/mc.widget-min.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mc);
+          })();
+          </script>
 
         </div>
       </div>
@@ -228,5 +243,6 @@
     }
   </script>
   
+  {% endblock %}
 </body>
 </html>

@@ -26,6 +26,8 @@ register('all_js',
 register('all_css',
         Bundle(
                'css/foundation.css',
+               'css/accessibility_foundicons.css',
+               'css/general_foundicons.css',
                'css/app.css',
         ),
         filters='cssmin',

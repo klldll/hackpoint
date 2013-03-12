@@ -19,7 +19,11 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('django.views.generic.simple',
     (r'^$', 'direct_to_template', {'extra_context': {'section': 'main'}, 'template': 'default.html'}),
-    (r'^fluid/$', 'direct_to_template', {'extra_context': {'section': 'main'}, 'template': 'fluid.html'}),
+    #(r'^fluid/$', 'direct_to_template', {'extra_context': {'section': 'main'}, 'template': 'fluid.html'}),
+)
+
+urlpatterns += (
+    url(r'^static/(?P<path>.*)', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT,'show_indexes': True}),
 )
 
 if settings.DEBUG:
