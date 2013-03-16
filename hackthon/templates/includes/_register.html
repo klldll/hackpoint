@@ -1,6 +1,35 @@
 <div id="myModal" class="reveal-modal">
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+  <h2>Регистрация на hackpoint</h2>
+  <form method="POST" action="" class="custom">
+    {% csrf_token %}
+
+    <div class="row">
+      <input id="user_name" type="text" name="user_name" value="" placeholder="Меня зовут (никнэйм или реальное имя)" />
+    </div>
+
+    <div class="row">
+      <input id="user_email" type="text" name="user_email" value="" placeholder="Мой email" />
+    </div>
+
+    <div class="row">
+      <label for="user_team_role">Моя роль в команде</label>
+      <select id="user_team_role" class="large" name="user_team_role">
+      <option>Программист</option>
+      <option>Дизайнер</option>
+      <option>Менеджер</option>
+      <option>Студент</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label for="user_have_idea"><input type="checkbox" name="user_have_idea" id="user_have_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
+    </div>
+
+    <div class="row">
+      <textarea rows=3 id="user_skills" name="user_skills" placeholder="Мои навыки, скилы, умения. Какими технологиями я обладаю."></textarea>
+    </div>
+
+    <input type="submit" class="button" value="жмак">
+  </form>
   <a class="close-reveal-modal">&#215;</a>
 </div>
