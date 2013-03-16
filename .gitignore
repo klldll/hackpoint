@@ -10,3 +10,4 @@ dist/
 *.orig
 .env
 hackthon/static/.webassets-cache
+hackthon/settings_local.py
