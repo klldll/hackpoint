@@ -1,0 +1,35 @@
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+  new TWTR.Widget({
+    version: 2,
+    //type: 'search',
+    type: 'profile',
+    search: '#hackpoint_che',
+    interval: 30000,
+    title: 'hackpoint\'13',
+    subject: '#hackpoint',
+    width: 280,
+    height: 300,
+    theme: {
+      shell: {
+        background: '#dae2e8',
+        color: '#45688e'
+      },
+      tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#45688e'
+      }
+    },
+    features: {
+      scrollbar: false,
+      loop: true,
+      live: true,
+      hashtags: true,
+      timestamp: true,
+      avatars: true,
+      toptweets: true,
+      behavior: 'default'
+    }
+  }).render().setUser('hackpoint_che').start();
+</script>

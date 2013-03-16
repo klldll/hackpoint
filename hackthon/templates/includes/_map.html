@@ -1,0 +1,19 @@
+<script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(init);
+  var myMap,
+      placeMark;
+
+  function init(){     
+    myMap = new ymaps.Map ("map", {
+      center: [59.122021, 37.931599],
+      zoom: 16,
+    });
+
+    placeMark = new ymaps.Placemark([59.122021, 37.931599], {
+      content: 'Череповец',
+      balloonContent: 'Открытое творческое пространство &laquo;Простор&raquo;'
+    });
+    myMap.geoObjects.add(placeMark);
+  }
+</script>

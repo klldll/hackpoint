@@ -9,4 +9,4 @@ dist/
 *.zip
 *.orig
 .env
-static/.webassets-cache
+hackthon/static/.webassets-cache

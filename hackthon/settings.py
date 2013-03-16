@@ -103,4 +103,3 @@ LOGGING = {
         },
     }
 }
-DEBUG = False
