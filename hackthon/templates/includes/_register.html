@@ -1,6 +1,6 @@
 <div id="myModal" class="reveal-modal">
   <h2>Регистрация на hackpoint</h2>
-  <form method="POST" action="" class="custom">
+  <form method="POST" action="{% url 'profiles_register' %}" class="custom">
     {% csrf_token %}
 
     <div class="row">

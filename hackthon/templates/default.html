@@ -47,6 +47,7 @@
 
   <div class="row">
     <div class="twelve columns">
+      {% block register %}
       <div class="panel">
         <div class="row">
           <div class="eight columns">
@@ -58,6 +59,7 @@
           </div>
         </div>
       </div>
+      {% endblock %}
     </div>
   </div>
 
@@ -162,8 +164,10 @@
     {% endblock %}
   </div>
 
+  <!--
   <div id="copyright">
   </div>
+  -->
 
   <script src="{{ STATIC_URL }}js/jquery.js"></script>
   {% assets  "all_js" %}

@@ -37,8 +37,9 @@
 
   $(document).ready(function(){
     $('form.custom').validate(
-    '/validate/userprofileform/',
-    {type: 'div'});
+    '/validate/userprofileform/', {
+      type: 'div'
+    });
   });
 
 })(jQuery, this);

@@ -60,6 +60,13 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+EMAIL_BACKEND = "mailer.backend.DbBackend"
+
+#AUTHENTICATION_BACKENDS = (
+    #'guardian.backends.ObjectPermissionBackend',
+#    'django.contrib.auth.backends.ModelBackend',
+#)
+
 ROOT_URLCONF = 'hackthon.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -77,6 +84,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django_assets',
+    'mailer',
     'ajax_validation',
     'local',
     'profiles',
@@ -106,6 +114,7 @@ LOGGING = {
     }
 }
 
+DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [
     'profiles.forms.UserProfileForm',
     #'auth.contrib.auth.forms.AuthenticationForm',
