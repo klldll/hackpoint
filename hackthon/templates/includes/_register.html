@@ -4,29 +4,30 @@
     {% csrf_token %}
 
     <div class="row">
-      <input id="user_name" type="text" name="user_name" value="" placeholder="Меня зовут (никнэйм или реальное имя)" />
+      <input id="id_username" type="text" name="username" value="" placeholder="Меня зовут (никнэйм или реальное имя)" />
     </div>
 
     <div class="row">
-      <input id="user_email" type="text" name="user_email" value="" placeholder="Мой email" />
+      <input id="id_email" type="text" name="email" value="" placeholder="Мой email" />
     </div>
 
     <div class="row">
-      <label for="user_team_role">Моя роль в команде</label>
-      <select id="user_team_role" class="large" name="user_team_role">
-      <option>Программист</option>
-      <option>Дизайнер</option>
-      <option>Менеджер</option>
-      <option>Студент</option>
+      <label for="id_user_role">Моя роль в команде</label>
+      <select id="id_user_role" class="large" name="user_role">
+      <option value="programmer">Программист</option>
+      <option value="designer">Дизайнер</option>
+      <option value="manager">Менеджер</option>
+      <option value="student">Студент</option>
+      <option value="other">Другое</option>
       </select>
     </div>
 
     <div class="row">
-      <label for="user_have_idea"><input type="checkbox" name="user_have_idea" id="user_have_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
+      <label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
     </div>
 
     <div class="row">
-      <textarea rows=3 id="user_skills" name="user_skills" placeholder="Мои навыки, скилы, умения. Какими технологиями я обладаю."></textarea>
+      <textarea rows=3 id="id_user_skills" name="user_skills" placeholder="Мои навыки, скилы, умения. Какими технологиями я обладаю."></textarea>
     </div>
 
     <input type="submit" class="button" value="жмак">

@@ -5,12 +5,12 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
-  {% load assets %}
+  {% load assets jquery_validation %}
 
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/favicon.ico" />
-  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
 
   {% block pagetitle %}
   <title>Hackpoint'13 Череповец</title>
@@ -61,6 +61,7 @@
     </div>
   </div>
 
+  {% block info %}
   <div class="row">
     <div class="four columns">
       <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
@@ -72,9 +73,12 @@
 
     <div class="eight columns">
       <div id="map" style="height:250px;"></div>
+      {% include 'includes/_map.html' %}
     </div>
   </div>
+  {% endblock %}
 
+  {% block sponsors  %}
   <div class="row">
     <div class="twelve columns">
       <h3>Спонсоры</h3>
@@ -88,9 +92,11 @@
       </div>
     </div>
   </div>
+  {% endblock %}
 
   <div class="row">
     <div class="eight columns">
+      {% block content %}
 
       <div class="row">
         <div class="twelve columns">
@@ -102,7 +108,7 @@
               </div>
               <div class="content">
                 <p>Хакпоинт — это 48-часовой марафон, в котором программисты-добровольцы обязуются выдать в результате суточного кодинга что-то светлое, доброе и вечное. Ну, или как минимум, нужное. А если не нужное, то забавное.</p>
-                <p>Главный принцип мероприятия — получить удовольствие от процесса, сделать то, до чего давно не доходили руки или экспромтом выдать гениальный проект! А попутно познакомиться с гениальными себе подобными, узнать новые интересные фичи и узнать что-то новое .</p>
+                <p>Главный принцип мероприятия — получить удовольствие от процесса, сделать то, до чего давно не доходили руки или экспромтом выдать гениальный проект! А попутно познакомиться с гениальными себе подобными, узнать новые интересные фичи и что-то новое в области технологий.</p>
               </div>
             </li>
             <li>
@@ -144,14 +150,16 @@
 
         </div>
       </div>
-      
+      {% endblock %}
     </div>
 
+    {% block sidebar %}
     <div class="four columns">
       {% include 'includes/_vk.html' %}
       <hr>
       {% include 'includes/_twitter.html' %}
     </div>
+    {% endblock %}
   </div>
 
   <div id="copyright">
@@ -164,7 +172,6 @@
     </script>
   {% endassets %}
   
-  {% include 'includes/_map.html' %}
   {% include 'includes/_register.html' %}
   
 {% endblock %}

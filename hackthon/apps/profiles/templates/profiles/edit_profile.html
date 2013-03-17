@@ -1,0 +1,15 @@
+{% extends "profiles/base.html" %}
+{% load i18n %}
+{% block main %}
+
+<h2>{% trans 'Edit account' %}</h2>
+
+<div class="form-container clearfix">
+  <form enctype="multipart/form-data" action="." id="form" class="form profile-form" method="post" novalidate="novalidate">
+    {% csrf_token %}    
+    {{ form.as_p }}
+
+    <input class="btn" value="{% trans 'Submit' %}" type="submit">
+  </form>
+</div>
+{% endblock %}

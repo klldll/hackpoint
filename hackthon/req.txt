@@ -7,3 +7,5 @@ jsmin==2.0.2
 uWSGI==1.4.4
 webassets==0.8
 wsgiref==0.1.2
+PIL==1.1.7
+-e git://github.com/zaebee/django-ajax-validation.git@f52d6a5f0b46451c6f941201feb4ebf810fa3110#egg=django_ajax_validation-dev

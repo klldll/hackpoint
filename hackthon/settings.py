@@ -28,7 +28,7 @@ DATABASES = {
 
 TIME_ZONE = 'America/Chicago'
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 SITE_ID = 1
 
@@ -77,7 +77,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django_assets',
+    'ajax_validation',
     'local',
+    'profiles',
 )
 
 LOGGING = {
@@ -104,6 +106,10 @@ LOGGING = {
     }
 }
 
+AJAX_VALIDATION_FORMS = [
+    'profiles.forms.UserProfileForm',
+    #'auth.contrib.auth.forms.AuthenticationForm',
+]
 
 try:
     from settings_local import *
