@@ -5,9 +5,11 @@
 .ropeproject/
 *.egg-info/
 dist/
+*.db
 *.swp
 *.zip
 *.orig
 .env
 hackthon/static/.webassets-cache
 hackthon/settings_local.py
+hackthon/dev
