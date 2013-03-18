@@ -114,6 +114,7 @@ LOGGING = {
     }
 }
 
+ALLOWED_HOSTS = ('www.hackpoint.ru', 'hackpoint.ru', 'demo.hackpoint.ru')
 DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [
     'profiles.forms.UserProfileForm',
