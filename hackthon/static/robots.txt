@@ -1,0 +1,9 @@
+Disallow: /admin/
+Disallow: /password/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /validate/
+Disallow: /static/
+
+User-agent: Yandex
+Host: hackpoint.ru
