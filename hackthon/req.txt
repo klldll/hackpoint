@@ -1,4 +1,4 @@
-Django==1.4.3
+Django==1.5
 argparse==1.2.1
 cssmin==0.1.4
 distribute==0.6.24
