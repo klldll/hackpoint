@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django_assets',
+    'django_extensions',
     'mailer',
     'ajax_validation',
     'local',
