@@ -6,6 +6,7 @@ Views for creating, editing and viewing site-specific user profiles.
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 from django.shortcuts import get_object_or_404, render, redirect
 from django.conf import settings
@@ -16,7 +17,7 @@ else:
     from django.core.mail import send_mail
 
 from profiles.models import UserProfile
-from profiles.forms import UserProfileForm
+from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail
 
 
 @login_required
@@ -34,24 +35,32 @@ def edit_profile(request, **kwargs):
     pass
 
 
+@csrf_exempt
 def register(request):
-    form = UserProfileForm(request.POST or None)
-    if form.is_valid():
-        profile = form.save(commit=False)
-        user, created = User.objects.get_or_create(username=profile.username, email=profile.email)
-        user.profile.username = profile.username
-        user.profile.email = profile.email
-        user.profile.has_idea = profile.has_idea
-        user.profile.user_skills = profile.user_skills
-        user.profile.user_role = profile.user_role
-        user.save()
-        user.profile.save()
-        msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С Уважением огранизаторы.</p>'
-        send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
-        return redirect('/accounts/register/thank/')
+    #import ipdb;ipdb.set_trace()
+    full_form = UserProfileForm(request.POST or None)
+    simple_form = RegistrationFormUniqueEmail(request.POST or None)
+
+    if request.is_ajax():
+        if simple_form.is_valid():
+            email = simple_form.cleaned_data['email']
+            user, created = User.objects.get_or_create(username=email, email=email)
+            msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С Уважением огранизаторы.</p>'
+            send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
+
+    if full_form.is_valid():
+        profile = full_form.save(commit=False)
+        email = request.POST.get('email', None)
+        if email:
+            user, created = User.objects.get_or_create(username=email, email=email)
+            user.profile.user_skills = profile.user_skills
+            user.profile.user_role = profile.user_role
+            user.profile.has_idea = profile.has_idea
+            user.save()
+            user.profile.save()
     else:
         pass
-    return render(request, 'profiles/register.html', {'form': form})
+    return render(request, 'profiles/register.html', {'form': full_form})
 
 
 def register_thank(request):

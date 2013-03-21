@@ -3,6 +3,7 @@ import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+PYSCSS_DEBUG_INFO = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -119,6 +120,7 @@ ALLOWED_HOSTS = ('www.hackpoint.ru', 'hackpoint.ru', 'demo.hackpoint.ru')
 DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [
     'profiles.forms.UserProfileForm',
+    'profiles.forms.RegistrationFormUniqueEmail',
     #'auth.contrib.auth.forms.AuthenticationForm',
 ]
 

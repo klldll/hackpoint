@@ -1,14 +1,11 @@
-<div id="myModal" class="reveal-modal">
-  <h2>Регистрация на hackpoint</h2>
-  <form method="POST" action="{% url 'profiles_register' %}" class="custom">
+<div id="registerModal" class="reveal-modal small">
+  <h4>Благодарим за регистрацию на hackpoint</h4>
+  <p>Заполните форму и в дальнейшем вы сможете точнее подобрать команду и проект для участия.</p>
+  <form method="POST" action="{% url 'profiles_register' %}" class="custom" id="register_full">
     {% csrf_token %}
 
     <div class="row">
       <input id="id_username" type="text" name="username" value="" placeholder="Меня зовут (никнэйм или реальное имя)" />
-    </div>
-
-    <div class="row">
-      <input id="id_email" type="text" name="email" value="" placeholder="Мой email" />
     </div>
 
     <div class="row">
@@ -23,14 +20,18 @@
     </div>
 
     <div class="row">
-      <label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
-    </div>
-
-    <div class="row">
       <textarea rows=3 id="id_user_skills" name="user_skills" placeholder="Мои навыки, скилы, умения. Какими технологиями я обладаю."></textarea>
     </div>
 
-    <input type="submit" class="button" value="жмак">
+    <div class="row">
+      <label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <input type="submit" class="button" value="жмак">
+    </div>
   </form>
   <a class="close-reveal-modal">&#215;</a>
 </div>

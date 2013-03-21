@@ -103,11 +103,14 @@
                                     });
                                 }
                             }
+                        } else {
+                          $(form).trigger('form:validate');
                         }
                     },
                     type: 'POST',
                     url: url
                 });
+                event.preventDefault();
                 return status;
             });
         });

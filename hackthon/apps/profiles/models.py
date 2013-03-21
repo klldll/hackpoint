@@ -20,7 +20,6 @@ class UserProfile(models.Model):
                         unique=True,
                         related_name='profile',)
     username = models.CharField(_('Username'), max_length=100)
-    email = models.EmailField(_('E-mail'))
     user_skills = models.TextField(_('User skills'))
     user_role = models.CharField(_('User role'), max_length=30,
                            choices=USER_ROLES)

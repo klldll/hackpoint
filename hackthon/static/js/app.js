@@ -7,9 +7,74 @@
   $(document).ready(function() {
 
     $.fn.placeholder                ? $('input, textarea').placeholder() : null;
-    $('form.custom').validate(
+
+    $('form#register_full').validate(
     '/validate/userprofileform/', {
-      type: 'div'
+      callback: function(data, form) {
+        $(form).find('small.error').remove();
+        $.each(data.errors, function(key, val)  {
+          $('#' + key).removeClass('error');
+          $('#' + key).after('');
+
+          if (!data.valid) {
+            $('#' + key).addClass('error');
+            $('#' + key).after('<small class="error">' + val + '</small>');
+          }
+        });
+      }
+    });
+
+    $('form#register_simple').validate(
+    '/validate/registrationformuniqueemail/', {
+      callback: function(data, form) {
+        $(form).find('small.error').remove();
+        $.each(data.errors, function(key, val)  {
+          $('#' + key).removeClass('error');
+          $('#' + key).after('');
+
+          if (!data.valid) {
+            $('#' + key).addClass('error');
+            $('#' + key).after('<small class="error">' + val + '</small>');
+          }
+        });
+      }
+    });
+
+    $('form#register_simple').on('form:validate', function (e) {
+      $.ajax({
+        url: '/accounts/register/',
+        data: { email: $(this).find('input[id=id_email]').val()},
+        type: 'POST',
+        success : function(data, status) {
+          $('#registerModal').foundation('reveal', 'open');
+        }
+      });
+      $(this).find('small.error').remove();
+      $(this).find('input').removeClass('error');
+      $(this).hide();
+      return false;
+    });
+
+    $('form#register_full').on('form:validate', function (e) {
+      var data = {
+        username: $(this).find('[id=id_username]').val(),
+        email: $('#id_email').val(),
+        user_skills: $(this).find('[id=id_user_skills]').val(),
+        user_role: $(this).find('[id=id_user_role]').val(),
+        has_idea: $(this).find('[id=id_has_idea]:checked').val() || false,
+      };
+      $.ajax({
+        url: '/accounts/register/',
+        data: data,
+        type: 'POST',
+        success : function(data, status) {
+          $('#registerModal').foundation('reveal', 'open');
+        }
+      });
+      $(this).find('small.error').remove();
+      $(this).find('input').removeClass('error');
+      $(this).remove();
+      return false;
     });
     $(document).foundation();
   });
