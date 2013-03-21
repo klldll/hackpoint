@@ -27,6 +27,26 @@
     margin-top:80px;
 }
 
+a.social {
+    text-indent: -9999px;
+    display:block;
+    width:60px;
+    height:60px
+}
+
+a.social.vk {
+    background: url(../i/vkontakte.png) no-repeat left center;
+}
+a.social.twi {
+    background: url(../i/twitter.png) no-repeat left center;
+}
+a.social.fb {
+    background: url(../i/facebook.png) no-repeat left center;
+}
+a.social.gplus {
+    background: url(../i/google_plus.png) no-repeat left center;
+}
+
 #copyright {
     background: #3f3f3f;
     color: #fff;
