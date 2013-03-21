@@ -19,7 +19,7 @@
   
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
-  {% assets "all_scss" %}
+  {% assets "all_css" %}
     <style type="text/css" media="screen">
         /* <![CDATA[ */
         @import '{{ ASSET_URL }}';
@@ -40,8 +40,8 @@
         </div>
       </div>
       <div id="where" class="large-6 columns">
-        {% include 'includes/_top_nav.html' %}
         <!--
+        {% include 'includes/_top_nav.html' %}
         <h2>Hackpoint'13 Che</h2>
         <p>Хакатон <strong>26-28 апреля</strong> Социалистическая 25, г. Череповец<br>Открытое творческое пространство &laquo;Простор&raquo;</p>
         -->

@@ -23,11 +23,18 @@ register('all_js',
         filters='jsmin',
         output='cache/packed.js')
 
+#Scss
+scss = Bundle(
+       'scss/normalize.scss',
+       'scss/foundation.scss',
+        filters='scss',
+        output='cache/scss.css'
+)
+
 #Css
 register('all_css',
         Bundle(
-               'css/normalize.css',
-               'css/foundation.css',
+               scss,
                'css/accessibility_foundicons.css',
                'css/general_foundicons.css',
                'css/app.css',
@@ -35,11 +42,3 @@ register('all_css',
         filters='cssmin',
         output='cache/packed.css')
 
-#Scss
-register('all_scss',
-        Bundle(
-               'scss/normalize.scss',
-               'scss/foundation.scss',
-        ),
-        filters='pyscss',
-        output='cache/_packed.css')
