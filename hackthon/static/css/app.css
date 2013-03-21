@@ -79,4 +79,8 @@ a.social.gplus {
    Page Name 2
 ----------------------------------------- */
 
-
+.twtr-doc, .twtr-timeline {
+    -moz-border-radius:0 !important;
+    -webkit-border-radius:0 !important;
+    border-radius:0 !important;
+}
