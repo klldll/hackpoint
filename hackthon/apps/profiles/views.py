@@ -37,7 +37,6 @@ def edit_profile(request, **kwargs):
 
 @csrf_exempt
 def register(request):
-    #import ipdb;ipdb.set_trace()
     full_form = UserProfileForm(request.POST or None)
     simple_form = RegistrationFormUniqueEmail(request.POST or None)
 
@@ -61,7 +60,3 @@ def register(request):
     else:
         pass
     return render(request, 'profiles/register.html', {'form': full_form})
-
-
-def register_thank(request):
-    return render(request, 'profiles/register_confirm.html', {'message': u'Поздавляем, вы успешно зарегистрировались на хакатон! Скоро мы напишем вам email.'})
