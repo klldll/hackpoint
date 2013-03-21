@@ -34,3 +34,12 @@ register('all_css',
         ),
         filters='cssmin',
         output='cache/packed.css')
+
+#Scss
+register('all_scss',
+        Bundle(
+               'scss/normalize.scss',
+               'scss/foundation.scss',
+        ),
+        filters='pyscss',
+        output='cache/_packed.css')

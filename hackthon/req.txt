@@ -11,3 +11,4 @@ PIL==1.1.7
 -e git://github.com/zaebee/django-ajax-validation.git@f52d6a5f0b46451c6f941201feb4ebf810fa3110#egg=django_ajax_validation-dev
 -e git://github.com/pinax/django-mailer.git@919805e25fc18b06487b25414d4e5d5e05a92108#egg=django_mailer-dev
 django-extensions==1.1.1
+pyScss==1.1.5
