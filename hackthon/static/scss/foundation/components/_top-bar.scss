@@ -19,7 +19,7 @@ $topbar-title-font-size: emCalc(17px) !default;
 // Set the link colors and styles for top-level nav
 $topbar-link-color: #fff !default;
 $topbar-link-weight: bold !default;
-$topbar-link-font-size: emCalc(13px) !default;
+$topbar-link-font-size: emCalc(14px) !default;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: #333 !default;
@@ -209,7 +209,7 @@ $topbar-media-query: "only screen and (min-width:"#{$topbar-breakpoint}")" !defa
     & > a {
       display: block;
       width: 100%;
-      color: $topbar-link-color;
+      color: $topbar-link-color-button;
       padding: 12px 0 12px 0;
       padding-#{$default-float}: $topbar-height / 3;
       font-size: $topbar-link-font-size;
@@ -360,8 +360,12 @@ $topbar-media-query: "only screen and (min-width:"#{$topbar-breakpoint}")" !defa
       a:not(.button) {
         padding: 0 $topbar-height / 3;
         line-height: $topbar-height;
+        color: $topbar-link-color;
         background: $topbar-bg;
-        &:hover { background: darken($topbar-dropdown-bg, 30%); }
+        &:hover {
+          background: darken($topbar-dropdown-bg, 30%);
+          color: #fff;
+        }
       }
     }
 

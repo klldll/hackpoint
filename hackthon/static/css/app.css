@@ -11,13 +11,20 @@
 #logo a {
     width: 328px;
     height: 206px;
-    background: url(../i/hackpoint_logo.png) no-repeat;
+    background: url(../i/hackpoint_logo.png) no-repeat -50px 0;
     display: block;
     text-indent: -9999px;
 }
+.top-bar-section ul li.active a {
+    color:#fff;
+}
+
+#slogan {
+    text-align:center;
+}
 
 #where {
-    margin-top:40px;
+    margin-top:80px;
 }
 
 #copyright {

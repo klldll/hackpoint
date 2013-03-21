@@ -41,22 +41,28 @@
       </div>
       <div id="where" class="large-7 columns">
         {% include 'includes/_top_nav.html' %}
-        <!--
-        <h2>Hackpoint'13 Che</h2>
-        <p>Хакатон <strong>26-28 апреля</strong> Социалистическая 25, г. Череповец<br>Открытое творческое пространство &laquo;Простор&raquo;</p>
-        -->
       </div>
     </div>
   </div>
 
   <div class="row">
+    <div class="large-7 large-centered columns">
+    <h4 id="slogan" class="subheader">Hackpoint &mdash; точка превращения идеи в прототип <br> Создай свой проект за 48 часов</h4>
+    </div>
+  </div>
+
+  <div class="row panel">
     <div class="large-12 columns">
       {% block register %}
-      <div class="panel">
 
-            <div class="row">
               <div class="large-6 columns">
-                <p>Регистрация на хакатон открыта. </p>
+                <h6>Регистрация на хакатон открыта. </h6>
+                <ul class="square">
+                <li>Много It-специалистов</li>
+                <li>Бесплатное питание</li>
+                <li>48-часовой доступ на площадку</li>
+                <li>Море фана</li>
+                </ul>
               </div>
               <div class="large-6 columns">
 
@@ -64,7 +70,7 @@
                   <form id="register_simple" method="post">
                     {% csrf_token %}
                     <div class="large-7 columns">
-                      <input type="text" id="id_email" name="email" placeholder="signup@example.com">
+                      <input type="text" id="id_email" name="email" placeholder="email@example.com">
                     </div>
                     <div class="large-5 columns">
                       <input type="submit" class="postfix button expand" value="Зарегистрироваться">
@@ -72,10 +78,14 @@
                   </form>
                 </div>
 
-              </div>
-            </div>
+                <hr>
 
-          </div>
+                <div class="row collapse">
+                    <p>Знаете как помочь ивенту или хотите стать спонсором? <a href="#sponsorship"><span class="label button">Наше предложение для партнеров</span></a>
+                </div>
+
+              </div>
+
       {% endblock %}
     </div>
   </div>
@@ -102,12 +112,6 @@
     <div class="large-12 columns">
       <h3>Спонсоры и партнеры мероприятия</h3>
       <div class="panel">
-
-        <div class="row">
-          <div class="large-12 columns">
-            <p>Хотите помочь ивенту или думаете, как стать спонсором? <a href="#"><span class="label button">Наше предложение для партнеров</span></a>
-          </div>
-        </div>
 
         <div class="row">
           <a target="_blank" href="http://cmirit.ru" class="large-3 columns"><img id="cmirit" src="{{STATIC_URL }}i/cmirit_logo.png" /></a>

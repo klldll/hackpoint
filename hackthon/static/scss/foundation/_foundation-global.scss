@@ -31,7 +31,8 @@ $default-opposite: right !default;
 }
 
 // We use these as default colors throughout
-$primary-color: #2ba6cb !default;
+//$primary-color: #2ba6cb !default;
+$primary-color: #2e95ec !default;
 $secondary-color: #e9e9e9 !default;
 $alert-color: #c60f13 !default;
 $success-color: #5da423 !default;
@@ -196,3 +197,12 @@ $medium: "only screen and (min-width:"#{$medium-screen}")" !default;
 $large: "only screen and (min-width:"#{$large-screen}")" !default;
 $landscape: "only screen and (orientation: landscape)" !default;
 $portrait: "only screen and (orientation: portrait)" !default;
+
+
+$topbar-bg: #fff !default;
+$topbar-link-color: #2e95ec !default;
+$topbar-icon-color: #2e95ec !default;
+$topbar-link-color-button: #fff !default;
+$topbar-dropdown-bg: #2e95ec !default;
+
+
