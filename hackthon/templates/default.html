@@ -19,7 +19,7 @@
   
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
-  {% assets "all_css" %}
+  {% assets "all_scss" %}
     <style type="text/css" media="screen">
         /* <![CDATA[ */
         @import '{{ ASSET_URL }}';
@@ -33,40 +33,56 @@
 
 {% block body %}
   <div class="row">
-    <div class="twelve columns">
-      <div class="six columns">
+    <div class="large-12 columns">
+      <div class="large-6 columns">
         <div id="logo" class="left">
           <a href="/">Hackpont.ru '13</a>
         </div>
       </div>
-      <div id="where" class="six columns">
+      <div id="where" class="large-6 columns">
+        {% include 'includes/_top_nav.html' %}
+        <!--
         <h2>Hackpoint'13 Che</h2>
         <p>Хакатон <strong>26-28 апреля</strong> Социалистическая 25, г. Череповец<br>Открытое творческое пространство &laquo;Простор&raquo;</p>
+        -->
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="twelve columns">
+    <div class="large-12 columns">
       {% block register %}
       <div class="panel">
-        <div class="row">
-          <div class="eight columns">
-            <p>Регистрация на хакатон откроется 12 марта.</p>
-          </div>
 
-          <div class="four columns">
-            <a class="button right" href="#" data-reveal-id="myModal">Зарегистрироваться</a>
+            <div class="row">
+              <div class="large-6 columns">
+                <p>Регистрация на хакатон открыта. </p>
+              </div>
+              <div class="large-6 columns">
+
+                <div class="row collapse">
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="large-7 columns">
+                      <input type="text" name="email" placeholder="signup@example.com">
+                    </div>
+                    <div class="large-5 columns">
+                      <input type="submit" href="#" class="postfix button expand" value="Зарегистрироваться">
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
           </div>
-        </div>
-      </div>
       {% endblock %}
     </div>
   </div>
 
   {% block info %}
   <div class="row">
-    <div class="four columns">
+    <div class="large-4 columns">
       <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
       <p><strong>26-26 апреля 2013 года</strong> <br>Начало: 11:00</p>
 
@@ -74,7 +90,7 @@
       <p>ул. Социалистическая 25, г. Череповец<br><b>Открытое творческое пространство &laquo;Простор&raquo;</b></p>
     </div>
 
-    <div class="eight columns">
+    <div class="large-8 columns">
       <div id="map" style="height:250px;"></div>
       {% include 'includes/_map.html' %}
     </div>
@@ -83,73 +99,81 @@
 
   {% block sponsors  %}
   <div class="row">
-    <div class="twelve columns">
-      <h3>Спонсоры</h3>
+    <div class="large-12 columns">
+      <h3>Спонсоры и партнеры мероприятия</h3>
       <div class="panel">
+
         <div class="row">
-          <a target="_blank" href="http://cmirit.ru" class="three columns th"><img id="cmirit" src="{{STATIC_URL }}i/cmirit_logo.png" /></a>
-          <a target="_blank" href="http://cheritclub.ru" class="three columns th"><img id="cheritclub" src="{{ STATIC_URL }}i/cheritclub_logo.png" /></a>
-          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
-          <a href="#" class="three columns th"><img src="http://placekitten.com/g/200/200" /></a>
+          <div class="large-12 columns">
+            <p>Хотите помочь ивенту или думаете, как стать спонсором? <a href="#"><span class="label button">Наше предложение для партнеров</span></a>
+          </div>
         </div>
+          
+        <div class="row">
+          <a target="_blank" href="http://cmirit.ru" class="large-3 columns"><img id="cmirit" src="{{STATIC_URL }}i/cmirit_logo.png" /></a>
+          <a target="_blank" href="http://cheritclub.ru" class="large-3 columns"><img id="cheritclub" src="{{ STATIC_URL }}i/cheritclub_logo.png" /></a>
+          <a href="#" class="large-3 columns"><img src="http://placekitten.com/g/200/200" /></a>
+          <a href="#" class="large-3 columns"><img src="http://placekitten.com/g/200/200" /></a>
+        </div>
+
       </div>
     </div>
   </div>
   {% endblock %}
 
   <div class="row">
-    <div class="eight columns">
+    <div class="large-8 columns">
       {% block content %}
 
       <div class="row">
-        <div class="twelve columns">
+        <div class="large-12 columns">
 
-          <ul class="accordion">
-            <li class="active">
-              <div class="title">
-                <h5>О хакатоне</h5>
-              </div>
+          <div class="section-container accordion" data-section="accordion">
+            <section class="section active">
+              <p class="title">
+                <a href="#">О хакатоне</a>
+              </p>
               <div class="content">
                 <p>Хакпоинт — это 48-часовой марафон, в котором программисты-добровольцы обязуются выдать в результате суточного кодинга что-то светлое, доброе и вечное. Ну, или как минимум, нужное. А если не нужное, то забавное.</p>
                 <p>Главный принцип мероприятия — получить удовольствие от процесса, сделать то, до чего давно не доходили руки или экспромтом выдать гениальный проект! А попутно познакомиться с гениальными себе подобными, узнать новые интересные фичи и что-то новое в области технологий.</p>
               </div>
-            </li>
-            <li>
-              <div class="title">
-                <h5>Программа</h5>
-              </div>
+            </section>
+            <section class="section">
+              <p class="title">
+                <a href="#">Программа</a>
+              </p>
               <div class="content">
               </div>
-            </li>
-            <li>
-              <div class="title">
-                <h5>Номинации и призы</h5>
-              </div>
+            </section>
+            <section class="section">
+              <p class="title">
+                <a href="#">Номинации и призы</a>
+              </p>
               <div class="content">
               </div>
-            </li>
-            <li>
-              <div class="title">
-                <h5>FAQ</h5>
-              </div>
+            </section>
+            <section class="section">
+              <p class="title">
+                <a href="#">FAQ</a>
+              </p>
               <div class="content">
               </div>
-            </li>
-            <li>
-              <div class="title">
-                <h5>Менторы и наставники</h5>
-              </div>
+            </section>
+            <section class="section">
+              <p class="title">
+                <a href="#">Менторы и наставники</a>
+              </p>
               <div class="content">
               </div>
-            </li>
-            <li>
-              <div class="title">
-                <h5>Питание</h5>
-              </div>
+            </section>
+            <section class="section">
+              <p class="title">
+                <a href=#">Питание</a>
+              </p>
               <div class="content">
               </div>
-            </li>
-          </ul>
+            </section>
+          </div>
 
         </div>
       </div>
@@ -157,7 +181,7 @@
     </div>
 
     {% block sidebar %}
-    <div class="four columns">
+    <div class="large-4 columns">
       {% include 'includes/_vk.html' %}
       <hr>
       {% include 'includes/_twitter.html' %}
