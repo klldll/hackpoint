@@ -44,7 +44,7 @@ def register(request):
         if simple_form.is_valid():
             email = simple_form.cleaned_data['email']
             user, created = User.objects.get_or_create(username=email, email=email)
-            msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С Уважением огранизаторы.</p>'
+            msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С уважением организаторы.</p>'
             send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
 
     if full_form.is_valid():

@@ -93,9 +93,6 @@
             if ( ibody.find( '.timeline .stream .h-feed li.tweet' ).length ) {
               ibody.find( '.timeline .stream' ).css( 'overflow-x', 'hidden' );
               ibody.find( '.timeline .stream' ).css( 'overflow-y', 'scroll' );
-              //ibody.find( '.timeline' ).css( 'border', 0 );
-              //ibody.find( '.timeline-header').hide();
-              //ibody.find( '.timeline-footer').hide();
             } else {
               $(this).hide();
             }
