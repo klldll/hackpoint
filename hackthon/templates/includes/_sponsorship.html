@@ -1,0 +1,19 @@
+<div id="sponsorshipModal" class="reveal-modal small">
+  <h4>Если вы хотите помочь мероприятию</h4>
+  <p>Мы отправим вам готовый пресс-релиз про hackpoint и спонсорское предложение, если вы оставите свой email</p>
+  <div class="row collapse">
+    <form id="sponsorship_simple" method="post">
+      {% csrf_token %}
+      <div class="large-7 columns">
+        <input type="text" id="id_sponsorship_email" name="email" placeholder="email@example.com">
+      </div>
+      <div class="large-5 columns">
+        <input onclick="return false;" type="submit" class="postfix button expand" value="Отправить">
+      </div>
+    </form>
+  </div>
+
+  <hr>
+  <p>Или вы можете написать нам письмо с пометкой <b>"спонсорство"</b> на почту <a href="mailto:info@hackpoint.ru">info@hackpoint.ru</a></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

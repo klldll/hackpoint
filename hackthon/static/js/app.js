@@ -68,7 +68,7 @@
         data: data,
         type: 'POST',
         success : function(data, status) {
-          $('#registerModal').foundation('reveal', 'open');
+          $('#registerModal').foundation('reveal', 'close');
         }
       });
       $(this).find('small.error').remove();

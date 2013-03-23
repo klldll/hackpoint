@@ -124,7 +124,7 @@
           <a href="#" class="large-3 columns"><img class="th" src="http://placekitten.com/g/200/200" /></a>
           <div class="large-3 columns">
             <div class="row collapse">
-              <span class="subheader"><i class="foundicon-plus"></i>Знаете как помочь ивенту или хотите стать спонсором? <a class="button small" href="#sponsorship">Наше предложение для партнеров</a></span>
+              <span class="subheader"><i class="foundicon-plus"></i>Знаете как помочь ивенту или хотите стать спонсором? <a class="button small" data-reveal-id="sponsorshipModal" href="#sponsorship">Наше предложение для партнеров</a></span>
             </div>
           </div>
 
@@ -246,6 +246,7 @@
   {% endassets %}
 
   {% include 'includes/_register.html' %}
+  {% include 'includes/_sponsorship.html' %}
   {% include 'includes/_metrika.html' %}
 
 {% endblock %}
