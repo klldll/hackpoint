@@ -34,12 +34,12 @@
 {% block body %}
   <div class="row">
     <div class="large-12 columns">
-      <div class="large-5 columns">
+      <div class="small-4 columns">
         <div id="logo" class="left">
           <a href="/">Hackpont.ru '13</a>
         </div>
       </div>
-      <div id="where" class="large-7 columns">
+      <div id="where" class="small-8 columns">
         {% include 'includes/_top_nav.html' %}
       </div>
     </div>
@@ -84,8 +84,8 @@
                 <h6>Следи за обновлениями</h6>
                 <div class="small-2 columns"><a target="_blank" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
                 <div class="small-2 columns"><a target="_blank" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
-                <div class="small-2 columns"><a href="#" class="social fb">Fb</a></div>
-                <div class="small-2 columns pull-4"><a href="#" class="social gplus">G+</a></div>
+                <div class="small-2 columns"><a target="_blank" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
+                <div class="small-2 columns left"><a href="#" class="social gplus">G+</a></div>
                 </div>
 
               </div>
@@ -94,6 +94,7 @@
     </div>
   </div>
 
+  <a style="display:block;margin-bottom:75px;" data-magellan-destination="place" name="place"></a>
   {% block info %}
   <div class="row">
     <div class="large-4 columns">
@@ -135,6 +136,7 @@
   {% endblock %}
 
   <div class="row">
+    <a style="display:block;margin-bottom:65px;" data-magellan-destination="about" name="about"></a>
     <div class="large-8 columns">
       {% block content %}
 
