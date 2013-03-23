@@ -33,15 +33,13 @@
 
 {% block body %}
   <div class="row">
-    <div class="large-12 columns">
-      <div class="small-4 columns">
-        <div id="logo" class="left">
-          <a href="/">Hackpont.ru '13</a>
-        </div>
+    <div class="small-5 columns">
+      <div id="logo" class="left">
+        <a href="/">Hackpont.ru '13</a>
       </div>
-      <div id="where" class="small-8 columns">
-        {% include 'includes/_top_nav.html' %}
-      </div>
+    </div>
+    <div id="where" class="small-7 columns">
+      {% include 'includes/_top_nav.html' %}
     </div>
   </div>
 
@@ -125,7 +123,7 @@
           <a href="#" class="large-3 columns"><img class="th" src="http://placekitten.com/g/200/200" /></a>
           <div class="large-3 columns">
             <div class="row collapse">
-              <span class="subheader"><i class="foundicon-plus"></i>Знаете как помочь ивенту или хотите стать спонсором? <a class="button small" data-reveal-id="sponsorshipModal" href="#sponsorship">Наше предложение для партнеров</a></span>
+              <span class="subheader"><i class="foundicon-plus"></i>Знаете как помочь ивенту или хотите быть спонсором? <a class="button small" data-reveal-id="sponsorshipModal" href="#sponsorship">Наше предложение для партнеров</a></span>
             </div>
           </div>
 
@@ -223,6 +221,14 @@
         </div>
       </div>
       {% endblock %}
+
+      <a style="display:block;margin-bottom:65px;" data-magellan-destination="who" name="who"></a>
+      <div class="row">
+        <h3>Кто будет участвовать на хакпоинте</h3>
+        <div class="panel"></div>
+
+      </div>
+
     </div>
 
     {% block sidebar %}
