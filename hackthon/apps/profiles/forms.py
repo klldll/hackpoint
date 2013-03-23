@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
 
-from models import UserProfile
+from models import UserProfile, SponsorProfile
 from utils import clear_email
 
 
 class UserProfileForm(forms.ModelForm):
+
     class Meta:
         model = UserProfile
         exclude = ('user',) # User will be filled in by the view.
@@ -42,7 +43,7 @@ class RegistrationForm(forms.Form):
                                 label=_("Username"),
                                 error_messages={'invalid': _("This value must contain only letters, numbers and underscores.")})
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
-                                                               maxlength=75)),
+                                                               max_length=75)),
                              label=_("Email address"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 label=_("Password"))
@@ -93,4 +94,13 @@ class RegistrationFormUniqueEmail(forms.Form):
         email = self.cleaned_data['email']
         if User.objects.filter(email__iexact=clear_email(email)).exists():
             raise forms.ValidationError(u"Такой email уже есть. Укажите, пожалуйста, другой адрес.")
+        return email
+
+
+class SponsorshipForm(forms.ModelForm):
+
+    class Meta:
+        model = SponsorProfile
+
+    def clean_email(self):
         return email

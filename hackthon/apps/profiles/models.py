@@ -14,6 +14,15 @@ USER_ROLES = (
     ('other', u'Другое'),
 )
 
+
+class SponsorProfile(models.Model):
+
+    sponsor_email = models.EmailField(_('email'), max_length=75)
+
+    def __unicode__(self):
+        return self.sponsor_email
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User,
                         verbose_name=_('profile'),

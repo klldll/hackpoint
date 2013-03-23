@@ -121,6 +121,7 @@ DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [
     'profiles.forms.UserProfileForm',
     'profiles.forms.RegistrationFormUniqueEmail',
+    'profiles.forms.SponsorshipForm',
     #'auth.contrib.auth.forms.AuthenticationForm',
 ]
 

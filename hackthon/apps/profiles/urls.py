@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     #                    name='profile_list'),
     url(r'^register/$', views.register,
                         name='profiles_register'),
+    url(r'^register/sponsorship/$', views.sponsorship_register,
+                        name='sponsorship_register'),
     #url(r'^(?P<username>\w+)/$', views.profile_detail,
     #                    name='profile_detail'),
     )

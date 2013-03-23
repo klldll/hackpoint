@@ -8,36 +8,48 @@
 
     $.fn.placeholder                ? $('input, textarea').placeholder() : null;
 
+    var callback = function(data, form) {
+      $(form).find('small.error').remove();
+      $.each(data.errors, function(key, val)  {
+        $('#' + key).removeClass('error');
+        $('#' + key).after('');
+
+        if (!data.valid) {
+          $('#' + key).addClass('error');
+          $('#' + key).after('<small class="error">' + val + '</small>');
+        }
+      });
+    }
+
+    $('form#sponsorship_simple').validate(
+    '/validate/sponsorshipform/', {
+      callback: callback
+    });
+
     $('form#register_full').validate(
     '/validate/userprofileform/', {
-      callback: function(data, form) {
-        $(form).find('small.error').remove();
-        $.each(data.errors, function(key, val)  {
-          $('#' + key).removeClass('error');
-          $('#' + key).after('');
-
-          if (!data.valid) {
-            $('#' + key).addClass('error');
-            $('#' + key).after('<small class="error">' + val + '</small>');
-          }
-        });
-      }
+      callback: callback
     });
 
     $('form#register_simple').validate(
     '/validate/registrationformuniqueemail/', {
-      callback: function(data, form) {
-        $(form).find('small.error').remove();
-        $.each(data.errors, function(key, val)  {
-          $('#' + key).removeClass('error');
-          $('#' + key).after('');
+      callback: callback
+    });
 
-          if (!data.valid) {
-            $('#' + key).addClass('error');
-            $('#' + key).after('<small class="error">' + val + '</small>');
-          }
-        });
-      }
+    $('form#sponsorship_simple').on('form:validate', function (e) {
+      $.ajax({
+        url: '/accounts/register/sponsorship/',
+        data: { sponsor_email: $(this).find('input[id=id_sponsor_email]').val()},
+        type: 'POST',
+        success : function(data, status) {
+          $('#sponsorshipModal').html('<h4>Спасибо</h4><p>Мы обязательно напишем вам в ближайшее время</p><a class="close-reveal-modal">&#215;</a>');
+          setTimeout(function() {$('#sponsorshipModal').fadeOut(500).foundation('reveal', 'close')}, 3000)
+        }
+      });
+      $(this).find('small.error').remove();
+      $(this).find('input').removeClass('error');
+      //$(this).hide();
+      return false;
     });
 
     $('form#register_simple').on('form:validate', function (e) {

@@ -17,7 +17,7 @@ else:
     from django.core.mail import send_mail
 
 from profiles.models import UserProfile
-from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail
+from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail, SponsorshipForm
 
 
 @login_required
@@ -60,3 +60,14 @@ def register(request):
     else:
         pass
     return render(request, 'profiles/register.html', {'form': full_form})
+
+
+@csrf_exempt
+def sponsorship_register(request):
+    sponsor_form = SponsorshipForm(request.POST or None)
+
+    if request.is_ajax():
+        if sponsor_form.is_valid():
+            sponsor = sponsor_form.save()
+
+    return render(request, 'profiles/register.html', {'form': sponsor_form})
