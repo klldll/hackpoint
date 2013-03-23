@@ -15,6 +15,9 @@
     display: block;
     text-indent: -9999px;
 }
+.top-bar {
+    background:transparent;
+}
 .top-bar-section ul li.active a {
     color:#fff;
 }
