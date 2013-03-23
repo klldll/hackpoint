@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django_assets',
     'django_extensions',
+    'annoying',
     'mailer',
     'ajax_validation',
     'local',

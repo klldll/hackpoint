@@ -16,6 +16,8 @@ if "mailer" in settings.INSTALLED_APPS:
 else:
     from django.core.mail import send_mail
 
+from annoying.decorators import ajax_request
+
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail, SponsorshipForm
 
@@ -62,12 +64,13 @@ def register(request):
     return render(request, 'profiles/register.html', {'form': full_form})
 
 
+@ajax_request
 @csrf_exempt
 def sponsorship_register(request):
     sponsor_form = SponsorshipForm(request.POST or None)
 
-    if request.is_ajax():
-        if sponsor_form.is_valid():
-            sponsor = sponsor_form.save()
+    if sponsor_form.is_valid():
+        sponsor = sponsor_form.save()
+        return {'created': True}
+    return redirect('/')
 
-    return render(request, 'profiles/register.html', {'form': sponsor_form})
