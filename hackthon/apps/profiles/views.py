@@ -37,17 +37,19 @@ def edit_profile(request, **kwargs):
     pass
 
 
+@ajax_request
 @csrf_exempt
 def register(request):
+    result = False
     full_form = UserProfileForm(request.POST or None)
     simple_form = RegistrationFormUniqueEmail(request.POST or None)
 
-    if request.is_ajax():
-        if simple_form.is_valid():
-            email = simple_form.cleaned_data['email']
-            user, created = User.objects.get_or_create(username=email, email=email)
-            msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С уважением организаторы.</p>'
-            send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
+    if simple_form.is_valid():
+        email = simple_form.cleaned_data['email']
+        user, __ = User.objects.get_or_create(username=email, email=email)
+        msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С уважением организаторы.</p>'
+        send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
+        result = True
 
     if full_form.is_valid():
         profile = full_form.save(commit=False)
@@ -59,9 +61,12 @@ def register(request):
             user.profile.has_idea = profile.has_idea
             user.save()
             user.profile.save()
-    else:
-        pass
-    return render(request, 'profiles/register.html', {'form': full_form})
+        result = True
+
+    if result:
+        return {'created': result}
+    return redirect('/')
+
 
 
 @ajax_request
@@ -73,4 +78,3 @@ def sponsorship_register(request):
         sponsor = sponsor_form.save()
         return {'created': True}
     return redirect('/')
-
