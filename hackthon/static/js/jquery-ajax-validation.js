@@ -110,7 +110,8 @@
                     type: 'POST',
                     url: url
                 });
-                event.preventDefault();
+                //event.preventDefault();
+                return false;
                 return status;
             });
         });
