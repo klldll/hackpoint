@@ -11,12 +11,12 @@
     var callback = function(data, form) {
       $(form).find('small.error').remove();
       $.each(data.errors, function(key, val)  {
-        $('#' + key).removeClass('error');
-        $('#' + key).after('');
+        $(form).find('#' + key).removeClass('error');
+        $(form).find('#' + key).after('');
 
         if (!data.valid) {
-          $('#' + key).addClass('error');
-          $('#' + key).after('<small class="error">' + val + '</small>');
+          $(form).find('#' + key).addClass('error');
+          $(form).find('#' + key).after('<small class="error">' + val + '</small>');
         }
       });
     }
@@ -36,6 +36,11 @@
       callback: callback
     });
 
+    $('form#register_simple2').validate(
+    '/validate/registrationformuniqueemail/', {
+      callback: callback
+    });
+
     $('form#sponsorship_simple').on('form:validate', function (e) {
       $.ajax({
         url: '/accounts/register/sponsorship/',
@@ -48,11 +53,10 @@
       });
       $(this).find('small.error').remove();
       $(this).find('input').removeClass('error');
-      //$(this).hide();
       return false;
     });
 
-    $('form#register_simple').on('form:validate', function (e) {
+    $('form#register_simple, form#register_simple2').on('form:validate', function (e) {
       $.ajax({
         url: '/accounts/register/',
         data: { email: $(this).find('input[id=id_email]').val()},

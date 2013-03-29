@@ -3,11 +3,17 @@
 /* -------------------------------------------------- 
    Table of Contents
 -----------------------------------------------------
+:: Main page
 :: Shared Styles
 :: Page Name 1
-:: Page Name 2
+:: Twitter widget
 */
 
+
+
+/* -----------------------------------------
+  Main page
+----------------------------------------- */
 #logo a {
     width: 228px;
     height: 135px;
@@ -55,7 +61,7 @@ a.social.gplus {
     background: #3f3f3f;
     color: #fff;
     padding: 11px 0;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 #cmirit {
@@ -80,11 +86,15 @@ a.social.gplus {
 
 
 /* -----------------------------------------
-   Page Name 2
+  TWITTER widget 
 ----------------------------------------- */
 
 .twtr-doc, .twtr-timeline {
     -moz-border-radius:0 !important;
     -webkit-border-radius:0 !important;
     border-radius:0 !important;
+}
+
+#twitter-widget-0 {
+    height:200px;
 }

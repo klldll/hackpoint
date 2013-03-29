@@ -43,58 +43,61 @@
     </div>
   </div>
 
+  {% block logo  %}
   <a style="display:block;margin-bottom:75px;" data-magellan-destination="top" name="#"></a>
   <div class="row">
     <div class="large-7 large-centered columns">
     <h4 id="slogan" class="subheader">Hackpoint &mdash; точка превращения идеи в прототип <br> Создай свой проект за 48 часов</h4>
     </div>
   </div>
+  {% endblock %}
 
+  {% block register %}
   <div class="row panel">
     <div class="large-12 columns">
-      {% block register %}
 
-              <div class="large-6 columns">
-              <h6 >Регистрация на хакпоинт открыта</h6> <h6 class="subheader">У нас будет:</h6>
-                <ul class="square">
-                <li>Много It-специалистов</li>
-                <li>Бесплатное питание</li>
-                <li>48-часовой доступ на площадку</li>
-                <li>Море фана</li>
-                </ul>
+        <div class="large-6 columns">
+        <h6 >Регистрация на хакпоинт открыта</h6> <h6 class="subheader">У нас будет:</h6>
+          <ul class="square">
+          <li>Много It-специалистов</li>
+          <li>Бесплатное питание</li>
+          <li>48-часовой доступ на площадку</li>
+          <li>Море фана</li>
+          </ul>
+          <span>Участие бесплатно!</span>
+        </div>
+        <div class="large-6 columns">
+
+          <div class="row collapse">
+            <form id="register_simple" method="post">
+              {% csrf_token %}
+              <div class="large-7 columns">
+                <input type="text" id="id_email" name="email" placeholder="email@example.com">
               </div>
-              <div class="large-6 columns">
-
-                <div class="row collapse">
-                  <form id="register_simple" method="post">
-                    {% csrf_token %}
-                    <div class="large-7 columns">
-                      <input type="text" id="id_email" name="email" placeholder="email@example.com">
-                    </div>
-                    <div class="large-5 columns">
-                      <input type="submit" class="postfix button expand" value="Зарегистрироваться">
-                    </div>
-                  </form>
-                </div>
-
-                <hr>
-
-                <div class="row collapse">
-                <h6>Следи за обновлениями</h6>
-                <div class="small-2 columns"><a target="_blank" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
-                <div class="small-2 columns"><a target="_blank" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
-                <div class="small-2 columns"><a target="_blank" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
-                <div class="small-2 columns left"><a href="#" class="social gplus">G+</a></div>
-                </div>
-
+              <div class="large-5 columns">
+                <input type="submit" class="postfix button expand" value="Зарегистрироваться">
               </div>
+            </form>
+          </div>
 
-      {% endblock %}
+          <hr>
+
+          <div class="row collapse">
+          <h6>Следи за обновлениями</h6>
+          <div class="small-2 columns"><a target="_blank" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
+          <div class="small-2 columns"><a target="_blank" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
+          <div class="small-2 columns"><a target="_blank" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
+          <div class="small-2 columns left"><a href="#" class="social gplus">G+</a></div>
+          </div>
+
+        </div>
+
     </div>
   </div>
+  {% endblock %}
 
-  <a style="display:block;margin-bottom:75px;" data-magellan-destination="place" name="place"></a>
   {% block info %}
+  <a style="display:block;margin-bottom:75px;" data-magellan-destination="place" name="place"></a>
   <div class="row">
     <div class="large-4 columns">
       <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
@@ -111,7 +114,7 @@
   </div>
   {% endblock %}
 
-  {% block sponsors  %}
+  {% block sponsors %}
   <div class="row">
     <div class="large-12 columns">
       <h3>Спонсоры и партнеры мероприятия</h3>
@@ -134,6 +137,7 @@
   </div>
   {% endblock %}
 
+  {% block main %}
   <div class="row">
     <a style="display:block;margin-bottom:65px;" data-magellan-destination="about" name="about"></a>
     <div class="large-8 columns">
@@ -225,16 +229,6 @@
         </div>
       </div>
       {% endblock %}
-
-      <a style="display:block;margin-bottom:65px;" data-magellan-destination="who" name="who"></a>
-      <div class="row">
-        <div class="large-12 columns">
-          <h3>Кто будет участвовать на хакпоинте</h3>
-          <div class="panel"></div>
-        </div>
-
-      </div>
-
     </div>
 
     {% block sidebar %}
@@ -246,10 +240,59 @@
     {% endblock %}
   </div>
 
-  <!--
+  <a style="display:block;margin-bottom:65px;" data-magellan-destination="who" name="who"></a>
+  <div class="row">
+    <div class="large-12 columns">
+      <h3>Кто будет участвовать на хакпоинте</h3>
+      <div class="panel">
+        <div class="row">
+          <div class="small-4 columns">
+            <img class="th" src="http://placekitten.com/g/200/200">
+            <p><span class="label">Девелоперы</span> &mdash; программисты, верстальщики, hardware-инженеры и все те, кто пишут код и непосредственно управляют созданием софта или железяки.</p>
+          </div>
+          <div class="small-4 columns">
+            <img class="th" src="http://placekitten.com/g/250/200">
+            <p><span class="label">Дизайнеры</span> &mdash; интерфейсов, графические, гейм-дизайнеры и все те, кто знает, как отобразить идею из головы на бумагу.</p>
+          </div>
+          <div class="small-4 columns">
+            <img class="th" src="http://placekitten.com/g/200/250">
+            <p><span class="label">Менеждеры</span> &mdash; интерфейсов, графические, гейм-дизайнеры и все те, кто знает, как отобразить идею из головы на бумагу.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <p><span class="label">Не нашли</span> то, что искали или не относите себя ни к кому из вышеперечисленных ролей? Все равно регистрируйтесь и укажате ваши полезные навыки или опыт. Мы поможем вам с выбором команды и проекта!</p>
+            <p>Участие бесплатно.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <form id="register_simple2" method="post">
+          {% csrf_token %}
+          <div class="large-7 columns">
+            <input type="text" id="id_email" name="email" placeholder="email@example.com">
+          </div>
+          <div class="large-5 columns">
+            <input type="submit" class="postfix button expand" value="Зарегистрироваться">
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  {% endblock %}
+
   <div id="copyright">
   </div>
-  -->
 
   <script src="{{ STATIC_URL }}js/jquery.js"></script>
   {% assets  "all_js" %}
