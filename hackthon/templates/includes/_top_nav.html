@@ -9,11 +9,26 @@
 
   <section data-magellan-expedition="fixed" class="top-bar-section">
     <ul class="right">
-      <li data-magellan-arrival="place"><a href="#place">Место</a></li>
-      <li data-magellan-arrival="about"><a href="#about">О мероприятии</a></li>
-      <li data-magellan-arrival="who"><a href="#who">Для кого</a></li>
+      {% if user.is_authenticated %}
+        <li data-magellan-arrival="projects"><a href="#">Проекты</a></li>
+        <li data-magellan-arrival="profiles"><a href="{% url 'profile_list'%}">Участники</a></li>
+      {% endif %}
+      <li data-magellan-arrival="place"><a href="/#place">Место</a></li>
+      <li data-magellan-arrival="about"><a href="/#about">О мероприятии</a></li>
+      <li data-magellan-arrival="who"><a href="/#who">Для кого</a></li>
       <li class="divider"></li>
-      <li class="has-form"><a class="disabled button" href="#login">Войти</a></li>
+      {% if user.is_authenticated %}
+        <li class="has-dropdown"><a href="#">{{ user.email }}</a>
+          <ul id="usermenu" class="dropdown">
+            <li><a href="{% url 'profile_edit' %}">Редактировать профиль</a></li>
+            <li><a href="{% url 'logout' %}">Выйти</a></li>
+          </ul>
+        </li>
+      {% else %}
+        <li class="has-form"><a class="button" href="{% url 'login' %}">Войти</a>
+        </li>
+      {% endif %}
     </ul>
   </section>
 </nav>
+

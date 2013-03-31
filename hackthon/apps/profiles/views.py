@@ -11,6 +11,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, render, redirect
 from django.conf import settings
 
+#from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
+
 if "mailer" in settings.INSTALLED_APPS:
     from mailer import send_mail, send_html_mail
 else:
@@ -18,23 +21,23 @@ else:
 
 from annoying.decorators import ajax_request
 
-from profiles.models import UserProfile
 from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail, SponsorshipForm
+from profiles.models import UserProfile
 
 
-@login_required
-def profile_list(request, **kwargs):
-    pass
+class ProifileList(ListView):
+    model = UserProfile
+    context_object_name = 'profile_list'
 
 
-@login_required
-def profile_detail(request, username, **kwargs):
-    pass
+class ProifileDetail(DetailView):
+    context_object_name = 'profile'
+    queryset = UserProfile.objects.all()
 
 
 @login_required
 def edit_profile(request, **kwargs):
-    pass
+    return render(request, 'default.html', {})
 
 
 @ajax_request

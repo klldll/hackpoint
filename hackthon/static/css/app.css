@@ -14,6 +14,14 @@
 /* -----------------------------------------
   Main page
 ----------------------------------------- */
+html, body {
+    height:100%;
+}
+.wrapper {
+    min-height:100%;
+    padding-bottom:60px;
+}
+
 #logo a {
     width: 228px;
     height: 135px;
@@ -21,7 +29,7 @@
     display: block;
     text-indent: -9999px;
 }
-.top-bar {
+.top-bar, .top-bar.expanded .title-area {
     background:transparent;
 }
 .top-bar-section ul li.active a {
@@ -30,6 +38,18 @@
 
 #slogan {
     text-align:center;
+}
+
+#usermenu {
+    border:1px solid #d9d9d9;
+}
+
+#usermenu li a {
+    color:#6f6f6f;
+}
+
+#usermenu li a:hover {
+    color:#fff;
 }
 
 #where {
@@ -60,8 +80,9 @@ a.social.gplus {
 #copyright {
     background: #3f3f3f;
     color: #fff;
+    margin-top: -60px;
     padding: 25px 0;
-    margin-top: 60px;
+    height:60px;
 }
 
 #copyright p, #copyright dl {
@@ -77,9 +98,19 @@ a.social.gplus {
 }
 
 /* -----------------------------------------
-   Shared Styles
+   Error list
 ----------------------------------------- */
-
+.errorlist {
+    display: block;
+    padding: 0.375em 0.25em;
+    margin-top: -1.3125em;
+    margin-bottom: 1em;
+    font-size: 0.75em;
+    font-weight: bold;
+    background: #c60f13;
+    color: white;
+}
+.errorlist li {}
 
 
 /* -----------------------------------------
