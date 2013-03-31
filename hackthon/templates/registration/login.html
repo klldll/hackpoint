@@ -1,0 +1,30 @@
+{% extends "default.html" %}
+{% load i18n widget_tweaks %}
+
+{% block pagetitle %}Войти на сайт - hackpoint.ru{% endblock %}
+
+{% block register %}{% endblock %}
+{% block info %}{% endblock %}
+{% block sponsors %}{% endblock %}
+
+{% block main %}
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <form action="." method="POST" class='login-form form form-stacked'>
+      <fieldset>
+        <legend>Войти на сайт</legend>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.username|append_attr:"placeholder:Юзернейм или email"|add_error_class:"error" }}
+        {{ form.username.errors }}
+        {{ form.password|append_attr:"placeholder:Пароль"|add_error_class:"error" }}
+        {{ form.password.errors }}
+        <div class="large-12">
+          <input value="Войти" type="submit" class="button small-4 columns">
+          <a class="text-right small-8 columns" href="{% url 'auth_password_reset' %}">забыли пароль?</a><a class="" href="#"></a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'annoying',
     'mailer',
+    'widget_tweaks',
     'ajax_validation',
     'local',
     'profiles',
@@ -117,6 +118,11 @@ LOGGING = {
     }
 }
 
+LOGIN_REDIRECT_URL = '/accounts/edit/'
+AUTHENTICATION_BACKENDS = (
+    'profiles.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend'
+)
 ALLOWED_HOSTS = ('www.hackpoint.ru', 'hackpoint.ru', 'demo.hackpoint.ru')
 DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [

@@ -1,0 +1,19 @@
+{% extends "default.html" %}
+{% load i18n %}
+
+{% block pagetitle %}Выход{% endblock %}
+
+{% block register %}{% endblock %}
+{% block info %}{% endblock %}
+{% block sponsors %}{% endblock %}
+
+{% block main %}
+<div class="row">
+  <div class="large-12">
+    <p>Заходи к нам еще.</p>
+    <p>
+      Ты всегда можешь залогиниться <a href="{% url 'login' %}">здесь</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

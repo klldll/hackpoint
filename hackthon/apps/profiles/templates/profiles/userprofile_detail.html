@@ -1,0 +1,17 @@
+{% extends 'profiles/base.html' %}
+{% load i18n %}
+
+{% block main %}
+
+<div class="row">
+  <div class="large-12 columns">
+    <h3>Настройки профиля</h3>
+    <p>Имя пользователя : {{ profile.user.username }}</p>
+    <p>E-mail : {{ profile.user.email }}</p>
+    <p>Роль : {{ profile.user_role }}</p>
+    <p>Навыки: {{ profile.user_skills }}</p>
+    <p>Есть идея: {{ profile.has_idea }}</p>
+  </div>
+</div>
+
+{% endblock %}
