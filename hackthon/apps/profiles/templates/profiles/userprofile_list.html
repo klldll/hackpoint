@@ -1,4 +1,5 @@
 {% extends 'profiles/base.html' %}
+{% load gravatar %}
 
 {% block main %}
 <div class="row">
@@ -7,9 +8,8 @@
       {% for profile in profile_list %}
         <li>
           {{ profile.user.id }}
-          {{ profile.user.username }}
-          {{ user.name }}
-          {{ user.surname }}
+          {% gravatar_img_for_email profile.user.username %}
+          {{ user.username }}
         </li>
       {% endfor %}
     </ul>

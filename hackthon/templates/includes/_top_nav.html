@@ -1,3 +1,4 @@
+{% load activelink %}
 <nav class="top-bar">
   <ul class="title-area">
   <!-- Title Area -->
@@ -11,7 +12,7 @@
     <ul class="right">
       {% if user.is_authenticated %}
         <li data-magellan-arrival="projects"><a href="#">Проекты</a></li>
-        <li data-magellan-arrival="profiles"><a href="{% url 'profile_list'%}">Участники</a></li>
+        <li class="{% ifactive 'profile_list' %}active{% endifactive %}" data-magellan-arrival="profiles"><a href="{% url 'profile_list'%}">Участники</a></li>
       {% endif %}
       <li data-magellan-arrival="place"><a href="/#place">Место</a></li>
       <li data-magellan-arrival="about"><a href="/#about">О мероприятии</a></li>
