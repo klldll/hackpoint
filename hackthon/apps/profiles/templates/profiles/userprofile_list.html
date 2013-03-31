@@ -8,8 +8,8 @@
       {% for profile in profile_list %}
         <li>
           {{ profile.user.id }}
-          {% gravatar_img_for_email profile.user.username %}
-          {{ user.username }}
+          {% gravatar_img_for_email profile.user.email %}
+          {{ profile.username }}
         </li>
       {% endfor %}
     </ul>
