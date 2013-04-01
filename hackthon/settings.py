@@ -100,6 +100,7 @@ INSTALLED_APPS = (
     'annoying',
     'gravatar',
     'mailer',
+    'pymorphy',
     'widget_tweaks',
     'ajax_validation',
     'local',
@@ -143,6 +144,10 @@ AJAX_VALIDATION_FORMS = [
     'profiles.forms.SponsorshipForm',
     #'auth.contrib.auth.forms.AuthenticationForm',
 ]
+
+PYMORPHY_DICTS = {
+    'ru': { 'dir': rel('pymorphy/dicts') },
+}
 
 try:
     from settings_local import *

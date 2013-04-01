@@ -1,18 +1,35 @@
 {% extends 'profiles/base.html' %}
-{% load gravatar %}
+{% load gravatar pymorphy_tags %}
 
 {% block main %}
 <div class="row">
   <div class="large-12 columns">
-    <ul>
-      {% for profile in profile_list %}
-        <li>
-          {{ profile.user.id }}
-          {% gravatar_img_for_email profile.user.email %}
-          {{ profile.username }}
-        </li>
+    {% regroup profile_list by get_user_role_display as profiles %}
+    <dl>
+      {% for profile in profiles %}
+      <dt>{{ profile.grouper|inflect:"мн" }}</dt>
+      {% for item in profile.list %}
+        <dd>
+          <div class="row">
+            <div class="small-2 columns">
+              <a class="th" href="#">{% gravatar_img_for_email item.user.email %}</a>
+              {{ item.username }}
+            </div>
+
+            <div class="small-10 columns">
+              {{ teim.get_user_role_display }}<br>
+              <span class="label">Навыки:</span>
+              {% if item.user_skills %}
+                {{ item.user_skills }}<br>
+              {% else %}
+                Не указано<br>
+              {% endif %}
+            </div>
+          </div>
+          </dd>
+        {% endfor %}
       {% endfor %}
-    </ul>
+    </dl>
   </div>
 </div>
 {% endblock %}
