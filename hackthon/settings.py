@@ -145,6 +145,7 @@ AJAX_VALIDATION_FORMS = [
     #'auth.contrib.auth.forms.AuthenticationForm',
 ]
 
+LOGIN_URL = '/login/'
 PYMORPHY_DICTS = {
     'ru': { 'dir': rel('pymorphy/dicts') },
 }
