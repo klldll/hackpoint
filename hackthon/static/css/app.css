@@ -100,6 +100,15 @@ a.social.gplus {
 #imit_logo {
     background:#29478d;
 }
+#volbiz_logo {
+    background:#fff;
+    margin-top:60px;
+}
+
+#synapse_logo {
+    background:#fff;
+    margin-top:60px;
+}
 
 /* -----------------------------------------
    Error list
@@ -135,5 +144,5 @@ a.social.gplus {
 }
 
 #twitter-widget-0 {
-    height:200px;
+    height:300px;
 }
