@@ -13,17 +13,18 @@
           <div class="row">
             <div class="small-2 columns">
               <a class="th" href="#">{% gravatar_img_for_email item.user.email %}</a>
-              {{ item.username }}
             </div>
 
             <div class="small-10 columns">
-              {{ teim.get_user_role_display }}<br>
+              <!-- {{ item.get_user_role_display }}<br> -->
+              <h6><a class="" href="#">{{ item.username }}</a></h6>
               <span class="label">Навыки:</span>
               {% if item.user_skills %}
                 {{ item.user_skills }}<br>
               {% else %}
                 Не указано<br>
               {% endif %}
+              {% if item.has_idea %}<a class="button tiny secondary" href="#">Есть идея!</a>{% endif %}
             </div>
           </div>
           </dd>
