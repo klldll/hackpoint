@@ -127,9 +127,12 @@ a.social.gplus {
 
 
 /* -----------------------------------------
-   Page Name 1
+   User profiles list
 ----------------------------------------- */
 
+.user_list dt {
+    margin-top:2em;
+}
 
 
 
