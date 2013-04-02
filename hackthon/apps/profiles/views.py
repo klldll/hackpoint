@@ -5,6 +5,7 @@ Views for creating, editing and viewing site-specific user profiles.
 """
 
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 
@@ -13,6 +14,7 @@ from django.conf import settings
 
 #from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView, UpdateView
 
 if "mailer" in settings.INSTALLED_APPS:
     from mailer import send_mail, send_html_mail
@@ -26,7 +28,6 @@ from profiles.models import UserProfile
 
 
 class ProifileList(ListView):
-    #model = UserProfile
     queryset = UserProfile.objects.order_by('-user_role')
     context_object_name = 'profile_list'
 
@@ -36,9 +37,33 @@ class ProifileDetail(DetailView):
     queryset = UserProfile.objects.all()
 
 
-@login_required
-def edit_profile(request, **kwargs):
-    return render(request, 'default.html', {})
+class ProfileEditView(UpdateView):
+    form_class = UserProfileForm
+    model = UserProfile
+    template_name = 'profiles/edit_profile.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        self.userprofile = UserProfile.objects.get(user=request.user)
+        return super(ProfileEditView, self).get(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        """
+        Возвращает словарь аргументов для экземпляра формы
+        """
+        kw = super(ProfileEditView, self).get_form_kwargs()
+        kwargs = {'initial': self.get_initial()}
+        if self.request.method in ('POST', 'PUT'):
+            kwargs.update({
+                'data': self.request.POST,
+                'files': self.request.FILES,
+                'instance': self.request.user.profile
+            })
+        if self.request.method == 'GET':
+            kwargs.update({
+                'instance': self.userprofile
+            })
+        return kwargs
 
 
 @ajax_request

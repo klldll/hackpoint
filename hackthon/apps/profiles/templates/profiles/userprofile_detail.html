@@ -1,16 +1,49 @@
 {% extends 'profiles/base.html' %}
-{% load i18n %}
+{% load i18n gravatar %}
 
 {% block main %}
 
 <div class="row">
-  <div class="large-12 columns">
-    <h3>Настройки профиля</h3>
-    <p>Имя пользователя : {{ profile.user.username }}</p>
-    <p>E-mail : {{ profile.user.email }}</p>
-    <p>Роль : {{ profile.user_role }}</p>
-    <p>Навыки: {{ profile.user_skills }}</p>
-    <p>Есть идея: {{ profile.has_idea }}</p>
+  <div class="large-8 columns">
+
+    <ul class="breadcrumbs">
+    <li><a href="/">Главная</a></li>
+    <li><a href="{% url 'profile_list' %}">Участники</a></li>
+    <li class="current"><a href="#">Мой профиль</a></li>
+    </ul>
+
+    <div class="row">
+      <div class="small-3 columns">
+          <a class="th" href="#">{% gravatar_img_for_email profile.user.email %}</a>
+          {% ifequal user.profile profile %}
+            <hr>
+            <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
+          {% endifequal %}
+      </div>
+
+      <div class="small-9 columns">
+        {% if profile.username %}
+        <h6>
+          <a class="" href="#">{{ profile.username }}</a>&nbsp;
+        </h6>
+        {% endif %}
+
+        <p><span class="label">Email: </span> {{ profile.user.email }}</p>
+        <p>
+        <span class="label">Навыки:</span>
+        {% if prof.user_skills %}
+          {{ profile.user_skills }}<br>
+        {% else %}
+          Не указано<br>
+        {% endif %}
+        </p>
+
+        <p><span class="label">Роль в команде:</span> {{ profile.get_user_role_display }}<br></p>
+
+        <p>{% if profile.has_idea %}<a class="button tiny secondary" href="#">Есть идея!</a>{% endif %}</p>
+      </div>
+    </div>
+
   </div>
 </div>
 

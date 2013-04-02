@@ -33,6 +33,7 @@ class UserProfile(models.Model):
     user_role = models.CharField(_('User role'), max_length=30,
                            choices=USER_ROLES)
     has_idea = models.BooleanField(_('Has idea'), default=False)
+    text_idea = models.TextField(_('Text idea'), blank=True, null=True)
 
     def __unicode__(self):
         return self.user.username
@@ -43,7 +44,7 @@ class UserProfile(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('profiles.views.profile_detail', [str(self.user.username)])
+        return ('profile_detail', None, {'pk':str(self.user.profile.pk)})
 
 
 def create_user_profile(sender, instance, created, **kwargs):

@@ -6,7 +6,7 @@ from profiles import views
 
 
 urlpatterns = patterns('',
-    url(r'^edit/$', views.edit_profile,
+    url(r'^(?P<pk>\d+)/edit/$', views.ProfileEditView.as_view(),
                         name='profile_edit'),
     url(r'^list/$', views.ProifileList.as_view(),
                         name='profile_list'),

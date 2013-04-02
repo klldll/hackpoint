@@ -1,15 +1,45 @@
 {% extends "profiles/base.html" %}
-{% load i18n %}
+{% load i18n widget_tweaks %}
+
 {% block main %}
 
-<h2>{% trans 'Edit account' %}</h2>
+<div class="row">
+  <div class="large-8 columns">
+
+  <ul class="breadcrumbs">
+  <li><a href="/">Главная</a></li>
+  <li><a href="{% url 'profile_list' %}">Участники</a></li>
+  <li class=""><a href="{% url 'profile_detail' user.profile.pk %}">Мой профиль</a></li>
+  <li class="current"><a href="#">Редактирование</a></li>
+  </ul>
 
 <div class="form-container clearfix">
-  <form enctype="multipart/form-data" action="." id="form" class="form profile-form" method="post" novalidate="novalidate">
+  <form enctype="multipart/form-data" action="." id="form" class="custom form profile-form" method="post" novalidate="novalidate">
+    <fieldset>
+      <legend>Редактировать аккаунт</legend>
     {% csrf_token %}    
-    {{ form.as_p }}
+    {{ form.non_field_errors }}
+    {{ form.username|append_attr:"placeholder:Ваш юзернейм или реальное имя"|add_error_class:"error" }}
+    {{ form.username.errors }}
 
-    <input class="btn" value="{% trans 'Submit' %}" type="submit">
+    {{ form.user_skills|append_attr:"placeholder:Ваши навыки или технологии, которыми владеете"|add_error_class:"error" }}
+    {{ form.user_skills.errors }}
+
+    {{ form.user_role }}
+    {{ form.user_role.errors }}
+
+    <label for="id_has_idea">{{ form.has_idea }}&nbsp;У меня есть идея</label>
+    {{ form.has_idea.errors }}
+    <br>
+    
+    {{ form.text_idea|append_attr:"placeholder:Краткое описание вашей идеи. Что или кто требуется для ее реализации?"|add_error_class:"error" }}
+    {{ form.text_idea.errors }}
+
+    <input class="button" value="{% trans 'Обновить' %}" type="submit">
+    </fieldset>
   </form>
+</div>
+
+</div>
 </div>
 {% endblock %}
