@@ -31,10 +31,18 @@ class ProifileList(ListView):
     queryset = UserProfile.objects.order_by('-user_role')
     context_object_name = 'profile_list'
 
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        return super(ProifileList, self).get(request, *args, **kwargs)
+
 
 class ProifileDetail(DetailView):
     context_object_name = 'profile'
     queryset = UserProfile.objects.all()
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        return super(ProifileDetail, self).get(request, *args, **kwargs)
 
 
 class ProfileEditView(UpdateView):
