@@ -58,8 +58,10 @@ def register(request):
     if full_form.is_valid():
         profile = full_form.save(commit=False)
         email = request.POST.get('email', None)
+        username = request.POST.get('username', None)
         if email:
             user, created = User.objects.get_or_create(username=email, email=email)
+            user.profile.username = username
             user.profile.user_skills = profile.user_skills
             user.profile.user_role = profile.user_role
             user.profile.has_idea = profile.has_idea
