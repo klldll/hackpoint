@@ -131,7 +131,7 @@ LOGGING = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/accounts/edit/'
+LOGIN_REDIRECT_URL = '/accounts/list/'
 AUTHENTICATION_BACKENDS = (
     'profiles.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend'
