@@ -26,7 +26,8 @@ from profiles.models import UserProfile
 
 
 class ProifileList(ListView):
-    model = UserProfile
+    #model = UserProfile
+    queryset = UserProfile.objects.order_by('-user_role')
     context_object_name = 'profile_list'
 
 

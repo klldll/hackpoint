@@ -4,10 +4,10 @@
 {% block main %}
 <div class="row">
   <div class="large-12 columns">
-    {% regroup profile_list by get_user_role_display as profiles %}
+    {% regroup profile_list by get_user_role_display|inflect:"мн" as profiles %}
     <dl>
       {% for profile in profiles %}
-      <dt>{{ profile.grouper|inflect:"мн" }}</dt>
+      <dt>{{ profile.grouper }}</dt>
       {% for item in profile.list %}
         <dd>
           <div class="row">
