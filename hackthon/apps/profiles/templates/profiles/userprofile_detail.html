@@ -9,7 +9,7 @@
     <ul class="breadcrumbs">
     <li><a href="/">Главная</a></li>
     <li><a href="{% url 'profile_list' %}">Участники</a></li>
-    <li class="current"><a href="#">Мой профиль</a></li>
+    <li class="current"><a href="#">{% ifequal user profile.user %}Мой профиль{% else %}{{ profile.username }}{% endifequal %}</a></li>
     </ul>
 
     <div class="row">

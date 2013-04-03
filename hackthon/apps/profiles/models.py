@@ -25,7 +25,7 @@ class SponsorProfile(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User,
-                        verbose_name=_('profile'),
+                        verbose_name=_('user'),
                         unique=True,
                         related_name='profile',)
     username = models.CharField(_('Username'), max_length=100)
