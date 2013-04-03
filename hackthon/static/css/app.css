@@ -89,7 +89,7 @@ a.social.gplus {
     margin-bottom:0;
 }
 
-#cmirit_logo, #itvologda_logo {
+#cmirit_logo, #itvologda_logo, #torgovorot_logo {
     background:#fff;
 }
 
@@ -102,12 +102,13 @@ a.social.gplus {
 }
 #volbiz_logo {
     background:#fff;
-    margin-top:60px;
+    margin-top:40px;
+    margin-bottom:20px;
 }
 
 #synapse_logo {
     background:#fff;
-    margin-top:60px;
+    margin-top:40px;
 }
 
 /* -----------------------------------------
