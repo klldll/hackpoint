@@ -22,6 +22,9 @@
         <li class="has-dropdown"><a href="{% url 'profile_detail' user.profile.pk %}">{{ user.email }}</a>
           <ul id="usermenu" class="dropdown">
             <li><a href="{% url 'profile_edit' user.profile.id %}">Редактировать профиль</a></li>
+            {% if user.profile.team %}
+            <li><a href="{% url 'project_detail' user.profile.team.pk %}">Мой проект</a></li>
+            {% endif %}
             <li><a href="{% url 'logout' %}">Выйти</a></li>
           </ul>
         </li>

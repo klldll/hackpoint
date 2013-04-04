@@ -58,18 +58,6 @@
           {% endfor %}
         </ol>
 
-        <p>
-          {% if profile.has_idea %}
-            <a class="button tiny secondary" href="#">Есть идея!</a><br>
-          {% endif %}
-        </p>
-          {% if profile.text_idea %}
-            {% if user.is_authenticated %}
-              <blockquote>{{ profile.text_idea }}</blockquote>
-            {% else %}
-              <small>Описание доступно только после регистрации</small>
-            {% endif %}
-          {% endif %}
       </div>
     </div>
 
