@@ -37,12 +37,15 @@ urlpatterns += patterns('',
 
 urlpatterns += patterns('',
     (r'^$', TemplateView.as_view(template_name="default.html")),
+    (r'^index/$', TemplateView.as_view(template_name="hackpoint/index.html")),
     (r'^accounts/', include('profiles.urls')),
     (r'^validate/', include('ajax_validation.urls')),
 )
 
 urlpatterns += (
     url(r'^static/(?P<path>.*)', 'django.views.static.serve', {'document_root':settings.STATIC_ROOT,'show_indexes': True}),
+    url(r'^index/(?P<path>.*)', 'django.views.static.serve', {'document_root':settings.HACK_ROOT,'show_indexes': True}),
+    url(r'^img/(?P<path>.*)', 'django.views.static.serve', {'document_root':settings.HACK_ROOT,'show_indexes': True}),
 )
 
 if settings.DEBUG:

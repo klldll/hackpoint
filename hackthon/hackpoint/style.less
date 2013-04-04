@@ -1,0 +1,133 @@
+@greyText: #666;
+@blue:                  #0088cc;
+
+.header {
+  .logo {
+    width: 228px;
+    height: 135px;
+    background: url(img/hackpoint_logo.png) no-repeat -50px -25px;
+    display: block;
+    text-indent: -9999px;
+  }
+
+  .social-place  {
+    margin-top : 20px;
+    height: 24px;
+    line-height: 24px;
+    color: @greyText;
+  }
+
+  .social { 
+
+    list-style:none; 
+
+    li {
+      display:inline; float:left;
+
+      a {
+        display:block; 
+        width: 48px; 
+        height: 24px; 
+        position:relative;
+
+        strong {
+          display:  none;
+        }
+
+      }
+    }
+
+    li.vk {
+      background:url("/static/img/vkontakte.png") center top no-repeat;
+    }
+    li.twitter {
+      background: url("/static/img/twitter.png") center top no-repeat;
+    }
+    li.facebook {
+      background: url("/static/img/facebook.png") center top no-repeat;
+    }
+  }
+
+  .social:hover li { opacity:0.2; } 
+  .social li { transition-property: opacity; transition-duration: 500ms; } 
+  .social li:hover { opacity:1; }
+
+  .nav-place {
+    height: 34px;
+    margin-top: 54px;
+
+    .nav {
+      margin-bottom: 0px;
+
+      li > a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+  }
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 20px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.registration {
+  text-align: center;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+}
+
+.time-and-place {
+
+  .header span {
+    float : left;
+    display: block;
+    width: 80%;
+    background-color: @blue;
+    margin-left: 10px;
+    padding-left: 10px;
+    color: white;
+  }
+
+  .calendar-icon {
+    float:left;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    background: url("/static/img/calendar.png") center center no-repeat;
+  }
+  .globe-icon {
+    float:left;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    background: url("/static/img/globe.png") center center no-repeat;
+  }
+}
+
+.sponsors {
+
+  .sponsor-item {
+
+    display: block;
+    float: left;
+    max-width: 250px;
+    margin: 10px;
+
+    img {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hackpoint'13 Череповец</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  	<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less">
+  	<link rel="stylesheet/less" type="text/css" href="less/responsive.less">
+    <link rel="stylesheet/less" type="text/css" href="style.less">
+    <script src="js/less-1.3.3.min.js" type="text/javascript"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container">
+    	<div class="row-fluid clearfix header">
+        <div class="span4">
+          <a href="/" class="logo"><h1 class="hidden">Hackpoint'13 Череповец</h1></a>
+        </div>
+        <div class="span8">
+          <div class="social-place clearfix">
+            <ul class="social pull-right">
+                 <li class="vk">
+                    <a href="http://vk.com/hackpoint" target="_blank">
+                       <strong>ВКонтакте</strong>
+                    </a>
+                 </li>
+                 <li class="twitter">
+                    <a href="http://twitter.com/hackpoint_che" target="_blank">
+                       <strong>Twitter</strong>
+                    </a>
+                 </li>
+                 <li class="facebook">
+                    <a href="http://facebook.com/hackpoint.che" target="_blank">
+                      <strong>Facebook</strong>
+                    </a>
+                 </li>
+              </ul>
+            <span class="pull-right">Следи за обновлениями:</span>
+          </div>
+          <div class="nav-place clearfix">
+              <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="#">О мероприятии</a></li>
+              <li><a href="#">Спонсоры</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="jumbotron well">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span12">
+                      <h1>Точка превращения идеи в протип</h1>
+                <p class="lead">Разработай проект, приложение или его прототип за 48 часов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+
+
+        <div class="row-fluid">
+          <div class="span5" style="margin-bottom: 20px; padding-left: 40px;">
+                <h4>Вас ожидает:</h6>
+                  <ul>
+                  <li>Много IT-специалистов</li>
+                  <li>Бесплатное питание</li>
+                  <li>48-часовой доступ на площадку</li>
+                  <li>Море фана</li>
+                  </ul>
+                  <span>Участие бесплатно!</span>
+                </div>
+          <div class="span7 well registration" style="margin-bottom: 20px;">
+            <h4>Регистрация на хакпоинт открыта</h4>
+            <form id="register_simple" method="post" _lpchecked="1">
+
+               <div class="input-append">
+    <input type="text" id="id_email" name="email" placeholder="Введите ваш email">
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+  </div>
+                
+              </form>
+          </div>
+        </div>
+
+  <hr>
+
+  <div class="row-fluid time-and-place">
+    <div class="span7">
+        <div id="map" style="height:250px;"></div>
+        <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&amp;lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript">
+  ymaps.ready(init);
+  var myMap,
+      placeMark;
+
+  function init(){     
+    myMap = new ymaps.Map ("map", {
+      center: [59.122021, 37.931599],
+      zoom: 16,
+    });
+
+    placeMark = new ymaps.Placemark([59.122021, 37.931599], {
+      content: 'Череповец',
+      balloonContent: 'Открытое творческое пространство &laquo;Простор&raquo;'
+    });
+    myMap.geoObjects.add(placeMark);
+  }
+</script>
+    </div>
+    <div class="span5">
+        <h3 class="header"><i class="calendar-icon"></i>&nbsp;<span>Время</span></h3>
+        <p><strong>19-21 апреля 2013 года</strong> <br>Начало: 18:00</p>
+
+        <h3 class="header"><i class="globe-icon"></i>&nbsp;<span>Место</span></h3>
+        <p>ул. Социалистическая 25, г. Череповец<br><b>Открытое творческое пространство «Простор»</b></p>
+      </div>
+    
+  </div>
+
+  <hr>
+
+  <div class="row-fluid sponsors well">
+    <h4>Наши спонсоры</h4>
+    <div class="clearfix">
+      <div class="sponsor-item">
+        <a href="http://cmirit.ru/" target="_blank"><img src="/img/sponsors/cmirit_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://cherepovets.interzet.ru/" target="_blank"><img src="/img/sponsors/interzet_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://cheritclub.ru/" target="_blank"><img src="/img/sponsors/cheritclub_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://synapse-studio.ru/" target="_blank"><img src="/img/sponsors/synapse_logo.png" class="img-polaroid" /></a>
+      </div>
+    </div>
+    <div class="clearfix">
+      <div class="sponsor-item">
+        <a href="http://imit.ru/" target="_blank"><img src="/img/sponsors/imit_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://cio35.ru/" target="_blank"><img src="/img/sponsors/itvologda_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://it-sobytie.ru/" target="_blank"><img src="/img/sponsors/it-sobytie_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://volbiz.ru/" target="_blank"><img src="/img/sponsors/volbiz_logo.png" class="img-polaroid" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href="http://torgovorot.ru/" target="_blank"><img src="/img/sponsors/torgovorot_logo.png" class="img-polaroid" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <h4 style="text-align:center;">Знаете как помочь ивенту или хотите быть спонсором? <a href="#sponsorship" class="btn btn-primary" data-toggle="modal">Наше предложение для партнеров</a></h4>
+    
+  </div>
+
+      <hr>
+
+      <div class="row-fluid footer">
+
+        <div class="span4"><p>2013 &copy; HackPoint. Точка превращения идеи в прототип</p></div>
+        <div class="span8">
+<ul class="nav nav-pills pull-right">
+              <li class="active"><a href="#">О мероприятии</a></li>
+              <li><a href="#">Спонсоры</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+      </div>
+
+    	</div>
+
+      <hr>
+      <div class="row-fluid">
+        <div class="span6">
+            <!-- тут вставить ВК -->
+        </div>
+        <div class="span6">
+            <!-- тут вставить Twitter -->
+        </div>
+      </div>
+
+      
+    </div>
+
+<div id="sponsorship" class="modal hide fade">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Хотите помочь мероприятию?</h3>
+  </div>
+  <div class="modal-body">
+    <p>Мы отправим вам готовый пресс-релиз про hackpoint и спонсорское предложение, если вы оставите свой email</p>
+
+      <form id="sponsorship_simple" action="/accounts/register/sponsorship/" method="post" style="text-align: center;">
+
+                       <div class="input-append">
+    <input type="text" id="id_sponsor_email" name="email" placeholder="Введите ваш email">
+    <button type="submit" class="btn btn-primary">Отправить</button>
+  </div>
+      </form>
+    <hr>
+      <p>Или вы можете написать нам письмо с пометкой <b>"спонсорство"</b> на почту <a href="mailto:info@hackpoint.ru">info@hackpoint.ru</a></p>
+  </div>
+</div>
+
+
+<div id="registerModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Благодарим за регистрацию на hackpoint</h3>
+  </div>
+  <div class="modal-body">
+    <p>Заполните форму и в дальнейшем вы сможете точнее подобрать команду и проект для участия.</p>
+  <form method="POST" action="/accounts/register/" class="form-horizontal" id="register_full">
+     <div class="control-group">
+      <label class="control-label" for="username">Меня зовут</label>
+      <div class="controls">
+        <input id="id_username" type="text" name="username" value="" placeholder="Никнэйм или реальное имя">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="user_role">Моя роль в команде</label>
+      <div class="controls">
+        <select id="id_user_role" class="large" name="user_role">
+          <option value="programmer">Программист</option>
+          <option value="designer">Дизайнер</option>
+          <option value="manager">Менеджер</option>
+          <option value="student">Студент</option>
+          <option value="other">Другое</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <textarea rows="3" id="id_user_skills" name="user_skills" placeholder="Мои навыки, скилы, умения. Какими технологиями я обладаю."></textarea>
+      </div>
+
+    </div>
+
+    <div class="control-group">
+      <div class="controls"><label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea"><span class="custom checkbox"></span> У меня есть идея для проекта</label></div>
+      
+    </div>
+
+    <hr>
+
+    <div class="control-group" style="text-align: center;">
+      <input type="submit" class="btn btn-primary" value="Завершить">
+    </div>
+  </form>
+  </div>
+  
+</div>
+    <script src="js/bootstrap-modal.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -43,6 +43,8 @@ MEDIA_URL = ''
 STATIC_ROOT = rel('static')
 STATIC_URL = '/static/'
 
+HACK_ROOT = rel('hackpoint')
+
 SECRET_KEY = '#mnn@3!uyvuim%bk2#i2@78pq_2%-erqhx6ib--ch@*pts8%9f'
 
 TEMPLATE_LOADERS = (
