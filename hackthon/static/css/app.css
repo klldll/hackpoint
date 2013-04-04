@@ -5,7 +5,8 @@
 -----------------------------------------------------
 :: Main page
 :: Shared Styles
-:: Page Name 1
+:: User profiles list
+:: User projects list
 :: Twitter widget
 */
 
@@ -135,6 +136,13 @@ a.social.gplus {
     margin-top:2em;
 }
 
+/* -----------------------------------------
+   User projects list
+----------------------------------------- */
+
+#id_text_idea {
+    height:180px;
+}
 
 
 /* -----------------------------------------
