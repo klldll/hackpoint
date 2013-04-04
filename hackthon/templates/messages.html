@@ -1,71 +1,13 @@
-{% load patty_tags %}
 {% load i18n %}
-{% if messages %}
-{% endif %}
-  <script>
-    setTimeout( '$(".messages").fadeOut("slow")', 4000 );
-  </script>
-  <div class="messages">
-    {% for message in messages %}
-    <div class="alert {% if message.extra_tags %}{{ message.extra_tags }}{% else %}alert-success{% endif %}">
-        <a data-dismiss="alert" class="close">×</a>
-        {{ message }}
-      </div>
-    {% endfor %}
-  </div>
 
-{% verbatim %}
-
-<script id="add_notes_1" type="text/html">
-<div class="custom_notes">
-  <label>{% endverbatim %}{% trans "Note 1" %}{% verbatim %}</label>
-  <textarea placeholder="{% endverbatim %}{% trans "Enter the first note" %}{% verbatim %}" name="note_1">{{note1}}</textarea>
-  <button data-pattyid="{{patty_user}}" data-profileid="{{profile}}" data-id="{{resource_uri}}" class="submit_add_note btn">Ok</button>
+<script>
+  setTimeout( '$(".messages").fadeOut("slow")', 4000 );
+</script>
+<div class="messages">
+  {% for message in messages %}
+  <div data-alert class="alert-box {% if message.extra_tags %}{{ message.extra_tags }}{% else %}success{% endif %}">
+      <a data-dismiss="alert" class="close">×</a>
+      {{ message }}
+    </div>
+  {% endfor %}
 </div>
-</script>
-
-<script id="add_notes_2" type="text/html">
-<div class="custom_notes">
-  <label>{% endverbatim %}{% trans "Note 2" %}{% verbatim %}</label>
-  <textarea placeholder="{% endverbatim %}{% trans "Enter the second note" %}{% verbatim %}" name="note_2">{{note2}}</textarea>
-  <button data-pattyid="{{patty_user}}" data-profileid="{{profile}}" data-id="{{resource_uri}}" class="submit_add_note btn">Ok</button>
-</div>
-</script>
-
-<script id="add_notes_email" type="text/html">
-<div class="custom_notes">
-  <label>{% endverbatim %}{% trans "E-mail" %}{% verbatim %}</label>
-  <input placeholder="{% endverbatim %}{% trans "Enter PA’s e-mail" %}{% verbatim %}" name="email" type="email" value="{{custom_email}}">
-  <button data-pattyid="{{patty_user}}" data-profileid="{{profile}}" data-id="{{resource_uri}}" class="submit_add_note btn">Ok</button>
-</div>
-</script>
-
-<script id="add_notes_newsletter" type="text/html">
-<div class="custom_notes">
-  <label for="get_newsletters" class="checkbox">
-    {% endverbatim %}{% trans "Is willing receive mail" %}{% verbatim %}
-    <input type="checkbox" {{#get_newsletters}}checked="checked"{{/get_newsletters}} id="get_newsletters"  name="get_newsletters">
-  </label>
-  <button data-pattyid="{{patty_user}}" data-profileid="{{profile}}" data-id="{{resource_uri}}" class="submit_add_note btn">Ok</button>
-</div>
-</script>
-
-<script id="alert_success" type="text/html">
-  <div class="alert fade in alert-success">
-    <a href="#" data-dismiss="alert" class="close">×</a>
-    {{#msg}}{{{msg}}}{{/msg}}
-    {{^msg}}<strong>{% endverbatim %}{% trans "Hi." %}{% verbatim %} </strong>{% endverbatim %}{% trans "The note was saved successfully!" %}{% verbatim %}{{/msg}}
-  </div>
-</script>
-
-<script id="alert_fail" type="text/html">
-  <div class="alert fade in alert-error">
-    <a href="#" data-dismiss="alert" class="close">×</a>
-    {{#msg}}{{msg}}{{/msg}}
-    {{^msg}}<strong>{% endverbatim %}{% trans "Hi." %}{% verbatim %} </strong>{% endverbatim %}{% trans "Unable to save the note." %}{% verbatim %}{{/msg}}
-    {{#__all__}}<p>{{__all__}}</p>{{/__all__}}
-    {{#email}}<p>{{email}}</p>{{/email}}
-  </div>
-</script>
-
-{% endverbatim %}

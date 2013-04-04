@@ -23,9 +23,9 @@
 
       <div class="small-9 columns">
         {% if profile.username %}
-        <h6>
-          <a class="" href="#">{{ profile.username }}</a>&nbsp;
-        </h6>
+        <h4>
+          {{ profile.username }}
+        </h4>
         {% endif %}
 
         <p><span class="label">Email: </span> **** {# profile.user.email #}</p>
@@ -47,7 +47,9 @@
         </p>
           {% if profile.text_idea %}
             {% if user.is_authenticated %}
-              <blockquote>{{ profile.text_idea }}</blockquote>
+              <div class="row">
+                <div class="large-12 columns">{{ profile.text_idea|safe }}</div>
+              </div>
             {% else %}
               <small>Описание доступно только после регистрации</small>
             {% endif %}

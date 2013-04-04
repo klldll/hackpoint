@@ -27,6 +27,7 @@
     </style>
   {% endassets %}
   <script src="{{ STATIC_URL }}js/modernizr.foundation.js"></script>
+  <script src="{{ STATIC_URL }}js/jquery.js"></script>
 </head>
 
 <body>
@@ -52,6 +53,13 @@
       </div>
     </div>
     {% endblock %}
+
+    <div class="row">
+      <div class="large-8 columns">
+        {% include 'messages.html' %}
+      </div>
+    </div>
+
 
     {% block register %}
     <div class="row panel">
@@ -338,12 +346,13 @@
     </div>
   </div>
 
-  <script src="{{ STATIC_URL }}js/jquery.js"></script>
   {% assets  "all_js" %}
     <script type="text/javascript" language="javascript" src="{{ ASSET_URL }}" charset="utf-8">
         // <![CDATA[// ]]>
     </script>
   {% endassets %}
+
+  {% block extrajs %}{% endblock %}
 
   {% include 'includes/_register.html' %}
   {% include 'includes/_sponsorship.html' %}
