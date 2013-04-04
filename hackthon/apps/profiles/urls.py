@@ -18,7 +18,7 @@ urlpatterns = patterns('',
                         name='profile_detail'),
 
     url(r'^projects/create/$', views.ProjectCreateView.as_view(),
-                        name='project_edit'),
+                        name='project_create'),
     url(r'^projects/(?P<pk>\d+)/edit/$', views.ProjectEditView.as_view(),
                         name='project_edit'),
     url(r'^projects/list/$', views.ProjectList.as_view(),

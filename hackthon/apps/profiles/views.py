@@ -104,7 +104,7 @@ class ProjectEditView(UpdateView):
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        self.userproject = UserProject.objects.get(owner=request.user)
+        self.userproject = get_object_or_404(UserProject, owner=request.user)
         return super(ProjectEditView, self).get(request, *args, **kwargs)
 
     @method_decorator(login_required)
@@ -141,13 +141,19 @@ class ProjectCreateView(CreateView):
     template_name = 'profiles/create_project.html'
     success_url = '/accounts/projects/list/'
 
+    def empty_profile(self):
+        profile = self.request.user.profile
+        if not profile.username and  not profile.user_skills:
+            return True
+        return False
+
     def dispatch(self, *args, **kwargs):
-        as_member = UserProject.objects.filter(
-            members=self.request.user.profile
-        ).exists()
-        as_owner = UserProject.objects.filter(
-            owner=self.request.user.profile
-        ).exists()
+        profile = self.request.user.profile
+        if self.empty_profile():
+            messages.success(self.request, u'Заполните пожалуйста свой профиль. Ваше имя и ваши навыки.', 'alert')
+            return redirect('profile_detail', pk=profile)
+        as_member = UserProject.objects.filter(members=profile).exists()
+        as_owner = UserProject.objects.filter(owner=profile).exists()
         if as_member:
             messages.success(self.request, u'Вы уже присоединились к проекту. Вы должны сначала покинуть проект, чтобы создать новый.', 'alert')
         if as_owner:
@@ -161,6 +167,7 @@ class ProjectCreateView(CreateView):
         self.object.owner = self.request.user.profile
         self.object.save()
 
+        messages.success(self.request, u'Ваш проект успешно создан.')
         return redirect(self.get_success_url())
 
 

@@ -38,12 +38,23 @@ class UserProfile(models.Model):
                                related_name=_('members'),
                                blank=True, null=True)
 
-    def __unicode__(self):
-        return self.user.username
-
     class Meta:
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')
+
+    def __unicode__(self):
+        return self.user.username
+
+    def in_team(self):
+        if self.project or self.group:
+            return True
+        else:
+            return False
+
+    @property
+    def team(self):
+        if self.in_team():
+            return self.project if self.project else self.group
 
     @models.permalink
     def get_absolute_url(self):
@@ -53,17 +64,17 @@ class UserProfile(models.Model):
 class UserProject(models.Model):
     owner = models.OneToOneField(UserProfile,
                         verbose_name=_('owner'),
-                        unique=True,)
-                        #related_name='project',)
+                        unique=True,
+                        related_name='group',)
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
-
-    def __unicode__(self):
-        return '%s - %s' % (self.owner, self.title)
 
     class Meta:
         verbose_name = _('Project')
         verbose_name_plural = _('Projects')
+
+    def __unicode__(self):
+        return '%s - %s' % (self.owner, self.title)
 
     @models.permalink
     def get_absolute_url(self):
