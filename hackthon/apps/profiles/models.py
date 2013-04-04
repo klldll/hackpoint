@@ -46,10 +46,12 @@ class UserProfile(models.Model):
         return self.user.username
 
     def in_team(self):
-        if self.project or self.group:
-            return True
-        else:
+        try:
+            team =  self.project or self.group
+        except:
             return False
+        if team:
+            return True
 
     @property
     def team(self):
@@ -70,7 +72,8 @@ class UserProject(models.Model):
     owner = models.OneToOneField(UserProfile,
                         verbose_name=_('owner'),
                         unique=True,
-                        related_name='group',)
+                        related_name='group',
+                        blank=True, null=True)
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
 

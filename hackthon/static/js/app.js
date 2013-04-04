@@ -6,7 +6,13 @@
 
   $(document).ready(function() {
 
-    $.fn.placeholder                ? $('input, textarea').placeholder() : null;
+    $.fn.placeholder ? $('input, textarea').placeholder() : null;
+
+    $.ajaxSetup({
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRFToken', $.cookie('csrftoken'));
+      }
+    });
 
     var callback = function(data, form) {
       $(form).find('small.error').remove();

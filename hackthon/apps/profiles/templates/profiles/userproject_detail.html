@@ -13,7 +13,7 @@
 
     <div class="large-12 columns">
       {% if user.profile.empty %}
-      <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.pk %}">заполнить профиль</a></p>
+      <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.profile.pk %}">заполнить профиль</a></p>
       {% endif %}
     </div>
 
@@ -26,7 +26,7 @@
         {% endifequal %}
 
         {% if not user.profile.empty and not user.profile.in_team %}
-          <a class="button tiny" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
+        <a class="button tiny team_join" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
         {% endif %}
 
         {% if user.profile.team = project %}

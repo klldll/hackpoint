@@ -37,8 +37,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = ''
-MEDIA_URL = ''
+MEDIA_ROOT = rel('static')
+MEDIA_URL = '/static/'
 
 STATIC_ROOT = rel('static')
 STATIC_URL = '/static/'
