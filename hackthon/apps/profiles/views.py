@@ -3,6 +3,7 @@
 Views for creating, editing and viewing site-specific user profiles.
 
 """
+import json
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -13,8 +14,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.conf import settings
 from django.contrib import messages
 
-#from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
+from django.http import HttpResponse
+from django.views.generic import ListView, DetailView, View
 from django.views.generic.edit import FormView, UpdateView, CreateView
 
 if "mailer" in settings.INSTALLED_APPS:
@@ -23,6 +24,7 @@ else:
     from django.core.mail import send_mail
 
 from annoying.decorators import ajax_request
+from annoying.functions import get_object_or_None
 
 from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail, SponsorshipForm, UserProjectForm
 from profiles.models import UserProfile, UserProject
@@ -163,6 +165,62 @@ class ProjectCreateView(CreateView):
 
         messages.success(self.request, u'Ваш проект успешно создан.')
         return redirect(self.get_success_url())
+
+
+
+class JoinProjectView(View):
+    def __init__(self, *args, **kwargs):
+        super(JoinProjectView, self).__init__(*args, **kwargs)
+
+        self.errors = []
+        self.messages = []
+        self.data = {}
+        self.success = False
+
+
+    @property
+    def response_data(self):
+        """
+        Format response data
+        """
+        return {
+            'success': self.success,
+            'errors': self.errors,
+            'data': self.data,
+            'messages': self.messages,
+        }
+
+    def post(self, request):
+        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        #import ipdb;ipdb.set_trace()
+        project_id = request.POST.get('project_id')
+        profile_id = request.POST.get('profile_id')
+        try:
+            project_id = int(project_id)
+        except:
+            self.errors.append(u'Id проекта должно быть числом')
+            project_id = None
+        try:
+            profile_id = int(profile_id)
+        except:
+            self.errors.append(u'Id профиля должно быть числом')
+            profile_id = None
+        if not project_id and not profile_id:
+            return HttpResponse(json.dumps(self.response_data))
+
+        project = get_object_or_None(UserProject, pk=project_id)
+        profile = get_object_or_None(UserProfile, pk=profile_id)
+        if profile and profile.in_team():
+            self.messages = msg % ('alert', 'Вы уже записаны в команду.')
+        elif project and profile:
+            project.members.add(profile)
+            self.success = True
+            self.messages = msg % ('success', 'Вы успешно записаны в команду')
+        else:
+            self.messages = msg % ('alert', 'Команда не найдена')
+
+        #some_signal.send(sender=MyAJAXView, instance=self)
+        return HttpResponse(json.dumps(self.response_data))
 
 
 @ajax_request
