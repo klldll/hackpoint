@@ -101,6 +101,7 @@ INSTALLED_APPS = (
     'gravatar',
     'mailer',
     'pymorphy',
+    'south',
     'widget_tweaks',
     'ajax_validation',
     'local',

@@ -1,11 +1,11 @@
 #-*- coding: utf-8 -*-
 
 from django import forms
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-
-from models import UserProfile, SponsorProfile
+from models import UserProfile, SponsorProfile, UserProject
 from utils import clear_email
 
 
@@ -14,6 +14,13 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',) # User will be filled in by the view.
+
+
+class UserProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProject
+        exclude = ('owner',) # User will be filled in by the view.
 
 
 

@@ -34,6 +34,9 @@ class UserProfile(models.Model):
                            choices=USER_ROLES)
     has_idea = models.BooleanField(_('Has idea'), default=False)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
+    project = models.ForeignKey('UserProject', verbose_name=_('project'),
+                               related_name=_('members'),
+                               blank=True, null=True)
 
     def __unicode__(self):
         return self.user.username
@@ -44,7 +47,27 @@ class UserProfile(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('profile_detail', None, {'pk':str(self.user.profile.pk)})
+        return ('profile_detail', None, {'pk':str(self.pk)})
+
+
+class UserProject(models.Model):
+    owner = models.OneToOneField(UserProfile,
+                        verbose_name=_('owner'),
+                        unique=True,)
+                        #related_name='project',)
+    title = models.CharField(_('Title'), max_length=100)
+    text_idea = models.TextField(_('Text idea'), blank=True, null=True)
+
+    def __unicode__(self):
+        return '%s - %s' % (self.owner, self.title)
+
+    class Meta:
+        verbose_name = _('Project')
+        verbose_name_plural = _('Projects')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('project_detail', None, {'pk':str(self.pk)})
 
 
 def create_user_profile(sender, instance, created, **kwargs):
