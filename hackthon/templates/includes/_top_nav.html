@@ -8,11 +8,14 @@
   <li class="toggle-topbar"><a href="#"><span>Меню</span></a></li>
   </ul>
 
+  <!--
   <section data-magellan-expedition="fixed" class="top-bar-section">
+  -->
+  <section  class="top-bar-section">
     <ul class="right">
       {% if user.is_authenticated %}
-        <li class="{% ifactive 'project_list' %}active{% endifactive %}" data-magellan-arrival="projects"><a href="{% url 'project_list' %}">Проекты</a></li>
-        <li class="{% ifactive 'profile_list' %}active{% endifactive %}" data-magellan-arrival="profiles"><a href="{% url 'profile_list'%}">Участники</a></li>
+        <li class="{% ifstartswith  '/accounts/projects/' %}active{% endifstartswith %}" data-magellan-arrival="projects"><a href="{% url 'project_list' %}">Проекты</a></li>
+        <li class="{% ifstartswith '/accounts/list/' %}active{% endifstartswith %}" data-magellan-arrival="profiles"><a href="{% url 'profile_list'%}">Участники</a></li>
       {% endif %}
       <li data-magellan-arrival="place"><a href="/#place">Место</a></li>
       <li data-magellan-arrival="about"><a href="/#about">О мероприятии</a></li>
