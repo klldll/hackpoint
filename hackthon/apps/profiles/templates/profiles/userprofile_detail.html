@@ -20,8 +20,8 @@
             <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
           {% endifequal %}
 
-          {% if not user.profile.empty_profile and not user.profile.in_team %}
-            <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'project_create' %}">Создать проект</a>
+          {% if not user.profile.empty and not user.profile.in_team %}
+            <a class="button tiny secondary" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
           {% endif %}
       </div>
 

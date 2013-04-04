@@ -56,6 +56,11 @@ class UserProfile(models.Model):
         if self.in_team():
             return self.project if self.project else self.group
 
+    def empty(self):
+        if self.username and self.user_skills:
+            return False
+        return True
+
     @models.permalink
     def get_absolute_url(self):
         return ('profile_detail', None, {'pk':str(self.pk)})

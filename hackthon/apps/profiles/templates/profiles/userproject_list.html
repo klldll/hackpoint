@@ -12,6 +12,9 @@
 
     <div class="large-12 columns">
       <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.pk %}">заполнить профиль</a></p>
+      {% if not user.profile.in_team and not user.profile.empty %}
+      <a class="button" href="{% url 'project_create' %}">Создать проект</a>
+      {% endif %}
     </div>
 
     {% for project in project_list %}
@@ -22,9 +25,12 @@
         <div class="large-12 columns">
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
-            {% if user.profile not in project.members.all and user.profile != project.owner %}
+            
+            {% if not user.profile.empty and not user.profile.in_team %}
               <a class="button tiny" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
-            {% else %}
+            {% endif %}
+
+            {% if user.profile.team = project %}
               <button disabled class="button tiny disabled" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</button>
             {% endif %}
           </div>

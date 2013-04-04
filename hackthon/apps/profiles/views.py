@@ -141,17 +141,11 @@ class ProjectCreateView(CreateView):
     template_name = 'profiles/create_project.html'
     success_url = '/accounts/projects/list/'
 
-    def empty_profile(self):
-        profile = self.request.user.profile
-        if not profile.username and  not profile.user_skills:
-            return True
-        return False
-
     def dispatch(self, *args, **kwargs):
         profile = self.request.user.profile
-        if self.empty_profile():
+        if profile.empty():
             messages.success(self.request, u'Заполните пожалуйста свой профиль. Ваше имя и ваши навыки.', 'alert')
-            return redirect('profile_detail', pk=profile)
+            return redirect('profile_detail', pk=profile.pk)
         as_member = UserProject.objects.filter(members=profile).exists()
         as_owner = UserProject.objects.filter(owner=profile).exists()
         if as_member:

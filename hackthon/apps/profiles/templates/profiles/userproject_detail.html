@@ -12,6 +12,12 @@
     <li class="current"><a href="#">{{ project.title }}</a></li>
     </ul>
 
+    <div class="large-12 columns">
+      {% if user.profile.empty %}
+      <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.pk %}">заполнить профиль</a></p>
+      {% endif %}
+    </div>
+
     <div class="row">
       <div class="small-3 columns">
         <img src="http://placekitten.com/g/200/200" class="th">
@@ -20,9 +26,11 @@
           <a class="button tiny secondary" title="Редактировать проект" href="{% url 'project_edit' project.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
         {% endifequal %}
 
-        {% if user.profile not in project.members.all and user.profile != project.owner %}
+        {% if not user.profile.empty and not user.profile.in_team %}
           <a class="button tiny" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
-        {% else %}
+        {% endif %}
+
+        {% if user.profile.team = project %}
           <button disabled class="button tiny disabled" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</button>
         {% endif %}
         
