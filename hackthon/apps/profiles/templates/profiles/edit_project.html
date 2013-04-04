@@ -1,0 +1,51 @@
+{% extends "profiles/base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block main %}
+{{ form.media }}
+
+<div class="row">
+  <div class="large-8 columns">
+
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li><a href="{% url 'project_list' %}">Проекты</a></li>
+      <li class=""><a href="{% url 'project_detail' object.pk %}">{{ object.title }}</a></li>
+      <li class="current"><a href="#">Редактирование</a></li>
+    </ul>
+
+    <form enctype="multipart/form-data" action="." id="form" class="custom form" method="post" novalidate="novalidate">
+      <fieldset>
+        <legend>Редактировать проект</legend>
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      {{ form.title|append_attr:"placeholder:Краткий заголовок для проекта"|add_error_class:"error" }}
+      {{ form.title.errors }}
+
+      {{ form.text_idea|append_attr:"placeholder:Описание вашей идеи. Также укажите, кто требуется вам в команду. Например: \"Нужны в команду:дизайнер, программист, 2 менеждера\""|add_error_class:"error" }}
+      {{ form.text_idea.errors }}
+
+      <br>
+      <input class="button" value="{% trans 'Обновить' %}" type="submit">
+      </fieldset>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+  <link href="{{ STATIC_URL }}/imperavi/redactor/css/redactor.css" type="text/css" media="all" rel="stylesheet">
+  <script src="{{ STATIC_URL }}/imperavi/redactor/langs/ru.js"></script>
+  <script src="{{ STATIC_URL }}/imperavi/redactor/redactor.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(
+    function() {
+      $('#id_text_idea').redactor({
+      lang:'ru',
+      buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', '|', 'unorderedlist', 'orderedlist', '|', 'link']
+      });
+    });
+  </script>
+{% endblock %}

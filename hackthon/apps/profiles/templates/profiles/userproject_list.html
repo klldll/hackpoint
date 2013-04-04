@@ -1,0 +1,46 @@
+{% extends 'profiles/base.html' %}
+{% load gravatar pymorphy_tags %}
+
+{% block main %}
+<div class="row">
+  <div class="large-8 columns">
+
+    <ul class="breadcrumbs">
+      <li><a href="/">Главная</a></li>
+      <li class="current"><a href="#">Проекты</a></li>
+    </ul>
+
+    <div class="large-12 columns">
+      <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.pk %}">заполнить профиль</a></p>
+    </div>
+
+    {% for project in project_list %}
+    <hr>
+    <div class="project_detail">
+
+      <div class="row">
+        <div class="large-12 columns">
+          <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
+          <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
+            {% if user.profile not in project.members.all and user.profile != project.owner %}
+              <a class="button tiny" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
+            {% else %}
+              <button disabled class="button tiny disabled" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <p>
+          {{ project.text_idea|default:""|safe }}
+          </p>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

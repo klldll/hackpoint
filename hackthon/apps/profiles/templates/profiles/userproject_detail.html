@@ -1,0 +1,71 @@
+{% extends 'profiles/base.html' %}
+{% load i18n gravatar %}
+
+{% block main %}
+
+<div class="row">
+  <div class="large-8 columns">
+
+    <ul class="breadcrumbs">
+    <li><a href="/">Главная</a></li>
+    <li><a href="{% url 'project_list' %}">Проекты</a></li>
+    <li class="current"><a href="#">{{ project.title }}</a></li>
+    </ul>
+
+    <div class="row">
+      <div class="small-3 columns">
+        <img src="http://placekitten.com/g/200/200" class="th">
+        <hr>
+        {% ifequal project.owner user.profile %}
+          <a class="button tiny secondary" title="Редактировать проект" href="{% url 'project_edit' project.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
+        {% endifequal %}
+
+        {% if user.profile not in project.members.all and user.profile != project.owner %}
+          <a class="button tiny" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
+        {% else %}
+          <button disabled class="button tiny disabled" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</button>
+        {% endif %}
+        
+      </div>
+
+      <div class="small-9 columns">
+        <h4><i class="foundicon-idea"></i> {{ project.title }}</h4>
+
+        <h4><small>Автор: <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a></small></h4>
+         
+        <fieldset>
+          <legend><span class="label">Описание</span></legend>
+          {{ project.text_idea|default:""|safe }}
+        </fieldset>
+        
+        <br>
+
+        <h5 class="subheader">Команда</h5>
+        <ol>
+          <li>
+            <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a>
+          </li>
+          {% for member in project.members.all %}
+            <li><a href="{% url 'profile_detail' member.pk %}">{{ member.username }}</a></li>
+          {% endfor %}
+        </ol>
+
+        <p>
+          {% if profile.has_idea %}
+            <a class="button tiny secondary" href="#">Есть идея!</a><br>
+          {% endif %}
+        </p>
+          {% if profile.text_idea %}
+            {% if user.is_authenticated %}
+              <blockquote>{{ profile.text_idea }}</blockquote>
+            {% else %}
+              <small>Описание доступно только после регистрации</small>
+            {% endif %}
+          {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
