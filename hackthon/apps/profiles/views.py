@@ -167,16 +167,14 @@ class ProjectCreateView(CreateView):
         return redirect(self.get_success_url())
 
 
-
-class JoinProjectView(View):
+class BaseAjaxVew(View):
     def __init__(self, *args, **kwargs):
-        super(JoinProjectView, self).__init__(*args, **kwargs)
+        super(BaseAjaxVew, self).__init__(*args, **kwargs)
 
         self.errors = []
         self.messages = []
         self.data = {}
         self.success = False
-
 
     @property
     def response_data(self):
@@ -190,9 +188,11 @@ class JoinProjectView(View):
             'messages': self.messages,
         }
 
+
+class JoinProjectView(BaseAjaxVew):
+
     def post(self, request):
         msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
-        #import ipdb;ipdb.set_trace()
         project_id = request.POST.get('project_id')
         profile_id = request.POST.get('profile_id')
         try:
@@ -216,6 +216,40 @@ class JoinProjectView(View):
             project.members.add(profile)
             self.success = True
             self.messages = msg % ('success', 'Вы успешно записаны в команду')
+        else:
+            self.messages = msg % ('alert', 'Команда не найдена')
+
+        #some_signal.send(sender=MyAJAXView, instance=self)
+        return HttpResponse(json.dumps(self.response_data))
+
+
+class LeftProjectView(BaseAjaxVew):
+
+    def post(self, request):
+        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        project_id = request.POST.get('project_id')
+        profile_id = request.POST.get('profile_id')
+        try:
+            project_id = int(project_id)
+        except:
+            self.errors.append(u'Id проекта должно быть числом')
+            project_id = None
+        try:
+            profile_id = int(profile_id)
+        except:
+            self.errors.append(u'Id профиля должно быть числом')
+            profile_id = None
+        if not project_id and not profile_id:
+            return HttpResponse(json.dumps(self.response_data))
+
+        project = get_object_or_None(UserProject, pk=project_id)
+        profile = get_object_or_None(UserProfile, pk=profile_id)
+        if profile and not profile.in_team():
+            self.messages = msg % ('alert', 'Вы не состоите ни в одной команде.')
+        elif project and profile:
+            project.members.remove(profile)
+            self.success = True
+            self.messages = msg % ('success', 'Вы покинули команду. Время искать новую!')
         else:
             self.messages = msg % ('alert', 'Команда не найдена')
 
