@@ -113,7 +113,7 @@
       console.log(id, profile_id);
       $.post('/accounts/projects/join/', data, function (response) {
         $('.messages').html(response.messages).show();
-        $(target).text('Вы в команде').removeClass('team_join');
+        $(target).text('Вы в команде').removeClass('team_join').after('<button class="button tiny secondary left_team" title="Выйти из команды"><i class="foundicon-remove"></i> Выйти</button>');
         $('.team_join').hide();
       }, 'json');
 
