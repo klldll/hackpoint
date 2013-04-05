@@ -47,6 +47,7 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user.username
 
+    @property
     def in_team(self):
         try:
             team =  self.project or self.group
@@ -57,13 +58,26 @@ class UserProfile(models.Model):
 
     @property
     def team(self):
-        if self.in_team():
+        if self.in_team:
             return self.project if self.project else self.group
 
+    @property
     def empty(self):
-        if self.username and self.user_skills:
+        if self.username and self.user_skills and self.contact:
             return False
         return True
+
+    @property
+    def can_join(self):
+        if not self.empty and not self.team:
+            return True
+        return False
+
+    @property
+    def can_left(self):
+        if not self.empty and self.team.owner != self:
+            return True
+        return False
 
     @models.permalink
     def get_absolute_url(self):
@@ -75,7 +89,8 @@ class UserProject(models.Model):
                         verbose_name=_('owner'),
                         unique=True,
                         related_name='group',
-                        blank=True)
+                        blank=True,null=True,
+                        default='')
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
 

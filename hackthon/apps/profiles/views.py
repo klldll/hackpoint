@@ -145,7 +145,7 @@ class ProjectCreateView(CreateView):
 
     def dispatch(self, *args, **kwargs):
         profile = self.request.user.profile
-        if profile.empty():
+        if profile.empty:
             messages.success(self.request, u'Заполните пожалуйста свой профиль. Ваше имя и ваши навыки.', 'alert')
             return redirect('profile_detail', pk=profile.pk)
         as_member = UserProject.objects.filter(members=profile).exists()
@@ -210,7 +210,7 @@ class JoinProjectView(BaseAjaxVew):
 
         project = get_object_or_None(UserProject, pk=project_id)
         profile = get_object_or_None(UserProfile, pk=profile_id)
-        if profile and profile.in_team():
+        if profile and profile.in_team:
             self.messages = msg % ('alert', 'Вы уже записаны в команду.')
         elif project and profile:
             project.members.add(profile)
@@ -244,12 +244,16 @@ class LeftProjectView(BaseAjaxVew):
 
         project = get_object_or_None(UserProject, pk=project_id)
         profile = get_object_or_None(UserProfile, pk=profile_id)
-        if profile and not profile.in_team():
+        if profile and not profile.in_team:
             self.messages = msg % ('alert', 'Вы не состоите ни в одной команде.')
         elif project and profile:
-            project.members.remove(profile)
-            self.success = True
-            self.messages = msg % ('success', 'Вы покинули команду. Время искать новую!')
+            try:
+                project.members.remove(profile)
+                self.success = True
+                self.messages = msg % ('success', 'Вы покинули команду. Время искать новую!')
+            except:
+                self.success = False
+                self.messages = msg % ('alert', 'Наверное, это не ваша команда.')
         else:
             self.messages = msg % ('alert', 'Команда не найдена')
 

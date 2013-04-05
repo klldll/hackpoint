@@ -112,19 +112,20 @@
       console.log(data);
       $.post('/accounts/projects/left/', data, function (response) {
         $('.messages').html(response.messages).show();
-        $(target).hide()
-          .parent()
-          .find('.team_joined')
-          .text('Хочу в команду')
-          .removeClass('team_joined disabled')
-          .addClass('team_join')
-          .show();
-        $(target).hide();
+        if (response.success === true) {
+          $(target).hide()
+            .parent()
+            .find('.team_joined')
+            .text('Хочу в команду')
+            .removeClass('team_joined disabled')
+            .addClass('team_join');
+            $('.team_join').text('Хочу в команду').show();
+          $(target).hide();
+        }
       }, 'json');
     });
 
     $('.project_detail').delegate('a.team_join', 'click', function (event) {
-      $(this).addClass('disabled');
       event.preventDefault();
       var id = $(this).data('projectId'),
           target = event.target,
@@ -137,13 +138,15 @@
       console.log(id, profile_id);
       $.post('/accounts/projects/join/', data, function (response) {
         $('.messages').html(response.messages).show();
-        $(target).text('Вы в команде')
-          .removeClass('team_join')
-          .addClass('team_joined')
-          .parent()
-          .find('.team_left')
-          .show();
-        $('.team_join').hide();
+        if (response.success === true) {
+          $(target).text('Вы в команде')
+            .removeClass('team_join')
+            .addClass('team_joined disabled')
+            .parent()
+            .find('.team_left')
+            .show();
+          $('.team_join').hide();
+        }
       }, 'json');
 
     });
