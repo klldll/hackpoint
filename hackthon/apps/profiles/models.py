@@ -32,6 +32,8 @@ class UserProfile(models.Model):
     user_skills = models.TextField(_('User skills'))
     user_role = models.CharField(_('User role'), max_length=30,
                            choices=USER_ROLES)
+    contact = models.CharField(_('Contact'), max_length=40, null=True)
+    phone = models.CharField(_('Phone'), max_length=40, blank=True, null=True)
     has_idea = models.BooleanField(_('Has idea'), default=False)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
     project = models.ForeignKey('UserProject', verbose_name=_('project'),
@@ -73,7 +75,7 @@ class UserProject(models.Model):
                         verbose_name=_('owner'),
                         unique=True,
                         related_name='group',
-                        blank=True, null=True)
+                        blank=True)
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
 

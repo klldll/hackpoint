@@ -25,14 +25,16 @@
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
             
-            {% if not user.profile.empty and not user.profile.in_team %}
-              <a class="button tiny team_join" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
-            {% endif %}
+            <span class="team_actions">
+              {% if not user.profile.empty and not user.profile.in_team %}
+                <a class="button tiny team_join" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Оставить заявку автору идеи" href="#"><i class="foundicon-checkmark"></i> Хочу в команду</a>
+              {% endif %}
 
-            {% if user.profile.team = project %}
-              <button disabled class="button tiny disabled" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</button>
-              <button class="button tiny secondary left_team" title="Выйти из команды"><i class="foundicon-remove"></i> Выйти</button>
-            {% endif %}
+              {% if user.profile.team = project %}
+                <a data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" class="button tiny disabled team_joined" title="Вы в команде"><i class="foundicon-checkmark"></i> Вы в команде</a>
+              {% endif %}
+              <a style="{% ifnotequal user.profile.team project %}display:none;{% endifnotequal %}" class="button tiny secondary team_left" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Выйти из команды"><i class="foundicon-remove"></i> Выйти</a>
+            </span>
           </div>
         </div>
       </div>

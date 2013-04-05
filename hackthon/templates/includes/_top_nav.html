@@ -22,7 +22,7 @@
       <li data-magellan-arrival="who"><a href="/#who">Для кого</a></li>
       <li class="divider"></li>
       {% if user.is_authenticated %}
-        <li class="has-dropdown"><a href="{% url 'profile_detail' user.profile.pk %}">{{ user.email }}</a>
+        <li class="has-dropdown"><a href="{% url 'profile_detail' user.profile.pk %}">{{ user.email|default:"Профиль" }}</a>
           <ul id="usermenu" class="dropdown">
             <li><a href="{% url 'profile_edit' user.profile.id %}">Редактировать профиль</a></li>
             {% if user.profile.team %}
