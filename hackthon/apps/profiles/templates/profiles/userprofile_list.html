@@ -24,9 +24,9 @@
             <div class="small-10 columns">
               <!-- {{ item.get_user_role_display }}<br> -->
               <h6><a class="" href="{% url 'profile_detail' item.pk %}">{{ item.username }}</a></h6>
-              <b>Навыки:</b>
               {% if item.user_skills %}
                 <div class="skills">
+                  <b>Навыки:</b>
                   {{ item.user_skills }}
                 </div>
               {% else %}
