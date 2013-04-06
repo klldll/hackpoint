@@ -146,6 +146,8 @@ AJAX_VALIDATION_FORMS = [
     #'auth.contrib.auth.forms.AuthenticationForm',
 ]
 
+FILEPICKER_API_KEY = 'A3lXl09sRSejY4e0pOOSQz'
+
 LOGIN_URL = '/login/'
 PYMORPHY_DICTS = {
     'ru': { 'dir': rel('pymorphy/dicts') },

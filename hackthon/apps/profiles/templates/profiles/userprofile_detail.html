@@ -13,9 +13,16 @@
 
     <div class="row">
       <div class="small-3 columns">
-          <a class="th" href="#">{% gravatar_img_for_email profile.user.email %}</a>
+        <a id="user_avatar" class="th" href="#">
+          {% if profile.avatar %}
+            <img src="{{ user.profile.avatar }}">
+          {% else %}
+            {% gravatar_img_for_email item.user.email %}
+          {% endif %}
+        </a><br><br>
+          <input type="filepicker" data-fp-button-text="Изменить аватар" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="small-11 button tiny secondary">
+
           {% ifequal user.profile profile %}
-            <hr>
             <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
           {% endifequal %}
 
@@ -68,4 +75,19 @@
 
   </div>
 
+{% endblock %}
+
+{% block extrajs %}
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+  <script type="text/javascript">
+    var setAvatar = function(avatarUrl) {
+      $.post("{% url 'profile_edit' user.profile.pk %}", {
+        avatar: avatarUrl
+      })
+      .success(function() {
+        $('#user_avatar img').attr('src', avatarUrl);
+      });
+
+    };
+  </script>
 {% endblock %}

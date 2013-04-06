@@ -55,8 +55,20 @@ class ProfileEditView(UpdateView):
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        self.userprofile = UserProfile.objects.get(user=request.user)
+        self.userprofile = get_object_or_None(UserProfile, user=request.user)
         return super(ProfileEditView, self).get(request, *args, **kwargs)
+
+    @method_decorator(login_required)
+    def post(self, request, *args, **kwargs):
+        if request.is_ajax():
+            avatar = request.POST.get('avatar', None)
+            userprofile = get_object_or_None(
+                UserProfile, user=request.user
+            )
+            userprofile.avatar = avatar if avatar else '/static/i/default.ing'
+            userprofile.save()
+        self.userprofile = UserProfile.objects.get(user=request.user)
+        return super(ProfileEditView, self).post(request, *args, **kwargs)
 
     def get_form_kwargs(self):
         """

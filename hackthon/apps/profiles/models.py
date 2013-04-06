@@ -28,6 +28,8 @@ class UserProfile(models.Model):
                         verbose_name=_('user'),
                         unique=True,
                         related_name='profile',)
+    avatar = models.CharField(_('Avatar'), max_length=80,
+                              blank=True, null=True)
     username = models.CharField(_('Username'), max_length=100)
     user_skills = models.TextField(_('User skills'))
     user_role = models.CharField(_('User role'), max_length=30,
