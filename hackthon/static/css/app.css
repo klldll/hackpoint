@@ -1,6 +1,6 @@
 /* Artfully masterminded by ZURB  */
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Main page
@@ -139,6 +139,9 @@ a.social.gplus {
 .user_list dt {
     margin-top:2em;
 }
+.skills {
+    word-wrap: break-word;
+}
 
 /* -----------------------------------------
    User projects list
@@ -150,7 +153,7 @@ a.social.gplus {
 
 
 /* -----------------------------------------
-  TWITTER widget 
+  TWITTER widget
 ----------------------------------------- */
 
 .twtr-doc, .twtr-timeline {
