@@ -15,7 +15,7 @@
       <div class="small-3 columns">
         <a id="user_avatar" class="th" href="#">
           {% if profile.avatar %}
-            <img src="{{ user.profile.avatar }}">
+            <img src="{{ profile.avatar }}">
           {% else %}
             {% gravatar_img_for_email item.user.email %}
           {% endif %}
