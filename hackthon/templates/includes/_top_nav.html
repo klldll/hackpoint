@@ -24,6 +24,7 @@
       {% if user.is_authenticated %}
         <li class="has-dropdown"><a href="{% url 'profile_detail' user.profile.pk %}">{{ user.email|default:"Профиль" }}</a>
           <ul id="usermenu" class="dropdown">
+            <li><a href="{% url 'profile_detail' user.profile.id %}">Инфо обо мне</a></li>
             <li><a href="{% url 'profile_edit' user.profile.id %}">Редактировать профиль</a></li>
             {% if user.profile.team %}
             <li><a href="{% url 'project_detail' user.profile.team.pk %}">Мой проект</a></li>
