@@ -1,5 +1,5 @@
 {% extends 'profiles/base.html' %}
-{% load i18n gravatar %}
+{% load i18n gravatar markup %}
 
 {% block main %}
 
@@ -66,7 +66,7 @@
           {% if profile.text_idea %}
             {% if user.is_authenticated %}
               <div class="row">
-                <div class="large-12 columns">{{ profile.text_idea|safe }}</div>
+                <div class="large-12 columns">{{ profile.text_idea|markdown:"safe" }}</div>
               </div>
             {% else %}
               <small>Описание доступно только после регистрации</small>

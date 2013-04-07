@@ -18,3 +18,4 @@ django-gravatar==0.1.0
 django-activelink==0.3
 pymorphy==0.5.6
 South==0.7.6
+Markdown==2.3.1
