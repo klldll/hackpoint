@@ -54,10 +54,10 @@
         <h5 class="subheader">Команда</h5>
         <ol>
           <li>
-            <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a>
+          <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a> &mdash; <span>{{ project.owner.get_user_role_display }}</span>
           </li>
           {% for member in project.members.all %}
-            <li><a href="{% url 'profile_detail' member.pk %}">{{ member.username }}</a></li>
+            <li><a href="{% url 'profile_detail' member.pk %}">{{ member.username }}</a> &mdash; <span>{{ member.get_user_role_display }}</span></li>
           {% endfor %}
         </ol>
 

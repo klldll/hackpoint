@@ -28,7 +28,7 @@
             <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
           {% endifequal %}
 
-          {% if not user.profile.empty and not user.profile.in_team %}
+          {% if not user.profile.empty and not user.profile.in_team and user.profile = profile %}
             <a class="button tiny secondary" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
           {% endif %}
       </div>
@@ -40,7 +40,9 @@
         </h4>
         {% endif %}
 
-        <p><span class="label">Email:</span> **** {# profile.user.email #}</p>
+
+        <p><span class="label">Контакты:</span>{% ifequal user.profile.team profile.team %} {{ profile.contact }}{% else %} <i>Видны только членам команды</i>{% endifequal %}</p>
+
         <p>
         <span class="label">Навыки:</span>
         {% if profile.user_skills %}
