@@ -41,7 +41,7 @@
         {% endif %}
 
 
-        <p><span class="label">Контакты:</span>{% ifequal user.profile.team profile.team %} {{ profile.contact }}{% else %} <i>Видны только членам команды</i>{% endifequal %}</p>
+        <p><span class="label">Контакты:</span>{% if profile.team and user.profile.team = profile.team %} {{ profile.contact|default:"" }}{% else %} <i>Видны только членам команды</i>{% endif %}</p>
 
         <p>
         <span class="label">Навыки:</span>
