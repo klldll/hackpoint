@@ -80,6 +80,7 @@
     $('form#register_full').on('form:validate', function (e) {
       var data = {
         username: $(this).find('[id=id_username]').val(),
+        contact: $(this).find('[id=id_contact]').val(),
         email: $('#id_email').val(),
         user_skills: $(this).find('[id=id_user_skills]').val(),
         user_role: $(this).find('[id=id_user_role]').val(),

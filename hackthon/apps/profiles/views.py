@@ -283,7 +283,7 @@ def register(request):
     if simple_form.is_valid():
         email = simple_form.cleaned_data['email']
         user, __ = User.objects.get_or_create(username=email, email=email)
-        msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>С уважением организаторы.</p>'
+        msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>Установить пароль для своего аккаунта вы сможете по этой ссылке <a href="http://hackpoint.ru/password/reset/">Сброс пароля</a></p><p>С уважением организаторы.</p>'
         send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
         result = True
 
@@ -297,6 +297,7 @@ def register(request):
             user.profile.user_skills = profile.user_skills
             user.profile.user_role = profile.user_role
             user.profile.has_idea = profile.has_idea
+            user.profile.contact = profile.contact
             user.save()
             user.profile.save()
         result = True
