@@ -18,6 +18,19 @@
     <form enctype="multipart/form-data" action="." id="form" class="custom form" method="post" novalidate="novalidate">
       <fieldset>
         <legend>Создать проект</legend>
+        <p>
+        В описании проекта необходимо кратко описать:
+        </p>
+        <ul>
+
+        <li>проблему, которую вы собираетесь решить;</li>
+        <li>ваше решение;</li>
+        <li>что вы планируете реализовать за 48 часов;</li>
+        <li>кто нужен в команду.</li>
+        <hr>
+        <p>Обратите внимание, в описании проекта не должно быть кода. Только понятный текст. Описание проекта могут читать другие люди.</p>
+
+        <p>Мы оставляем за собой право удалить проект, если описание не соответствует требованиям.</p>
       {% csrf_token %}
       {{ form.non_field_errors }}
 
@@ -28,7 +41,7 @@
       {{ form.text_idea.errors }}
 
       <br>
-      <input class="button" value="{% trans 'Обновить' %}" type="submit">
+      <input class="button" value="{% trans 'Создать' %}" type="submit">
       </fieldset>
     </form>
 

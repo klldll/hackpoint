@@ -155,6 +155,7 @@ class ProjectCreateView(CreateView):
     template_name = 'profiles/create_project.html'
     success_url = '/accounts/projects/list/'
 
+    @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         profile = self.request.user.profile
         if profile.empty:
