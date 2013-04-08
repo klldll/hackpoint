@@ -20,7 +20,7 @@
             <div class="small-2 columns">
               <a class="th" href="{% url 'profile_detail' item.pk %}">
                 {% if item.avatar %}
-                  <img src="{{ item.avatar }}">
+                  <img src="{{ item.avatar }}/convert?w=80&h=80">
                 {% else %}
                   {% gravatar_img_for_email item.user.email %}
                 {% endif %}
