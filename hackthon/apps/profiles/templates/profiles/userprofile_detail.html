@@ -17,7 +17,7 @@
           {% if profile.avatar %}
             <img src="{{ profile.avatar }}/convert?w=150&h=150">
           {% else %}
-            {% gravatar_img_for_email item.user.email %}
+            {% gravatar_img_for_email profile.user.email %}
           {% endif %}
         </a><br><br>
           {% ifequal user.profile profile %}
