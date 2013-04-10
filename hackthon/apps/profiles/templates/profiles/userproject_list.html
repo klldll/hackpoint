@@ -24,6 +24,8 @@
         <div class="large-12 columns">
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
+          </div>
+          <div class="subheader">Команда: {% for member in project.members.all %}{{ member.username|default:"Неизвестный" }}{% empty %}Пока нет({% endfor %}&nbsp;
 
             <span class="team_actions">
 
@@ -44,7 +46,7 @@
       <div class="row">
         <div class="large-12 columns">
           <p>
-          {{ project.text_idea|default:""|safe }}
+          {{ project.text_idea|default:""|safe|truncatewords_html:20 }}
           </p>
         </div>
       </div>
