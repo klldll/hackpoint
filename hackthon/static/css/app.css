@@ -116,7 +116,7 @@ a.social.gplus {
 }
 
 /* -----------------------------------------
-   Error list
+   Shared Styles
 ----------------------------------------- */
 .errorlist {
     display: block;
@@ -130,6 +130,9 @@ a.social.gplus {
 }
 .errorlist li {}
 
+.profile-menu img {
+    vertical-align:middle;
+}
 
 /* -----------------------------------------
    User profiles list

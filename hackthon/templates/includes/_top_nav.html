@@ -1,4 +1,4 @@
-{% load activelink %}
+{% load activelink gravatar %}
 <nav class="top-bar">
   <ul class="title-area">
   <!-- Title Area -->
@@ -22,7 +22,19 @@
       <li><a href="/#who">Для кого</a></li>
       <li class="divider"></li>
       {% if user.is_authenticated %}
-        <li class="has-dropdown"><a href="{% url 'profile_detail' user.profile.pk %}">{{ user.email|default:"Профиль" }}</a>
+      <li class="has-dropdown profile-menu">
+          {% if user.profile.avatar %}
+            <a href="{% url 'profile_detail' user.profile.pk %}">
+              <img src="{{ user.profile.avatar }}/convert?w=25&h=25">
+              Профиль
+            </a>
+          {% else %}
+            <a href="{% url 'profile_detail' user.profile.pk %}">
+              {% gravatar_img_for_email profile.user.email 25 %}
+              Профиль
+            </a>
+          {% endif %}
+
           <ul id="usermenu" class="dropdown">
             <li><a href="{% url 'profile_detail' user.profile.id %}">Инфо обо мне</a></li>
             <li><a href="{% url 'profile_edit' user.profile.id %}">Редактировать профиль</a></li>
