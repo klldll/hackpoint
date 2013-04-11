@@ -25,7 +25,7 @@
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
           </div>
-          <div class="subheader">Команда: {% for member in project.members.all %}{{ member.username|default:"Неизвестный" }}{% empty %}Пока нет({% endfor %}&nbsp;
+          <div class="subheader">Команда: {% for member in project.members.all %}{{ member.username|default:"Неизвестный" }};&nbsp;{% empty %}Пока нет({% endfor %}&nbsp;
 
             <span class="team_actions">
 
