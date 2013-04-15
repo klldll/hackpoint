@@ -18,15 +18,18 @@
     </div>
 
     <div class="row project_detail">
-      <div class="small-3 columns">
-        <img src="http://placekitten.com/g/200/200" class="th">
-        <hr>
+      <div class="small-12 columns">
+        <h4><i class="foundicon-idea"></i> {{ project.title }}</h4>
+
+        <h4><small>Автор: <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a></small></h4>
+      </div>
+
+      <div class="small-12 columns">
         {% ifequal project.owner user.profile %}
           <a class="button tiny secondary" title="Редактировать проект" href="{% url 'project_edit' project.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
         {% endifequal %}
 
         <span class="team_actions">
-
           <a style="{% if not user.profile.can_join and not user.profile.team = project %}display:none;{% endif %}" class="button tiny team_join {% ifequal user.profile.team project %}team_joined disabled{% endifequal %}" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Записаться в команду" href="#">
             <i class="foundicon-checkmark"></i> {% if user.profile.can_join %}Хочу в команду{% endif %}{% ifequal user.profile.team project %}Вы в команде{% endifequal %}
           </a>
@@ -34,15 +37,12 @@
           <a style="{% if not user.profile.can_left or not user.profile.team = project %}display:none;{% endif %}" class="button tiny secondary team_left" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Выйти из команды">
             <i class="foundicon-remove"></i> Выйти
           </a>
-
         </span>
 
+        <img src="http://placekitten.com/g/600/200" class="th">
       </div>
 
-      <div class="small-9 columns">
-        <h4><i class="foundicon-idea"></i> {{ project.title }}</h4>
-
-        <h4><small>Автор: <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a></small></h4>
+      <div class="small-12 columns">
 
         <fieldset>
           <legend><span class="label">Описание</span></legend>
