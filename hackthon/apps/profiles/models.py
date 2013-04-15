@@ -95,6 +95,9 @@ class UserProject(models.Model):
                         default='')
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
+    require = models.CharField(_('Require staff'), max_length=350, blank=True, null=True)
+    is_full = models.BooleanField(_('Is full'), default=False)
+    pirvate = models.BooleanField(_('Private'), default=False)
 
     class Meta:
         verbose_name = _('Project')

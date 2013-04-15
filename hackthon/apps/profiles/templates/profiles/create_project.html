@@ -30,17 +30,17 @@
         <hr>
         <p>Обратите внимание, в описании проекта не должно быть кода. Только понятный текст. Описание проекта могут читать другие люди.</p>
 
-        <p>Мы оставляем за собой право удалить проект, если описание не соответствует требованиям.</p>
+        <p>Мы оставляем за собой право изменить проект, если описание не соответствует требованиям.</p>
       {% csrf_token %}
       {{ form.non_field_errors }}
 
       {{ form.title|append_attr:"placeholder:Краткий заголовок для проекта"|add_error_class:"error" }}
       {{ form.title.errors }}
 
-      {{ form.text_idea|append_attr:"placeholder:Описание вашей идеи. Также укажите, кто требуется вам в команду. Например: \"Нужны в команду:дизайнер, программист, 2 менеждера\""|add_error_class:"error" }}
+      {{ form.text_idea|append_attr:"placeholder:Описание вашей идеи. Также укажите, кто требуется вам в команду."|add_error_class:"error" }}
       {{ form.text_idea.errors }}
-
       <br>
+
       <input class="button" value="{% trans 'Создать' %}" type="submit">
       </fieldset>
     </form>
