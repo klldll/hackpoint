@@ -23,6 +23,11 @@
       <div class="row">
         <div class="large-12 columns">
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
+
+          {% if project.avatar %}
+            <img src="{{ project.avatar }}/convert?w=600&h=200&crop=10,10,600,200">
+          {% endif %}
+
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
           </div>
           <div class="subheader">Команда: {% for member in project.members.all %}{{ member.username|default:"Неизвестный" }}{% if not forloop.last %};&nbsp;{% endif %}{% empty %}Пока нет({% endfor %}&nbsp;

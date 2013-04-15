@@ -29,6 +29,10 @@
           <a class="button tiny secondary" title="Редактировать проект" href="{% url 'project_edit' project.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
         {% endifequal %}
 
+        {% ifequal user.profile project.owner %}
+        <input type="filepicker" data-fp-button-text="Изменить картинку" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="button tiny secondary">
+        {% endifequal %}
+
         <span class="team_actions">
           <a style="{% if not user.profile.can_join and not user.profile.team = project %}display:none;{% endif %}" class="button tiny team_join {% ifequal user.profile.team project %}team_joined disabled{% endifequal %}" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Записаться в команду" href="#">
             <i class="foundicon-checkmark"></i> {% if user.profile.can_join %}Хочу в команду{% endif %}{% ifequal user.profile.team project %}Вы в команде{% endifequal %}
@@ -38,8 +42,13 @@
             <i class="foundicon-remove"></i> Выйти
           </a>
         </span>
-
-        <img src="http://placekitten.com/g/600/200" class="th">
+      </div>
+      <div class="small-12 columns">
+        {% if project.avatar %}
+          <img id="project_avatar" src="{{ project.avatar }}/convert?w=600&h=200&crop=10,10,600,200">
+        {% else %}
+          <img id="project_avatar" src="http://placekitten.com/g/600/200">
+        {% endif %}
       </div>
 
       <div class="small-12 columns">
@@ -54,7 +63,7 @@
         <h5 class="subheader">Команда</h5>
         <ol>
           <li>
-          <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a> &mdash; <span>{{ project.owner.get_user_role_display }}</span>
+            <a href="{% url 'profile_detail' project.owner.pk %}">{{ project.owner.username }}</a> &mdash; <span>{{ project.owner.get_user_role_display }}</span>
           </li>
           {% for member in project.members.all %}
             <li><a href="{% url 'profile_detail' member.pk %}">{{ member.username }}</a> &mdash; <span>{{ member.get_user_role_display }}</span></li>
@@ -66,4 +75,21 @@
 
   </div>
 
+{% endblock %}
+
+{% block extrajs %}
+{% ifequal user.profile project.owner %}
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+  <script type="text/javascript">
+    var setAvatar = function(avatarUrl) {
+      $.post("{% url 'project_edit' project.pk %}", {
+        avatar: avatarUrl
+      })
+      .success(function() {
+        $('#project_avatar').attr('src', avatarUrl + '/convert?w=600&h=200&crop=10,10,600,200');
+      });
+
+    };
+  </script>
+{% endifequal %}
 {% endblock %}

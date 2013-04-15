@@ -123,7 +123,13 @@ class ProjectEditView(UpdateView):
 
     @method_decorator(login_required)
     def post(self, request, *args, **kwargs):
-        self.userproject = UserProject.objects.get(owner=request.user)
+        self.userproject = get_object_or_None(
+            UserProject, owner=request.user.profile
+        )
+        if request.is_ajax() and self.userproject:
+            avatar = request.POST.get('avatar', None)
+            self.userproject.avatar = avatar if avatar else '/static/i/default_project.ing'
+            self.userproject.save()
         return super(ProjectEditView, self).post(request, *args, **kwargs)
 
     def get_form_kwargs(self):

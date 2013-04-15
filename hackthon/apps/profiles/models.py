@@ -93,6 +93,8 @@ class UserProject(models.Model):
                         related_name='group',
                         blank=True,null=True,
                         default='')
+    avatar = models.CharField(_('Avatar'), max_length=80,
+                              blank=True, null=True)
     title = models.CharField(_('Title'), max_length=100)
     text_idea = models.TextField(_('Text idea'), blank=True, null=True)
     require = models.CharField(_('Require staff'), max_length=350, blank=True, null=True)

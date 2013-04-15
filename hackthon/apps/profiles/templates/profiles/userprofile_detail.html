@@ -20,17 +20,17 @@
             {% gravatar_img_for_email profile.user.email %}
           {% endif %}
         </a><br><br>
-          {% ifequal user.profile profile %}
-          <input type="filepicker" data-fp-button-text="Изменить аватар" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="small-11 button tiny secondary">
-          {% endifequal %}
+        {% ifequal user.profile profile %}
+        <input type="filepicker" data-fp-button-text="Изменить аватар" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="small-11 button tiny secondary">
+        {% endifequal %}
 
-          {% ifequal user.profile profile %}
-            <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
-          {% endifequal %}
+        {% ifequal user.profile profile %}
+          <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
+        {% endifequal %}
 
-          {% if not user.profile.empty and not user.profile.in_team and user.profile = profile %}
-            <a class="button tiny secondary" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
-          {% endif %}
+        {% if not user.profile.empty and not user.profile.in_team and user.profile = profile %}
+          <a class="button tiny secondary" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
+        {% endif %}
       </div>
 
       <div class="small-9 columns">
