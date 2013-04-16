@@ -110,7 +110,6 @@
             profile_id: profile_id
           };
 
-      console.log(data);
       $.post('/accounts/projects/left/', data, function (response) {
         $('.messages').html(response.messages).show();
         if (response.success === true) {
@@ -136,7 +135,6 @@
             profile_id: profile_id
           };
 
-      console.log(id, profile_id);
       $.post('/accounts/projects/join/', data, function (response) {
         $('.messages').html(response.messages).show();
         if (response.success === true) {
@@ -147,6 +145,22 @@
             .find('.team_left')
             .show();
           $('.team_join').hide();
+        }
+      }, 'json');
+    });
+
+    $('#total_confirm').click(function (event) {
+      event.preventDefault();
+      $(this).addClass('disabled');
+      var profile_id = $(this).data('profileId'),
+          data = {
+            profile_id: profile_id
+          };
+
+      $.post('/accounts/projects/confirm/', data, function (response) {
+        $('.messages').html(response.messages).show();
+        if (response.success === true) {
+          $('#total_confirm').hide();
         }
       }, 'json');
 

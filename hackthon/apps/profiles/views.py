@@ -280,6 +280,35 @@ class LeftProjectView(BaseAjaxVew):
         return HttpResponse(json.dumps(self.response_data))
 
 
+class ConfirmRegisterView(BaseAjaxVew):
+
+    def post(self, request):
+        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        profile_id = request.POST.get('profile_id')
+        try:
+            profile_id = int(profile_id)
+        except:
+            self.errors.append(u'Id профиля должно быть числом')
+            profile_id = None
+        if not profile_id:
+            return HttpResponse(json.dumps(self.response_data))
+
+        profile = get_object_or_None(UserProfile, pk=profile_id)
+        if profile:
+            try:
+                profile.confirmed = True
+                profile.save()
+                self.success = True
+                self.messages = msg % ('success', 'Вы успешно подтвердили ваше участие. Спасибо!')
+            except:
+                self.success = False
+                self.messages = msg % ('alert', 'Уппс.. Что-то пошло не так..')
+        else:
+            self.messages = msg % ('alert', 'Все плохо.')
+
+        return HttpResponse(json.dumps(self.response_data))
+
+
 @ajax_request
 @csrf_exempt
 def register(request):
@@ -312,7 +341,6 @@ def register(request):
     if result:
         return {'created': result}
     return redirect('/')
-
 
 
 @ajax_request

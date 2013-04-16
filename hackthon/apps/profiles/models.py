@@ -41,6 +41,7 @@ class UserProfile(models.Model):
     project = models.ForeignKey('UserProject', verbose_name=_('project'),
                                related_name=_('members'),
                                blank=True, null=True)
+    confirmed = models.BooleanField('Confirmed', default=False)
 
     class Meta:
         verbose_name = _('Profile')
