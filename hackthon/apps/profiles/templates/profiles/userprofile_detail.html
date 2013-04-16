@@ -11,7 +11,7 @@
       <li class="current"><a href="#">{% ifequal user profile.user %}Мой профиль{% else %}{{ profile.username }}{% endifequal %}</a></li>
     </ul>
 
-    {% if not profile.confirmed %}
+    {% if user.profile = profile and not profile.confirmed %}
     <div class="row">
       <div class="small-12 columns">
         <a data-profile-id="{{ profile.pk }}" id="total_confirm" class="small-12 columns button" title="Подтвердить регистрацию" href="{% url 'project_create' %}">Я точно приду</a>

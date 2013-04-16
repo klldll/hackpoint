@@ -284,7 +284,7 @@ class ConfirmRegisterView(BaseAjaxVew):
 
     def post(self, request):
         msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
-        profile_id = request.POST.get('profile_id')
+        profile_id = request.user.profile.pk
         try:
             profile_id = int(profile_id)
         except:
