@@ -94,7 +94,7 @@ class ProfileEditView(UpdateView):
 
 
 class ProjectList(ListView):
-    queryset = UserProject.objects.all()
+    queryset = UserProject.objects.filter(pirvate=False)
     context_object_name = 'project_list'
 
     @method_decorator(login_required)
