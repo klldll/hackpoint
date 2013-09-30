@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
 
-  <title>{% block _pagetitle %}Hackpoint'13 Череповец 22-24 ноября хакатон 2.0{% endblock %}</title>
+  <title>{% block _pagetitle %}Hackpoint'13 Череповец 19-21 апреля инициализирующий хакатон{% endblock %}</title>
 
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
@@ -107,10 +107,10 @@
     <div class="row">
       <div class="large-4 columns">
         <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
-        <p><strong>22-24 ноября 2013 года</strong> <br>Начало: 18:00</p>
+        <p><strong>19-21 апреля 2013 года</strong> <br>Начало: 18:00</p>
 
         <h3><i class="foundicon-location"></i>&nbsp;Место</h3>
-        <p>ул. Устюженская улица 16, г. Череповец<br><b>Молодежный центр города Череповца</b></p>
+        <p>ул. Социалистическая 25, г. Череповец<br><b>Открытое творческое пространство &laquo;Простор&raquo;</b></p>
       </div>
 
       <div class="large-8 columns">
@@ -123,9 +123,17 @@
     {% block sponsors %}
     <div class="row">
       <div class="large-6 columns">
+        <h3 class="text-center">Генеральный спонсор</h3>
+        <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://cmirit.ru">
+          <img class="th" id="cmirit_logo" src="{{ STATIC_URL }}i/cmirit_logo_.png" />
+        </a>
       </div>
 
       <div class="large-6 columns">
+        <h3 class="text-center">Генеральный спонсор</h3>
+        <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://vologda-trilan.ru">
+          <img class="th" id="trilan_logo" src="{{ STATIC_URL }}i/trilan_logo.png" />
+        </a>
       </div>
     </div><!-- .row -->
     <br>
@@ -135,27 +143,89 @@
         <div class="panel">
 
           <div class="row">
+            <!--
+            <a rel="nofollow" target="_blank" href="http://cmirit.ru" class="large-3 columns">
+              <img class="th" id="cmirit_logo" src="{{STATIC_URL }}i/cmirit_logo.png" />
+            </a>
+            -->
+            <a rel="nofollow" target="_blank" href="http://cheritclub.ru" class="large-3 columns">
+              <img class="th" id="cheritclub_logo" src="{{ STATIC_URL }}i/cheritclub_logo.png" />
+            </a>
+            <a rel="nofollow" target="_blank" href="http://invest35.ru" class="large-3 columns">
+              <img class="th" id="corp_logo" src="{{ STATIC_URL }}i/corp_logo.png" />
+            </a>
+            <a rel="nofollow" target="_blank" href="http://cherepovets.interzet.ru" class="large-3 columns">
+              <img class="th" id="" src="{{ STATIC_URL }}i/interzet_logo.png" />
+            </a>
+            <a rel="nofollow" target="_blank" href="http://biznessoft.ru" class="large-3 columns">
+              <img class="th" id="bs_logo" src="{{ STATIC_URL }}i/bs_logo.gif" />
+            </a>
           </div>
 
           <div class="row">
-            <div class="text-center">
-              <span class="text-center subheader">Знаете как помочь ивенту или хотите быть партнером? <a class="button small" data-reveal-id="sponsorshipModal" href="#sponsorship">Наше предложение для партнеров</a></span>
+            <div class="large-3 columns">
+              <a rel="nofollow" target="_blank" href="http://imit.ru">
+                <img class="th" id="imit_logo" src="{{ STATIC_URL }}i/imit_logo.png" />
+              </a><br><br>
+              <a rel="nofollow" target="_blank" href="http://torgovorot.ru">
+                <img class="th" id="torgovorot_logo" src="{{ STATIC_URL }}i/torgovorot_logo.png" />
+              </a><br><br>
+              <a rel="nofollow" target="_blank" href="http://mozgolom-shop.ru">
+                <img class="th" id="mozgolom_logo" src="{{ STATIC_URL }}i/mozgolom_logo.png" />
+              </a>
             </div>
-          </div>
-
-          <div class="row">
+            <div class="large-3 columns">
+              <a rel="nofollow" target="_blank" href="http://volbiz.ru">
+                <img class="th" id="volbiz_logo" src="{{ STATIC_URL }}i/volbiz_logo.gif" />
+              </a><br>
+              <a rel="nofollow" target="_blank" href="http://imboss.ru">
+                <img class="th" id="ihteho_logo" src="{{ STATIC_URL }}i/inteho_logo.png" />
+              </a>
+            </div>
+            <a rel="nofollow" target="_blank" href="http://cio35.ru" class="large-3 columns">
+              <img class="th" id="itvologda_logo" src="{{ STATIC_URL }}i/itvologda_logo.png" />
+            </a>
+            <div class="large-3 columns">
+              <a rel="nofollow" target="_blank" href="http://synapse-studio.ru">
+                <img class="th" id="synapse_logo" src="{{ STATIC_URL }}i/synapse_logo.png" />
+              </a><br><br>
+              <a rel="nofollow" target="_blank" href="http://tensor.ru">
+                <img class="th" id="" src="{{ STATIC_URL }}i/tensor_logo.jpg" />
+              </a><br><br>
+              <a rel="nofollow" target="_blank" href="http://mallenom.ru">
+                <img class="th" id="mallenom_logo" src="{{ STATIC_URL }}i/mallenom_logo.png" />
+              </a>
+              <!--
+              <a rel="nofollow" target="_blank" href="http://cheritclub.ru">
+                <img class="th" id="cheritclub_logo" src="{{ STATIC_URL }}i/cheritclub_logo.png" />
+              </a>
+              -->
+            </div>
           </div>
 
         </div><!-- .panel -->
       </div><!-- .columns -->
     </div><!-- .row -->
 
+    <div class="row">
+      <div class="text-center">
+        <span class="text-center subheader">Знаете как помочь ивенту или хотите быть партнером? <a class="button small" data-reveal-id="sponsorshipModal" href="#sponsorship">Наше предложение для партнеров</a></span>
+      </div>
+    </div>
 
     <div class="row">
       <div class="large-6 columns">
+        <h3 class="text-center">Событийный партнер</h3>
+        <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://it-sobytie.ru">
+          <img class="th" id="" src="{{ STATIC_URL }}i/it-sobytie_logo.jpg" />
+        </a>
       </div>
 
       <div class="large-6 columns">
+        <h3 class="text-center">Информационный партнер</h3>
+        <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://geometria.ru">
+          <img class="th" id="geometria_logo" src="{{ STATIC_URL }}i/geometria_logo.png" />
+        </a>
       </div>
     </div><!-- .row -->
 
@@ -171,7 +241,7 @@
             <div class="large-12 columns">
 
               <div class="section-container accordion" data-section="accordion">
-                <section class="section active">
+                <section class="section">
                   <p class="title">
                     <a href="#">О хакатоне</a>
                   </p>
@@ -180,7 +250,7 @@
                     <p>Главный принцип мероприятия — получить удовольствие от процесса, сделать то, до чего давно не доходили руки или экспромтом выдать гениальный проект! А попутно познакомиться с гениальными себе подобными, узнать новые интересные фичи и что-то новое в области технологий.</p>
                   </div>
                 </section>
-                <section class="section">
+                <section class="section active">
                   <p class="title">
                     <a href="#">Программа</b></a>
                   </p>

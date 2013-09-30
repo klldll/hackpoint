@@ -39,6 +39,7 @@ urlpatterns += patterns('',
 
 urlpatterns += patterns('',
     (r'^$', TemplateView.as_view(template_name="default.html")),
+    (r'^first/$', TemplateView.as_view(template_name="first.html")),
     (r'^accounts/', include('profiles.urls')),
     (r'^validate/', include('ajax_validation.urls')),
 )
