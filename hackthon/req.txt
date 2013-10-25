@@ -1,7 +1,6 @@
 Django==1.5
 argparse==1.2.1
 cssmin==0.1.4
-distribute==0.6.24
 django-assets==0.8
 jsmin==2.0.2
 uWSGI==1.4.4
