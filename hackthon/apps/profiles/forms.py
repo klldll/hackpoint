@@ -20,7 +20,7 @@ class UserProjectForm(forms.ModelForm):
 
     class Meta:
         model = UserProject
-        exclude = ('owner',) # User will be filled in by the view.
+        exclude = ('owner', 'archived') # User will be filled in by the view.
 
 
 

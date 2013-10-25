@@ -101,6 +101,7 @@ class UserProject(models.Model):
     require = models.CharField(_('Require staff'), max_length=350, blank=True, null=True)
     is_full = models.BooleanField(_('Is full'), default=False)
     pirvate = models.BooleanField(_('Private'), default=False)
+    archived = models.BooleanField(_('Archived'), default=False)
 
     class Meta:
         verbose_name = _('Project')
