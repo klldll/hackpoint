@@ -1,6 +1,11 @@
 {% extends 'profiles/base.html' %}
 {% load i18n gravatar %}
 
+{% block pagetitle %}{{ project.title }} | Hackpoint'13 Череповец{% endblock %}
+{% block og_image %}{{ project.avatar }}/convert?w=200&h=200{% endblock %}
+{% block meta_title %}Hackpoint проекты. {{ project.title }}{% endblock %}
+{% block meta_description %}{{ project.text_idea|striptags|truncatewords:20 }}{% endblock %}
+
 {% block main %}
 
   <div class="large-8 columns">

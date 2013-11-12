@@ -12,8 +12,11 @@
   <meta name='yandex-verification' content='4ecfdbd8e71d15f9' />
   <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
+  <meta property="og:image" content="{% block og_image %}http://hackpoint.ru/static/i/logo.png{% endblock %}">
+  <meta name='title' content="{% block meta_title %}{% endblock %}" />
+  <meta name='description' content="{% block meta_description %}{% endblock %}" />
 
-  <title>{% block _pagetitle %}Hackpoint'13 Череповец 22-24 ноября хакатон 2.0{% endblock %}</title>
+  <title>{% block pagetitle %}Hackpoint'13 Череповец 22-24 ноября хакатон 2.0{% endblock %}</title>
 
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
