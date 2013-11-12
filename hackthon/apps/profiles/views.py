@@ -104,7 +104,7 @@ class ProjectList(ListView):
 
 class ProjectDetail(DetailView):
     context_object_name = 'project'
-    queryset = UserProject.objects.all()
+    queryset = UserProject.objects.filter(archived=False)
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
