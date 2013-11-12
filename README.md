@@ -7,6 +7,7 @@ Installation
 * source .env/bin/activate
 * pip install -r hackthon/req.txt
 * python manage.py syncdb
+* python manage.py migrate --all
 * python manage.py runserver
 
  TODO:

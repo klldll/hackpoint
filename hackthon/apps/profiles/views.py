@@ -34,7 +34,7 @@ class ProifileList(ListView):
     queryset = UserProfile.objects.order_by('-user_role')
     context_object_name = 'profile_list'
 
-    @method_decorator(login_required)
+    #@method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return super(ProifileList, self).get(request, *args, **kwargs)
 
@@ -43,7 +43,7 @@ class ProifileDetail(DetailView):
     context_object_name = 'profile'
     queryset = UserProfile.objects.all()
 
-    @method_decorator(login_required)
+    #@method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return super(ProifileDetail, self).get(request, *args, **kwargs)
 
@@ -74,7 +74,7 @@ class ProfileEditView(UpdateView):
         """
         Возвращает словарь аргументов для экземпляра формы
         """
-        kw = super(ProfileEditView, self).get_form_kwargs()
+        kwargs = super(ProfileEditView, self).get_form_kwargs()
         kwargs = {'initial': self.get_initial()}
         if self.request.method in ('POST', 'PUT'):
             kwargs.update({
@@ -97,7 +97,7 @@ class ProjectList(ListView):
     queryset = UserProject.objects.filter(pirvate=False, archived=False)
     context_object_name = 'project_list'
 
-    @method_decorator(login_required)
+    #@method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return super(ProjectList, self).get(request, *args, **kwargs)
 
@@ -106,7 +106,7 @@ class ProjectDetail(DetailView):
     context_object_name = 'project'
     queryset = UserProject.objects.filter(archived=False)
 
-    @method_decorator(login_required)
+    #@method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return super(ProjectDetail, self).get(request, *args, **kwargs)
 
@@ -159,6 +159,7 @@ class ProjectCreateView(CreateView):
     model = UserProject
     form_class = UserProjectForm
     template_name = 'profiles/create_project.html'
+    # TODO change absolute url to url view
     success_url = '/accounts/projects/list/'
 
     @method_decorator(login_required)

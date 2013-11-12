@@ -9,12 +9,14 @@
       <li class="current"><a href="#">Проекты</a></li>
     </ul>
 
+    {% if user.is_authenticated %}
     <div class="large-12 columns">
       <p>Для того, чтобы получить возможность добавить описание своего проекта или присоединиться к понравившемуся вам необходимо <a href="{% url 'profile_edit' user.profile.pk %}">заполнить профиль</a></p>
       {% if not user.profile.in_team and not user.profile.empty %}
       <a class="button" href="{% url 'project_create' %}">Создать проект</a>
       {% endif %}
     </div>
+    {% endif %}
 
     {% for project in project_list %}
     <hr>

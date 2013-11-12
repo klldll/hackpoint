@@ -13,10 +13,8 @@
   -->
   <section  class="top-bar-section">
     <ul class="right">
-      {% if user.is_authenticated %}
-        <li class="{% ifstartswith  '/accounts/projects/' %}active{% endifstartswith %}"><a href="{% url 'project_list' %}">Проекты</a></li>
-        <li class="{% ifstartswith '/accounts/list/' %}active{% endifstartswith %}"><a href="{% url 'profile_list'%}">Участники</a></li>
-      {% endif %}
+      <li class="{% ifstartswith  '/accounts/projects/' %}active{% endifstartswith %}"><a href="{% url 'project_list' %}">Проекты</a></li>
+      <li class="{% ifstartswith '/accounts/list/' %}active{% endifstartswith %}"><a href="{% url 'profile_list'%}">Участники</a></li>
       <li><a href="/#place">Место</a></li>
       <li><a href="/#about">О мероприятии</a></li>
       <li><a href="/#who">Для кого</a></li>
