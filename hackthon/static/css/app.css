@@ -90,7 +90,7 @@ a.social.gplus {
     margin-bottom:0;
 }
 
-#cmirit_logo, #itvologda_logo, #torgovorot_logo, #trilan_logo, #risventures_logo, #pm_logo {
+#cmirit_logo, #itvologda_logo, #torgovorot_logo, #trilan_logo, #risventures_logo, #pm_logo, #adrem_logo {
     background:#fff;
 }
 
@@ -103,8 +103,6 @@ a.social.gplus {
 }
 #volbiz_logo {
     background:#fff;
-    margin-top:40px;
-    margin-bottom:20px;
 }
 
 #synapse_logo {
@@ -112,7 +110,12 @@ a.social.gplus {
 }
 
 #geometria_logo {
-    background:#52918e;
+    background:#fff
+}
+#koshelev_logo {
+    display: block;
+    padding: 20px;
+    background: #fff;
 }
 
 /* -----------------------------------------
