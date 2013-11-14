@@ -38,7 +38,15 @@
               {% else %}
                 Не указано<br>
               {% endif %}
-              {% if item.has_idea %}<a class="button tiny secondary" href="#">Есть идея!</a>{% endif %}
+              {% if item.has_idea and item.text_idea %}
+              <a class="button tiny secondary has_idea" href="#">Есть идея!</a>
+              <div class="panel hide">
+                {{ item.text_idea|safe }}
+              </div>
+              {% endif %}
+              {% if item.team %}
+                <a class="button tiny has_project" href="{% url 'project_detail' item.team.pk %}">Есть проект!</a>
+              {% endif %}
             </div>
           </div>
           </dd>

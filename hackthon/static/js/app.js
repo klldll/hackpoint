@@ -149,6 +149,11 @@
       }, 'json');
     });
 
+    $('.has_idea').click(function (event) {
+      event.preventDefault();
+      $(this).next().toggleClass('hide');
+    });
+
     $('#total_confirm').click(function (event) {
       event.preventDefault();
       $(this).addClass('disabled');
