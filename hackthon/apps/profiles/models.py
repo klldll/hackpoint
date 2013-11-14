@@ -88,6 +88,7 @@ class UserProfile(models.Model):
 
 
 class UserProject(models.Model):
+    created = models.DateTimeField(_('Created'), auto_now=True)
     owner = models.OneToOneField(UserProfile,
                         verbose_name=_('owner'),
                         unique=True,
@@ -106,6 +107,7 @@ class UserProject(models.Model):
     class Meta:
         verbose_name = _('Project')
         verbose_name_plural = _('Projects')
+        ordering = ('-created',)
 
     def __unicode__(self):
         return '%s - %s' % (self.owner, self.title)
