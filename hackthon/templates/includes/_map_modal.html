@@ -9,26 +9,3 @@
   </div>
   <a class="close-reveal-modal">&#215;</a>
 </div>
-<script type="text/javascript">
-  ymaps.ready(init);
-  var myMap,
-      placeMark;
-
-  function init(){     
-    myMap = new ymaps.Map ("map-modal", {
-      center: [59.123771, 37.877115],
-      zoom: 16,
-    });
-
-    ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/T4xMfSgWwncaG8NAU8RRXju-GfAZcTM-/').then(function (res) {
-      myMap.geoObjects.add(res.geoObjects);
-    });
-
-
-    placeMark = new ymaps.Placemark([59.123771, 37.877115], {
-      content: 'Череповец',
-      balloonContent: 'Молодежный центр города Череповца'
-    });
-    myMap.geoObjects.add(placeMark);
-  }
-</script>

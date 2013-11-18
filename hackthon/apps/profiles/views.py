@@ -31,7 +31,7 @@ from profiles.models import UserProfile, UserProject
 
 
 class ProifileList(ListView):
-    queryset = UserProfile.objects.order_by('-user_role')
+    queryset = UserProfile.objects.order_by('-user_role', '-user__date_joined')
     context_object_name = 'profile_list'
 
     @method_decorator(login_required)
