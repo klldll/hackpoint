@@ -118,6 +118,7 @@
       <div class="large-8 columns">
         <div id="map" style="height:250px;"></div>
         {% include 'includes/_map.html' %}
+        <a class="button large-12" data-reveal-id="mapModal" href="mapModal">Полезные места на карте</a>
       </div>
     </div>
     {% endblock %}
@@ -385,6 +386,7 @@
   {% block extrajs %}{% endblock %}
 
   {% include 'includes/_register.html' %}
+  {% include 'includes/_map_modal.html' %}
   {% include 'includes/_sponsorship.html' %}
   {% include 'includes/_metrika.html' %}
 
