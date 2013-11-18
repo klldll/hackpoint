@@ -74,6 +74,11 @@
             <li><a href="{% url 'profile_detail' member.pk %}">{{ member.username }}</a> &mdash; <span>{{ member.get_user_role_display }}</span></li>
           {% endfor %}
         </ol>
+        <!-- Put this div tag to the place, where the Comments block will be -->
+        <div id="vk_comments_{{ project.id }}"></div>
+        <script type="text/javascript">
+          VK.Widgets.Comments("vk_comments_{{ project.id }}", {limit: 10, width: "600", attach: false});
+        </script>
 
       </div>
     </div>
@@ -93,7 +98,6 @@
       .success(function() {
         $('#project_avatar').attr('src', avatarUrl + '/convert?w=600&h=200&crop=10,10,600,200');
       });
-
     };
   </script>
 {% endifequal %}
