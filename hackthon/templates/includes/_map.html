@@ -5,10 +5,11 @@
         placeMark;
 
     function init(){
-      placeMark = new ymaps.Placemark([59.123771, 37.877115], {
-        content: 'Череповец',
-        balloonContent: 'Молодежный центр города Череповца;'
-      });
+
+      var myIconContentLayout = ymaps.templateLayoutFactory.createClass(
+      //'<img src="/static/i/hp_placemark.png">'
+      '<span style="color:#2e95ec;font-weight:700;font-size:14px;">h</span>'
+      );
 
       mainMap = new ymaps.Map ("map", {
         center: [59.123771, 37.877115],
@@ -17,13 +18,29 @@
 
       modalMap = new ymaps.Map ("map-modal", {
         center: [59.123771, 37.877115],
-        zoom: 16,
+        zoom: 15,
       });
+      modalMap.controls.add("mapTools")
+        .add("zoomControl")
+        .add("typeSelector");
 
-      modalMap.geoObjects.add(placeMark);
+      placeMark = new ymaps.Placemark([59.123771, 37.877115], {
+        content: 'Череповец',
+        balloonContent: 'Молодежный центр города Череповца'
+        }, {
+          iconContentLayout: myIconContentLayout,
+        });
       mainMap.geoObjects.add(placeMark);
+      placeMark = new ymaps.Placemark([59.123771, 37.877115], {
+        content: 'Череповец',
+        balloonContent: 'Молодежный центр города Череповца'
+        }, {
+          iconContentLayout: myIconContentLayout,
+        });
+      modalMap.geoObjects.add(placeMark);
 
-      ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/T4xMfSgWwncaG8NAU8RRXju-GfAZcTM-/').then(function (res) {
+      ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/g7mOH573v4EEMY4Sco9BMheLEjapOSSp/').then(function (res) {
+      //ymaps.geoXml.load('http://maps.yandex.ru/export/usermaps/T4xMfSgWwncaG8NAU8RRXju-GfAZcTM-/').then(function (res) {
         modalMap.geoObjects.add(res.geoObjects);
       });
     }

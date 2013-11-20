@@ -6,6 +6,10 @@
 
   $(document).ready(function() {
 
+    if (document.location.hash == '#mapModal') {
+      $('#mapModal').foundation('reveal', 'open');
+    };
+
     $.fn.placeholder ? $('input, textarea').placeholder() : null;
 
     $.ajaxSetup({
