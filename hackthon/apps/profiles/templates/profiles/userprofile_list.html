@@ -33,7 +33,7 @@
               {% if item.user_skills %}
                 <div class="skills">
                   <b>Навыки:</b>
-                  {{ item.user_skills }}
+                  {{ item.user_skills|truncatewords_html:30 }}
                 </div>
               {% else %}
                 Не указано<br>

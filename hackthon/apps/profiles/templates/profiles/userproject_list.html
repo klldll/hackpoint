@@ -27,7 +27,9 @@
           <h4><a href="{% url 'project_detail' project.pk %}"><i class="foundicon-idea"></i> {{ project.title }}</a></h4>
 
           {% if project.avatar %}
+          <a class="th" href="{% url 'project_detail' project.pk %}">
             <img src="{{ project.avatar }}/convert?w=600&h=200&crop=10,10,600,200">
+          </a>
           {% endif %}
 
           <div class="subheader">Автор идеи: {{ project.owner.username }}&nbsp;
@@ -52,9 +54,7 @@
 
       <div class="row">
         <div class="large-12 columns">
-          <p>
           {{ project.text_idea|default:""|safe|truncatewords_html:20 }}
-          </p>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ Views for creating, editing and viewing site-specific user profiles.
 
 """
 import json
+from datetime import datetime, timedelta
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -31,7 +32,9 @@ from profiles.models import UserProfile, UserProject
 
 
 class ProifileList(ListView):
-    queryset = UserProfile.objects.order_by('-user_role', '-user__date_joined')
+    queryset = UserProfile.objects.filter(
+        user__last_login__gte=datetime.now()-timedelta(days=60)
+    ).order_by('-user_role', '-user__date_joined')
     context_object_name = 'profile_list'
 
     @method_decorator(login_required)
