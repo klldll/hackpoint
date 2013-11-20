@@ -2,5 +2,12 @@
 {% load i18n %}
 
 {% block body %}
-<p>{% trans 'Page not found' %}</p>
+<div class="row">
+  <div id="logo" style="width:260px;" class="large-3 large-centered small-16 columns">
+    <a title="hackpoint.ru"  href="/">Хакпоинт.ру</a>
+    <p class="text-center">{% trans 'Page not found' %}</p>
+  </div>
+</div>
+<p style="font-size:150px;margin-bottom:0;" class="text-center"><span class="label alert">404</span></p>
+<p class="text-center"><a href="/">&larr; Вернуться на главную</a></p>
 {% endblock %}
