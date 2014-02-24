@@ -1,9 +1,30 @@
+User-agent: Yandex
 Disallow: /admin/
 Disallow: /password/
 Disallow: /login/
 Disallow: /logout/
 Disallow: /validate/
 Disallow: /static/
-
-User-agent: Yandex
+Disallow: /set_lang/
+Disallow: /*?*
 Host: hackpoint.ru
+
+User-agent: GoogleBot
+Disallow: /admin/
+Disallow: /password/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /validate/
+Disallow: /static/
+Disallow: /set_lang/
+Disallow: /*?*
+
+User-agent: *
+Disallow: /admin/
+Disallow: /password/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /validate/
+Disallow: /static/
+Disallow: /set_lang/
+Disallow: /*?*
