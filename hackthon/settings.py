@@ -138,7 +138,7 @@ AUTHENTICATION_BACKENDS = (
     'profiles.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend'
 )
-ALLOWED_HOSTS = ('www.hackpoint.ru', 'hackpoint.ru', 'demo.hackpoint.ru', 'hackpoint.ru.')
+ALLOWED_HOSTS = ('www.hackpoint.ru', 'hackpoint.ru', 'demo.hackpoint.ru', 'hackpoint.ru.', 'teclime.ru', '192.34.60.180')
 DEFAULT_FROM_EMAIL = 'info@hackpoint.ru'
 AJAX_VALIDATION_FORMS = [
     'profiles.forms.UserProfileForm',

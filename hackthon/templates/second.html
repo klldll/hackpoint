@@ -16,7 +16,7 @@
   <meta name='title' content="{% block meta_title %}{% endblock %}" />
   <meta name='description' content="{% block meta_description %}{% endblock %}" />
 
-  <title>{% block pagetitle %}Hackpoint'14 Череповец 18-20 апреля хакатон{% endblock %}</title>
+  <title>{% block pagetitle %}Hackpoint'13 Череповец 22-24 ноября хакатон 2.0{% endblock %}</title>
 
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
@@ -67,22 +67,16 @@
 
 
     {% block register %}
-    <br>
-    <div class="row">
-      <div class="large-12 columns large-centered">
-        <div class="flex-video">
-          <iframe src="//player.vimeo.com/video/82447201?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="large-12 columns">
-        {# include 'includes/sponsors.html' #}
-      </div>
-    </div><!-- .row -->
     <div class="row panel">
       <div class="large-12 columns">
 
           <div class="large-6 columns">
+          <h6 >Регистрация на хакпоинт закрыта</h6>
+          <br>
+          <p>
+            Скоро! Статистика по проектам, фото и видео отчеты
+          </p>
+          <!--
           <h6 >Регистрация на хакпоинт открыта</h6> <h6 class="subheader">У нас будет:</h6>
             <ul class="square">
             <li>Много It-специалистов</li>
@@ -90,9 +84,11 @@
             <li>48-часовой доступ на площадку</li>
             <li>Море фана</li>
             </ul>
+            -->
           </div>
           <div class="large-6 columns">
 
+            <!--
             <div class="row collapse">
               <form id="register_simple" method="post">
                 {% csrf_token %}
@@ -106,6 +102,7 @@
             </div>
 
             <hr>
+            -->
 
             <div class="row collapse">
             <h6>Следи за обновлениями</h6>
@@ -125,7 +122,7 @@
     <div class="row">
       <div class="large-4 columns">
         <h3><i class="foundicon-calendar"></i>&nbsp;Время</h3>
-        <p><strong>18-20 апреля 2014 года</strong> <br>Начало: 18:00</p>
+        <p><strong>22-24 ноября 2013 года</strong> <br>Начало: 18:00</p>
 
         <h3><i class="foundicon-location"></i>&nbsp;Место</h3>
         <p>ул. Устюженская 16, г. Череповец<br><b>Молодежный центр г. Череповца</b></p>
@@ -140,6 +137,17 @@
     {% endblock %}
 
     {% block sponsors %}
+    <br>
+    <div class="row">
+      <div class="large-6 columns">
+      </div>
+
+      <div class="large-6 columns">
+      </div>
+      <div class="large-12 columns">
+        {% include 'includes/sponsors.html' %}
+      </div>
+    </div><!-- .row -->
     <br>
 
     <div class="row">
@@ -164,23 +172,19 @@
 
 
     <div class="row">
-      <!--
       <div class="large-6 columns">
         <h3 class="text-center">Событийный партнер</h3>
         <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://it-sobytie.ru">
           <img class="th" id="" src="{{ STATIC_URL }}i/it-sobytie_logo.jpg" />
         </a>
       </div>
-      -->
 
-      <!--
       <div class="large-6 columns">
         <h3 class="text-center">HR-партнер</h3>
         <a class="text-center" style="display:block;" rel="nofollow" target="_blank" href="http://itmozg.ru">
           <img class="th" src="{{ STATIC_URL }}i/itmozg_logo.png" />
         </a>
       </div>
-      -->
     </div><!-- .row -->
 
     <div class="row">
@@ -323,7 +327,7 @@
       <a style="display:block;margin-bottom:65px;" data-magellan-destination="who" name="who"></a>
       <div class="row">
         <div class="large-12 columns">
-          <h3>Для кого</h3>
+          <h3>Кто будет участвовать на хакпоинте</h3>
           <div class="panel">
             <div class="row">
               <div class="small-4 columns">
@@ -377,7 +381,7 @@
   <div id="copyright">
     <div class="row">
       <div class="large-8 columns">
-        <p>Точка превращения идеи в прототип &copy; {% now "Y" %} Hackpoint.ru</p>
+        <p>Точка превращения идеи в прототип &copy; 2013 Hackpoint.ru</p>
       </div>
       <div class="large-4 columns">
         <dl class="sub-nav right">
