@@ -31,4 +31,6 @@ urlpatterns = patterns('',
                         name='project_edit'),
     url(r'^projects/(?P<pk>\d+)/$', views.ProjectDetail.as_view(),
                         name='project_detail'),
+    url(r'^messages/$', views.messages,
+                        name='messages'),
     )

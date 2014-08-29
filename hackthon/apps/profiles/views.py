@@ -28,7 +28,7 @@ from annoying.decorators import ajax_request
 from annoying.functions import get_object_or_None
 
 from profiles.forms import UserProfileForm, RegistrationFormUniqueEmail, SponsorshipForm, UserProjectForm
-from profiles.models import UserProfile, UserProject
+from profiles.models import UserProfile, UserProject, Message
 
 
 class ProifileList(ListView):
@@ -356,3 +356,11 @@ def sponsorship_register(request):
         sponsor = sponsor_form.save()
         return {'created': True}
     return redirect('/')
+
+
+@ajax_request
+@csrf_exempt
+def messages(request):
+    text = request.POST.get('text', '')
+    Message.objects.create(text=text)
+    return {'created': True}

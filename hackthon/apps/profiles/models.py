@@ -117,6 +117,16 @@ class UserProject(models.Model):
         return ('project_detail', None, {'pk':str(self.pk)})
 
 
+class Message(models.Model):
+    created = models.DateTimeField(_('Created'), auto_now=True)
+    text = models.TextField(_('Message'))
+
+    class Meta:
+        verbose_name = _('Message')
+        verbose_name_plural = _('Messages')
+        ordering = ('-created',)
+
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         profile, created = UserProfile.objects.get_or_create(user=instance)
