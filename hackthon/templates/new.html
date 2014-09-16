@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  {% load assets jquery_validation %}
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <meta name='yandex-verification' content='4ecfdbd8e71d15f9' />
+  <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}favicon.ico" />
+  <meta property="og:image" content="{% block og_image %}http://hackpoint.ru/static/i/logo.png{% endblock %}">
+  <meta name='title' content="{% block meta_title %}{% endblock %}" />
+  <meta name='description' content="{% block meta_description %}{% endblock %}" />
+
+  <title>{% block pagetitle %}Hackpoint'14 Череповец 18-20 апреля хакатон{% endblock %}</title>
+
+  <!-- Included CSS Files (Compressed) -->
+  {% block extracss %}{% endblock extracss %}
+  {% assets "all_css" %}
+    <style type="text/css" media="screen">
+        /* <![CDATA[ */
+        @import '{{ ASSET_URL }}';
+        /* ]]> */
+    </style>
+  {% endassets %}
+  <script src="{{ STATIC_URL }}js/modernizr.foundation.js"></script>
+  <script src="{{ STATIC_URL }}js/jquery.js"></script>
+  <script src="//vk.com/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+  <script type="text/javascript">
+      VK.init({apiId: 3514217, onlyWidgets: true});
+    </script>
+</head>
+
+<body>
+
+  <div class="wrapper">
+  {% block body %}
+    <div class="row">
+      <div class="small-3 columns">
+        <div id="logo" class="left">
+          <a href="/">Hackpont.ru '13</a>
+        </div>
+      </div>
+      <div id="where" class="small-9 columns">
+        {% include 'includes/_top_nav.html' %}
+      </div>
+    </div>
+
+    {% block slogan %}
+    <div class="row">
+      <div class="large-7 large-centered columns">
+      <h4 id="slogan" class="subheader">Hackpoint &mdash; точка превращения идеи в прототип</h4>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block about %}
+    <div class="row">
+      <div class="large-6 columns">
+        <h4>Что такое ХАКАТОН?</h4>
+        <p>Это 48-часовой марафон, в котором предприниматели, программисты, дизайнеры, маркетологи и другие хорошие люди объединяются для того, чтобы за 48 часов показать на что они способны и реализовать прототип какого-то технологического проекта.</p>
+        <p>Хакатон проводится в формате конкурса среди лучших работ, которые будут реализованы за отведённое время (48 часов) на площадке мероприятия.</p>
+      </div>
+      <div class="large-6 columns">
+        <h4>Вот как это проходило в прошлый раз</h4>
+        <div class="">
+          <iframe src="//player.vimeo.com/video/82447201?title=0&amp;byline=0&amp;portrait=0" width="500" height="271" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    <div class="row">
+      <div class="large-8 columns">
+        {% include 'messages.html' %}
+      </div>
+    </div>
+
+    <div class="block-wrapper">
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="text-center">Что еще за проект?</h4>
+          <p>На площадке HackPoint ты можешь реализовать прототип своего проекта, основанного на базе IT. Для этого необходимо придумать идею своего проекта и собрать для его реализации компанду специалистов. Либо ты можешь присоединиться к команде другого проекта.</p>
+          <p>Проект может быть как в социальной, так и коммерческой сфере. </p>
+          <p>Помни, на основе проделанной работы ты сможешь создать свой сервис и свою кампанию, если захочешь этого! Осталось только попробовать! Регистрируйся!</p>
+          <h4 class="subheader text-center">Примеры успешных проектов</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns">
+          <h5 class="text-center">VENTURA</h5>
+          <a class="sample-project radius" target="_blank" href="http://ventura-project.ru/">
+            <img src="/static/i/ventura.png">
+          </a>
+          <p>Основная цель проекта – создать единую мобильную базу для потерянных и найденных животных, а так же для питомцев, которые ищут новых хозяев в приютах или у людей, у которых нет возможности оставить их себе.</p>
+        </div>
+        <div class="large-4 columns">
+          <h5 class="text-center">SMMBox</h5>
+          <a class="sample-project radius" target="_blank" href="http://smmbox.com">
+            <img src="/static/i/smmbox.jpg">
+          </a>
+          <p>Размещаейте информацию в ваши паблики с любых сайтов всего за пару кликов. Специальное расширение для браузера позволит вам быстро публиковать записи.</p>
+        </div>
+        <div class="large-4 columns">
+          <h5 class="text-center">TEAM KICKER</h5>
+          <a class="sample-project radius" target="_blank" href="http://teamkikcker.com">
+            <img src="/static/i/tk_fl.png">
+          </a>
+          <p>Тайм-трекер для коллективной работы с элементами геймификации: ачивки, бейджи, рейтинг.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <p class="text-center">Интересно? <a href="#">Регистрируйся!</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-wrapper-partners">
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="text-center">Наши партнеры и спонсоры</h4>
+          <h4 class="subheader text-center">Генеральные спонсоры</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns">
+          <a class="sample-project radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-4 columns">
+          <a class="sample-project radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">SMMBox</h5>
+        </div>
+        <div class="large-4 columns">
+          <a class="sample-project radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">TEAM KICKER</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="subheader text-center">Спонсоры</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/hackpoint_logo.png">
+          </a>
+          <h5 class="text-center">VENTURA</h5>
+        </div>
+      </div>
+      <!--
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="subheader text-center">Инфопартнеры</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="subheader text-center">Инфопартнеры</h4>
+        </div>
+      </div>
+      -->
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="text-center">Хотите стать спонсором?</h4>
+          <h4 class="subheader text-center">Оставьте нам свой e-mail и получите описание спонсорских пакетов</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-8 large-centered columns">
+          <form id="sponsorship_simple"action="{% url 'sponsorship_register' %}"  method="post">
+            {% csrf_token %}
+            <div class="large-7 columns">
+              <input type="text" id="id_sponsor_email" name="sponsor_email" placeholder="Напишите ваш email">
+            </div>
+            <div class="large-5 columns">
+              <input type="submit" class="postfix button expand" value="Получить спонсорский пакет">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {% block register %}
+    <div class="block-wrapper-register">
+      <div class="row">
+        <div class="large-6 columns">
+          <h4>Когда?</h4>
+          <p>
+          17, 18 19 октября<br>48 часов non-stop!<br>Начало в 19:00
+          </p>
+          <h4>Где?</h4>
+          <p>
+          ул. Устюженская 16, г. Череповец<br>Молодежный центр
+          </p>
+          <div class="row collapse">
+            <h4>Следи за нами в соц. сетях:</h4>
+            <div class="small-2 columns"><a target="_blank" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
+            <div class="small-2 columns"><a target="_blank" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
+            <div class="small-2 columns left"><a target="_blank" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
+          </div>
+        </div>
+
+        <div class="large-6 columns">
+          <h4>Хочу участвовать!</h4>
+          <p>После регистрации ты сможешь создать собственный проект, и собрать команду для его реализации.</p>
+          <p>Если у тебя нет идеи проекта - не беда! Ты сможешь присоединиться в компанду другого проекта.</p>
+          <form id="register_simple" method="post">
+            <div class="row">
+              {% csrf_token %}
+              <div class="large-7 columns">
+                <input type="text" id="id_email" name="email" placeholder="Напишите ваш email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-7 columns">
+                <input type="submit" class="postfix button expand" value="Зарегистрироваться">
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div id="map" style="height:250px;"></div>
+          {% include 'includes/_map.html' %}
+          <a class="button large-12" data-reveal-id="mapModal" href="mapModal">Полезные места на карте</a>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block for_people %}
+    <div class="block-wrapper-people">
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="text-center">Для кого это все?</h4>
+          <h4 class="subheader text-center">к участию мы приглашаем:</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/biz.png">
+          </a>
+          <h5 class="text-center">предприниматели</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/it.png">
+          </a>
+          <h5 class="text-center">программисты</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/diz.png">
+          </a>
+          <h5 class="text-center">дизайнеры</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/pr.png">
+          </a>
+          <h5 class="text-center">маркетологи PR-специалисты рекламщики</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/eng.png">
+          </a>
+          <h5 class="text-center">инженеры</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="sample-sponsor radius" href="#">
+            <img src="/static/i/all.png">
+          </a>
+          <h5 class="text-center">просто хорошие неравнодушные люди</h5>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="large-12 columns">
+          <p style="padding:15px 0;" class="text-center">Ты <b>на 100%</b> один из них и ты нужен на HackPoint! <b>Не сомневайся!</b> <a href="#">Регистрируйся!</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+          <h4>Что нужно от меня?</h4>
+          <h4 class="subheader">Обычно на мероприяите мы просим принести:</h4>
+          <ul>
+            <li>Желание сделать что-то полезное</li>
+            <li>Орг. взнос 200 руб.</li>
+            <li>Идея проекта (по желанию) и/или твои навыки специалиста</li>
+            <li>Твои друзья/коллеги (вместе веселее)</li>
+            <li>Тапочки (у нас "все как дома")</li>
+            <li>Ноутбук, сетевой фильтр (и т.п., если что-то нужно)</li>
+          </ul>
+        </div>
+        <div class="large-6 columns">
+          <h4>Я не знаю зачем мне это...</h4>
+          <h4 class="subheader">HackPoint - это место, где ты получишь возможность:</h4>
+          <ul>
+            <li>Найти новых друзей</li>
+            <li>Ппробовать себя в новой роли</li>
+            <li>Реализовать проект, о котором давно думал, "да руки не доходили"</li>
+            <li>Найти работу</li>
+            <li>Найти сотрудников и партнеров</li>
+            <li>Повеселиться, поучиться и выйграть призы</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div style="padding:20px 0;" class="large-12 columns">
+          <h4 class="text-center">48 часов это много - я устану / усну / не смогу жить без еды</h4>
+          <h4 class="subheader text-center">на площадке мы предоставим тебе:</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/food.png">
+          </a>
+          <h5 class="text-center">3х разовое питание <br>+ чай/кофе/печеньки</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/24h.png">
+          </a>
+          <h5 class="text-center">Круглосуточный доступ к площадке (48 часов)</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/sleep.png">
+          </a>
+          <h5 class="text-center">Спальные мешки и раскладушки</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/work.png">
+          </a>
+          <h5 class="text-center">Рабочие места для команд</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/internet.png">
+          </a>
+          <h5 class="text-center">Интернет (а да, на этот раз хороший)</h5>
+        </div>
+        <div class="large-2 columns">
+          <a class="features" href="#">
+            <img src="/static/i/docs.png">
+          </a>
+          <h5 class="text-center">Интересные образовательные доклады</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-wrapper block-wrapper-team">
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h4 class="text-center">Откуда я знаю, что меня не обманут?</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <h5 class="text-center">Мы &mdash; команда организаторов, которая провела в г. Череповце уже 2 таких мероприятия.</h5>
+          <div class="row">
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Шохин Леонид <br>APRIX</p>
+            </div>
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Громов Андрей<br>программист-фрилансер</p>
+            </div>
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Власова Ольга<br>маркетолог-фрилансер</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Оксенюк Роман<br>ТРИЛАН</p>
+            </div>
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Воронович Олеся<br>Universal Sowtware</p>
+            </div>
+            <div class="large-4 columns">
+              <a class="sample-sponsor radius" target="_blank" href="http://ventura-project.ru/">
+                <img src="/static/i/ventura.png">
+              </a>
+              <p class="text-center">Запорожченко Наталья<br>Айкон</p>
+            </div>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <h4>&nbsp;</h4>
+          <div class="row">
+            <div class="large-6 columns">
+              <img class="" src="{{ STATIC_URL }}i/dev.jpg">
+            </div>
+            <div class="large-6 columns">
+              <img class="" src="{{ STATIC_URL }}i/dev.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <p style="font-size:16px;" class="text-center">Верь нам, все получится! <a href="#">Регистрируйся!</a></p>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+      <div class="row">
+        {% block main %}{% endblock %}
+      </div>
+
+    {% endblock %}
+
+  {% endblock %}
+  </div>
+
+  <div id="copyright">
+    <div class="row">
+      <div class="large-8 columns">
+        <p>Точка превращения идеи в прототип &copy; {% now "Y" %} Hackpoint.ru</p>
+      </div>
+      <div class="large-4 columns">
+        <dl class="sub-nav right">
+        <dd><a href="#">Главная</a></dd>
+        <dd><a href="#">О нас</a></dd>
+        <dd><a href="#">Партнеры</a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  {% assets  "all_js" %}
+    <script type="text/javascript" language="javascript" src="{{ ASSET_URL }}" charset="utf-8">
+        // <![CDATA[// ]]>
+    </script>
+  {% endassets %}
+
+  {% block extrajs %}{% endblock %}
+
+  {% include 'includes/_register.html' %}
+  {% include 'includes/_map_modal.html' %}
+  {% include 'includes/_sponsorship.html' %}
+  {% include 'includes/_metrika.html' %}
+
+</body>
+</html>

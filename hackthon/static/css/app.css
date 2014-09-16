@@ -18,9 +18,105 @@
 html, body {
     height:100%;
 }
+body {
+    color: #414141;
+}
+h5, h4, h3 {
+    color: #565656;
+}
+.subheader {
+    color:#a19b8c;
+}
+h4.subheader {
+    font-size: 18px;
+}
+.button {
+    background-color: #0096ef;
+}
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #0074bb;
+}
 .wrapper {
     min-height:100%;
     padding-bottom:60px;
+}
+.block-wrapper {
+    background:#f6f6f6;
+    margin-top:2em;
+    padding:1em 0 1em 0;
+}
+.block-wrapper-partners {
+    background:url(../i/sponsor_pattern.jpg);
+    padding:2em 0 1em 0;
+    border-bottom: 1px solid #a2a2a2;
+}
+.block-wrapper-register {
+    background: #bee2f7;
+    padding:2em 0 1em 0;
+    border-bottom: 1px solid #a2a2a2;
+}
+.block-wrapper-people {
+    background:url(../i/register_pattern.jpg);
+    padding:2em 0 3em 0;
+    border-bottom: 1px solid #a2a2a2;
+}
+.block-wrapper-people h5 {
+    font-size: 14px;
+    color: #414141;
+}
+.block-wrapper-people h4.subheader {
+    font-size: 18px;
+}
+.block-wrapper-people a.features {
+    display:block;
+    text-align: center;
+    margin-bottom:20px;
+}
+.block-wrapper-people .large-2 {
+    padding: 0 5px;
+}
+.block-wrapper-team .large-4 {
+    padding: 0 5px;
+}
+.block-wrapper-team p {
+    font-size:14px;
+}
+.sample-project {
+    border-radius: 200px;
+    margin: 0 auto 20px;
+    display: block;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border: 1px solid #7f7f7f;
+    overflow: hidden;
+    margin-top:10px;
+    background:#fff;
+}
+.sample-project img {
+    padding-top:30px;
+}
+.sample-sponsor {
+    border-radius: 200px;
+    margin: 0 auto 20px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: 1px solid #7f7f7f;
+    overflow: hidden;
+    margin-top:10px;
+    background:#fff;
+}
+.sample-sponsor img {
+    padding-top: 25px;
+}
+.sample-project:hover,
+.sample-sponsor:hover {
+    border: 1px solid #0066a4;
+}
+.block-wrapper-people .sample-sponsor {
+    padding-top: 15px;
 }
 
 #logo a {

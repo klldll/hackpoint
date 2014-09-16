@@ -38,7 +38,8 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
-    (r'^$', TemplateView.as_view(template_name="default.html")),
+    #(r'^$', TemplateView.as_view(template_name="default.html")),
+    (r'^/$', TemplateView.as_view(template_name="new.html")),
     (r'^first/$', TemplateView.as_view(template_name="first.html")),
     (r'^second/$', TemplateView.as_view(template_name="second.html")),
     (r'^accounts/', include('profiles.urls')),
