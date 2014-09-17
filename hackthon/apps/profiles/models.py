@@ -120,11 +120,15 @@ class UserProject(models.Model):
 class Message(models.Model):
     created = models.DateTimeField(_('Created'), auto_now=True)
     text = models.TextField(_('Message'))
+    title = models.CharField(_('Title'), max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = _('Message')
         verbose_name_plural = _('Messages')
         ordering = ('-created',)
+
+    def __unicode__(self):
+        return self.title
 
 
 def create_user_profile(sender, instance, created, **kwargs):

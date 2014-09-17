@@ -33,4 +33,6 @@ urlpatterns = patterns('',
                         name='project_detail'),
     url(r'^messages/$', views.messages,
                         name='messages'),
-    )
+    url(r'^messages/zaebeezaebee/(?P<id>\d+)$', views.messages_zaebee,
+                        name='messages_zaebee'),
+)
