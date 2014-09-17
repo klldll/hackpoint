@@ -75,6 +75,9 @@ button:hover, button:focus, .button:hover, .button:focus {
 .block-wrapper-people .large-2 {
     padding: 0 5px;
 }
+.block-wrapper-team {
+    margin:0;
+}
 .block-wrapper-team .large-4 {
     padding: 0 5px;
 }
@@ -109,7 +112,7 @@ button:hover, button:focus, .button:hover, .button:focus {
     background:#fff;
 }
 .sample-sponsor img {
-    padding-top: 25px;
+    /*padding-top: 25px;*/
 }
 .sample-project:hover,
 .sample-sponsor:hover {
