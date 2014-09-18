@@ -15,9 +15,9 @@
     <ul class="right">
       <li class="{% ifstartswith  '/accounts/projects/' %}active{% endifstartswith %}"><a href="{% url 'project_list' %}">Проекты</a></li>
       <li class="{% ifstartswith '/accounts/list/' %}active{% endifstartswith %}"><a href="{% url 'profile_list'%}">Участники</a></li>
-      <li><a href="/#place">Место</a></li>
-      <li><a href="/#about">О мероприятии</a></li>
+      <li><a href="/#wrapper-register">Место</a></li>
       <li><a href="/#who">Для кого</a></li>
+      <li><a href="/#team-hp">О нас</a></li>
       <li class="divider"></li>
       {% if user.is_authenticated %}
       <li class="has-dropdown profile-menu">
