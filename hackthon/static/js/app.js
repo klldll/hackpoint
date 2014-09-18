@@ -99,6 +99,9 @@
         type: 'POST',
         success : function(data, status) {
           $('#registerModal').foundation('reveal', 'close');
+          if (data.url) {
+            document.location.href = data.url;
+          }
         }
       });
       $(this).find('small.error').remove();

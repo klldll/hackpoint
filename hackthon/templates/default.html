@@ -16,7 +16,7 @@
   <meta name='title' content="{% block meta_title %}{% endblock %}" />
   <meta name='description' content="{% block meta_description %}{% endblock %}" />
 
-  <title>{% block pagetitle %}Hackpoint'14 Череповец 18-20 апреля хакатон{% endblock %}</title>
+  <title>{% block pagetitle %}Hackpoint'14 Череповец 17-19 октября хакатон{% endblock %}</title>
 
   <!-- Included CSS Files (Compressed) -->
   {% block extracss %}{% endblock extracss %}
@@ -42,7 +42,7 @@
     <div class="row">
       <div class="small-3 columns">
         <div id="logo" class="left">
-          <a href="/">Hackpont.ru '13</a>
+          <a href="/">Hackpont.ru '14</a>
         </div>
       </div>
       <div id="where" class="small-9 columns">
@@ -381,9 +381,11 @@
       </div>
       <div class="large-4 columns">
         <dl class="sub-nav right">
-        <dd><a href="#">Главная</a></dd>
-        <dd><a href="#">О нас</a></dd>
-        <dd><a href="#">Партнеры</a></dd>
+        <dd><a href="/">Главная</a></dd>
+        <dd><a href="{% url 'project_list' %}">Проекты</a></dd>
+        <dd><a href="{% url 'profile_list'%}">Участники</a></dd>
+        <dd><a href="/#team-hp">О нас</a></dd>
+        <!--<dd><a href="#">Партнеры</a></dd>-->
         </dl>
       </div>
     </div>

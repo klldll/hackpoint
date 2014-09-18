@@ -6,12 +6,13 @@ Views for creating, editing and viewing site-specific user profiles.
 import json
 from datetime import datetime, timedelta
 
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render, redirect, resolve_url
 from django.conf import settings
 from django.contrib import messages
 
@@ -329,6 +330,10 @@ def register(request):
         msg = u'<p>Благодарим вас за регистрацию на нашем ивенте. Мы будем оповещать вас о важных событиях.</p><p>Вы уже можете <a href="http://hackpoint.ru/login/">войти на сайт</a> и найти себе команду.</p><p>С уважением организаторы.</p>'
         send_html_mail(u'Спасибо за регистрацию на hackpoint.ru', '', msg, settings.DEFAULT_FROM_EMAIL, [user.email])
         result = True
+        new_user = authenticate(username=email,
+                                password=password)
+        login(request, new_user)
+        #return HttpResponseRedirect("/dashboard/")
 
     if full_form.is_valid():
         profile = full_form.save(commit=False)
@@ -346,7 +351,10 @@ def register(request):
         result = True
 
     if result:
-        return {'created': result}
+        return {
+            'created': result,
+            'url': resolve_url('profile_detail', pk=user.id)
+        }
     return redirect('/')
 
 
