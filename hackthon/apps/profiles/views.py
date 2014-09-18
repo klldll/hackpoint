@@ -360,7 +360,7 @@ def sponsorship_register(request):
 
 @ajax_request
 @csrf_exempt
-def messages(request):
+def messages_new(request):
     text = request.POST.get('text', '')
     Message.objects.create(text=text)
     return {'created': True}
