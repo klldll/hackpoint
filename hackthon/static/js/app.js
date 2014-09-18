@@ -69,7 +69,10 @@
     $('form#register_simple, form#register_simple2').on('form:validate', function (e) {
       $.ajax({
         url: '/accounts/register/',
-        data: { email: $(this).find('input[id=id_email]').val()},
+        data: {
+          email: $(this).find('input[id=id_email]').val(),
+          password: $(this).find('input[id=id_password]').val()
+        },
         type: 'POST',
         success : function(data, status) {
           $('#registerModal').foundation('reveal', 'open');

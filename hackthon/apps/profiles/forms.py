@@ -92,6 +92,9 @@ class RegistrationFormUniqueEmail(forms.Form):
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                     maxlength=75)),
                                                     label=_("Email address"))
+    password = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
+                                label=_("Password"))
+
     def clean_email(self):
         """
         Validate that the supplied email address is unique for the

@@ -274,3 +274,21 @@ a.social.gplus {
 #twitter-widget-0 {
     height:300px;
 }
+
+ul.take-list {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.take-list li {
+padding-left: 1.5em; 
+}
+
+.take-list li:before {
+position: absolute;
+content: "•";
+color: red;
+left: 0;
+}
