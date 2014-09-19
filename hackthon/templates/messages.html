@@ -6,7 +6,7 @@
 <div class="messages">
   {% for message in messages %}
   <div data-alert class="alert-box {% if message.extra_tags %}{{ message.extra_tags }}{% else %}success{% endif %}">
-      <a data-dismiss="alert" class="close">×</a>
+      <a href="#" data-dismiss="alert" class="close">&times;</a>
       {{ message }}
     </div>
   {% endfor %}

@@ -40,18 +40,17 @@
   <div class="wrapper">
   {% block body %}
     <div class="row">
-      <div class="large-3 small-6 columns">
+      <div class="large-3 medium-5 small-6 columns">
         <div id="logo" class="left">
           <a href="/">Hackpont.ru '14</a>
         </div>
       </div>
-      <div id="where" class="large-9 small-6 columns">
+      <div id="where" class="large-9 medium-7 small-6 columns">
         {% include 'includes/_top_nav.html' %}
       </div>
     </div>
 
     {% block slogan %}
-    <a style="display:block;margin-bottom:75px;" data-magellan-destination="top" name="#"></a>
     <div class="row">
       <div class="large-7 large-centered columns">
       <h4 id="slogan" class="subheader">Hackpoint &mdash; точка превращения идеи в прототип <br> Создай свой проект за 48 часов</h4>
@@ -376,10 +375,10 @@
 
   <div id="copyright">
     <div class="row">
-      <div class="small-6 large-8 columns">
+      <div class="small-12 large-6 columns">
         <p>Точка превращения идеи в прототип <br>&copy;&nbsp;{% now "Y" %}&nbsp;Hackpoint.ru</p>
       </div>
-      <div class="small-6 large-4 columns">
+      <div class="small-12 large-6 columns">
         <dl class="sub-nav right">
         <dd><a href="/">Главная</a></dd>
         <dd><a href="{% url 'project_list' %}">Проекты</a></dd>

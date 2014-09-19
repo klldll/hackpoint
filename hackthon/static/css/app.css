@@ -132,6 +132,12 @@ button:hover, button:focus, .button:hover, .button:focus {
 .top-bar, .top-bar.expanded .title-area {
     background:transparent;
 }
+.top-bar.expanded .top-bar-section ul {
+    border:1px solid #d9d9d9;
+}
+.top-bar-section ul li a:hover {
+    color: #fff;
+}
 .top-bar-section ul li.active a {
     color:#fff;
 }
@@ -140,8 +146,11 @@ button:hover, button:focus, .button:hover, .button:focus {
     right: 0;
     background: #0096ef;
 }
+.top-bar.expanded .toggle-topbar a{
+    color: #fff;
+}
 .top-bar.expanded .toggle-topbar.menu-icon {
-    background: transparent;
+    background: #0b4576;
 }
 #slogan {
     text-align:center;
@@ -151,12 +160,12 @@ button:hover, button:focus, .button:hover, .button:focus {
     border:1px solid #d9d9d9;
 }
 
-#usermenu li a {
+#usermenu li > a {
     color:#fff;
     color:#6f6f6f;
 }
 
-#usermenu li a:hover {
+#usermenu li > a:hover:not(.parent-link) {
     color:#fff;
 }
 
@@ -200,6 +209,9 @@ a.social.gplus {
     padding: 25px 0;
 }
 
+#copyright dd {
+    margin-left: 0;
+}
 #copyright p, #copyright dl {
     margin-bottom:0;
 }
@@ -239,8 +251,7 @@ a.social.gplus {
 .errorlist {
     display: block;
     padding: 0.375em 0.25em;
-    margin-top: -1.3125em;
-    margin-bottom: 1em;
+    margin: 0 0 2em;
     font-size: 0.75em;
     font-weight: bold;
     background: #c60f13;

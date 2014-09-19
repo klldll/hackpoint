@@ -22,7 +22,7 @@
     -->
 
     <div class="row">
-      <div class="small-3 columns">
+      <div class="small-3 columns text-center">
         <a id="user_avatar" class="th" href="#">
           {% if profile.avatar %}
             <img src="{{ profile.avatar }}/convert?w=150&h=150">
@@ -31,15 +31,15 @@
           {% endif %}
         </a><br><br>
         {% ifequal user.profile profile %}
-        <input type="filepicker" data-fp-button-text="Изменить аватар" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="small-11 button tiny secondary">
+        <input type="filepicker" data-fp-button-text="Изменить аватар" data-fp-apikey="A3lXl09sRSejY4e0pOOSQz" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER,DROPBOX" onchange="setAvatar(event.fpfile.url)" class="button tiny secondary small-12">
         {% endifequal %}
 
         {% ifequal user.profile profile %}
-          <a class="button tiny secondary" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
+          <a class="button tiny secondary small-12" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
         {% endifequal %}
 
         {% if not user.profile.empty and not user.profile.in_team and user.profile = profile %}
-          <a class="button tiny secondary" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
+          <a class="button tiny secondary small-12" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
         {% endif %}
 
       </div>
@@ -51,8 +51,11 @@
         </h4>
         {% endif %}
 
+        {% if profile.user == user %}
+        <p><b>Email:</b> {{ user.email }}</p>
+        {% endif %}
 
-        <p><b>Контакты:</b>{% if profile.team and user.profile.team = profile.team %} {{ profile.contact|default:"" }}{% else %} <i>Видны только членам команды</i>{% endif %}</p>
+        <p><b>Контакты:</b>{% if profile.team and user.profile.team = profile.team or profile.user == user %} {{ profile.contact|default:"" }}{% else %} <i>Видны только членам команды</i>{% endif %}</p>
 
         <p>
         <b>Навыки:</b>

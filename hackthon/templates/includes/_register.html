@@ -1,7 +1,7 @@
-<div id="registerModal" class="reveal-modal small">
+<div id="registerModal" class="reveal-modal small" data-reveal>
   <h4>Благодарим за регистрацию на hackpoint</h4>
   <p>Заполните форму и в дальнейшем вы сможете точнее подобрать команду и проект для участия.</p>
-  <form method="POST" action="{% url 'profiles_register' %}" class="custom" id="register_full">
+  <form method="POST" action="{% url 'profiles_register' %}" id="register_full">
     {% csrf_token %}
 
     <div class="row">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-      <label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea" style="display: none;"><span class="custom checkbox"></span> У меня есть идея для проекта</label>
+      <label for="id_has_idea"><input type="checkbox" name="has_idea" id="id_has_idea"> У меня есть идея для проекта</label>
     </div>
 
     <hr>

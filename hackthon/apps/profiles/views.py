@@ -216,7 +216,7 @@ class BaseAjaxVew(View):
 class JoinProjectView(BaseAjaxVew):
 
     def post(self, request):
-        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        msg = '<div data-alert class="alert-box %s">%s<a href="#" data-dismiss="alert" class="close">&times;</a></div>'
         project_id = request.POST.get('project_id')
         profile_id = request.POST.get('profile_id')
         try:
@@ -250,7 +250,7 @@ class JoinProjectView(BaseAjaxVew):
 class LeftProjectView(BaseAjaxVew):
 
     def post(self, request):
-        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        msg = '<div data-alert class="alert-box %s">%s<a href="#" data-dismiss="alert" class="close">&times;</a></div>'
         project_id = request.POST.get('project_id')
         profile_id = request.POST.get('profile_id')
         try:
@@ -288,7 +288,7 @@ class LeftProjectView(BaseAjaxVew):
 class ConfirmRegisterView(BaseAjaxVew):
 
     def post(self, request):
-        msg = '<div data-alert class="alert-box %s">%s<a data-dismiss="alert" class="close">×</a></div>'
+        msg = '<div data-alert class="alert-box %s">%s<a href="#" data-dismiss="alert" class="close">&times;</a></div>'
         profile_id = request.user.profile.pk
         try:
             profile_id = int(profile_id)

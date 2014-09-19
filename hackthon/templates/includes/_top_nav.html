@@ -1,11 +1,11 @@
 {% load activelink gravatar %}
-<nav class="top-bar">
+<nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
-  <!-- Title Area -->
-  <li class="name">
-  </li>
-  <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-  <li class="toggle-topbar menu-icon"><a href="#"><span>Меню</span></a></li>
+    <!-- Title Area -->
+    <li class="name">
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Меню</span></a></li>
   </ul>
 
   <!--
@@ -20,7 +20,7 @@
       <li><a href="/#team-hp">О нас</a></li>
       <li class="divider"></li>
       {% if user.is_authenticated %}
-      <li class="has-dropdown profile-menu">
+        <li class="has-dropdown profile-menu">
           {% if user.profile.avatar %}
             <a href="{% url 'profile_detail' user.profile.pk %}">
               <img src="{{ user.profile.avatar }}/convert?w=25&h=25">
@@ -28,7 +28,7 @@
             </a>
           {% else %}
             <a href="{% url 'profile_detail' user.profile.pk %}">
-              {% gravatar_img_for_email profile.user.email 25 %}
+              {% gravatar_img_for_email user.profile.user.email 25 %}
               Профиль
             </a>
           {% endif %}
@@ -49,4 +49,3 @@
     </ul>
   </section>
 </nav>
-
