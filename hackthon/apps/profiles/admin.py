@@ -45,7 +45,8 @@ class SponsorProfileAdmin(admin.ModelAdmin):
 
 
 class UserProjectAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'title', 'text_idea')
+    list_display = ('owner', 'title', 'text_idea', 'created')
+    ordering = ['-created']
 
 
 admin.site.unregister(User)

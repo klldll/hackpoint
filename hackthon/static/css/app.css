@@ -136,6 +136,13 @@ button:hover, button:focus, .button:hover, .button:focus {
     color:#fff;
 }
 
+.top-bar .toggle-topbar.menu-icon {
+    right: 0;
+    background: #0096ef;
+}
+.top-bar.expanded .toggle-topbar.menu-icon {
+    background: transparent;
+}
 #slogan {
     text-align:center;
 }
@@ -145,6 +152,7 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 #usermenu li a {
+    color:#fff;
     color:#6f6f6f;
 }
 
@@ -186,8 +194,10 @@ a.social.gplus {
     background: #3f3f3f;
     color: #fff;
     margin-top: -60px;
-    padding: 25px 0;
+    /*
     height:60px;
+    */
+    padding: 25px 0;
 }
 
 #copyright p, #copyright dl {
@@ -270,11 +280,13 @@ a.social.gplus {
   TWITTER widget
 ----------------------------------------- */
 
+/*
 .twtr-doc, .twtr-timeline {
     -moz-border-radius:0 !important;
     -webkit-border-radius:0 !important;
     border-radius:0 !important;
 }
+*/
 
 #twitter-widget-0 {
     height:300px;
@@ -296,4 +308,8 @@ position: absolute;
 content: "•";
 color: red;
 left: 0;
+}
+
+a[href$="register"] {
+    font-size:1.1em;
 }

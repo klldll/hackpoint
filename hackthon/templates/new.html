@@ -40,12 +40,12 @@
   <div class="wrapper">
   {% block body %}
     <div class="row">
-      <div class="small-3 columns">
+      <div class="large-3 small-6 columns">
         <div id="logo" class="left">
           <a href="/">Hackpont.ru '13</a>
         </div>
       </div>
-      <div id="where" class="small-9 columns">
+      <div id="where" class="large-9 small-6 columns">
         {% include 'includes/_top_nav.html' %}
       </div>
     </div>
@@ -63,7 +63,7 @@
       <div class="large-6 columns">
         <h4>Что такое ХАКАТОН?</h4>
         <p>Это 48-часовой марафон, в котором предприниматели, программисты, дизайнеры, маркетологи и другие хорошие люди объединяются для того, чтобы за 48 часов показать на что они способны и реализовать прототип какого-то технологического проекта.</p>
-        <p>Хакатон проводится в формате конкурса среди лучших работ, которые будут реализованы за отведённое время (48 часов) на площадке мероприятия.</p>
+        <p>Хакатон проводится в формате конкурса среди лучших работ, которые будут реализованы за отведённое время (48 часов) на&nbsp;площадке мероприятия.</p>
       </div>
       <div class="large-6 columns">
         <h4>Вот как это проходило в прошлый раз</h4>
@@ -93,22 +93,22 @@
       <div class="row">
         <div class="large-4 columns">
           <h5 class="text-center">Конструктор игр онлайн</h5>
-          <a class="sample-project radius" target="_blank" href="http://2l4u.ru/">
+          <a class="sample-project radius" target="_blank" rel="nofollow" href="http://2l4u.ru/">
             <img src="/static/i/2l4u.jpg">
           </a>
           <p>JavaScript(jQuery), WEBGL, HTML5 <br>
-          <a target="_blank" href="http://2l4u.ru">2l4u.ru</a> позволяет Создавать игры, Продолжать созданные, Изменять сюжет, Героев, Добавлять уровни</p>
+          <a target="_blank" rel="nofollow" href="http://2l4u.ru">2l4u.ru</a> позволяет Создавать игры, Продолжать созданные, Изменять сюжет, Героев, Добавлять уровни</p>
         </div>
         <div class="large-4 columns">
           <h5 class="text-center">SMMBox</h5>
-          <a class="sample-project radius" target="_blank" href="http://smmbox.com">
+          <a class="sample-project radius" target="_blank" rel="nofollow" href="http://smmbox.com">
             <img src="/static/i/smmbox.jpg">
           </a>
           <p>Размещаейте информацию в ваши паблики с любых сайтов всего за пару кликов. Специальное расширение для браузера позволит вам быстро публиковать записи.</p>
         </div>
         <div class="large-4 columns">
           <h5 class="text-center">EyeLens</h5>
-          <a class="sample-project radius" target="_blank" href="http://eye-lens.ru">
+          <a class="sample-project radius" rel="nofollow" target="_blank" href="http://eye-lens.ru">
             <img src="/static/i/EyeLens.png">
           </a>
           <p>Мобильное приложение, помогающее слабовидящим и незрячим людям усовершенствовать их восприятие жизни.</p>
@@ -238,26 +238,26 @@
           </p>
           <div class="row collapse">
             <h4>Следи за нами в соц. сетях:</h4>
-            <div class="small-2 columns"><a target="_blank" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
-            <div class="small-2 columns"><a target="_blank" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
-            <div class="small-2 columns left"><a target="_blank" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
+            <div class="small-2 columns"><a target="_blank" rel="nofollow" href="http://vk.com/hackpoint" class="social vk">Vk</a></div>
+            <div class="small-2 columns"><a target="_blank" rel="nofollow" href="http://twitter.com/hackpoint_che" class="social twi">Twi</a></div>
+            <div class="small-2 columns left"><a target="_blank" rel="nofollow" href="http://facebook.com/hackpoint.che" class="social fb">Fb</a></div>
           </div>
         </div>
 
         <div class="large-6 columns">
           <h4>Хочу участвовать!</h4>
-          <p>После регистрации ты сможешь создать собственный проект, и собрать команду для его реализации.</p>
+          <p>После регистрации ты сможешь создать собственный проект и&nbsp;собрать команду для его реализации.</p>
           <p>Если у тебя нет идеи проекта - не беда! Ты сможешь присоединиться в компанду другого проекта.</p>
           <form id="register_simple" method="post">
             {% csrf_token %}
             <div class="row">
               <div class="large-7 columns">
-                <input type="text" id="id_email" name="email" placeholder="Напишите ваш email">
+                <input type="text" id="id_email" name="email" placeholder="Email">
               </div>
             </div>
             <div class="row">
               <div class="large-7 columns">
-                <input type="password" id="id_password" name="password" placeholder="Задайте пароль">
+                <input type="password" id="id_password" name="password" placeholder="Пароль">
               </div>
             </div>
             <div class="row">
@@ -274,7 +274,7 @@
         <div class="large-12 columns">
           <div id="map" style="height:250px;"></div>
           {% include 'includes/_map.html' %}
-          <a class="button large-12" data-reveal-id="mapModal" href="mapModal">Полезные места на карте</a>
+          <a class="button large-12" data-reveal-id="mapModal" rel="nofollow" href="mapModal">Полезные места на карте</a>
         </div>
       </div>
     </div>
@@ -289,7 +289,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div style="overflow:hidden;" class="row">
         <div class="large-2 columns">
           <a class="sample-sponsor radius" href="#">
             <img src="/static/i/biz.png">
@@ -312,7 +312,7 @@
           <a class="sample-sponsor radius" href="#">
             <img src="/static/i/pr.png">
           </a>
-          <h5 class="text-center">маркетологи PR-специалисты рекламщики</h5>
+          <h5 class="text-center">маркетологи<br> PR&ndash;специалисты рекламщики</h5>
         </div>
         <div class="large-2 columns">
           <a class="sample-sponsor radius" href="#">
@@ -330,7 +330,7 @@
       <br>
       <div class="row">
         <div class="large-12 columns">
-          <p style="padding:15px 0;" class="text-center">Ты один из них и ты нужен на HackPoint - <b>Не сомневайся!</b> <a href="#wrapper-register">Регистрируйся!</a></p>
+          <p style="padding:15px 0;" class="text-center">Ты один из них и нужен на HackPoint - без сомнений. <a href="#wrapper-register">Регистрируйся!</a></p>
         </div>
       </div>
 
@@ -343,7 +343,7 @@
             <li>Орг. взнос 200 руб.</li>
             <li>Идея проекта (по желанию) и/или твои навыки специалиста</li>
             <li>Твои друзья/коллеги (вместе веселее)</li>
-            <li>Тапочки (у нас "все как дома")</li>
+            <li>Тапочки (у нас &laquo;все как дома&raquo;)</li>
             <li>Ноутбук, сетевой фильтр (и т.п., если что-то нужно)</li>
           </ul>
         </div>
@@ -353,7 +353,7 @@
           <ul class="take-list">
             <li>Найти новых друзей</li>
             <li>Попробовать себя в новой роли</li>
-            <li>Реализовать проект, о котором давно думал, "да руки не доходили"</li>
+            <li>Реализовать проект, о котором давно думал, &laquo;да руки не доходили&raquo;</li>
             <li>Найти работу</li>
             <li>Найти сотрудников и партнеров</li>
             <li>Повеселиться, поучиться и выйграть призы</li>
@@ -395,7 +395,7 @@
           <a class="features" href="#">
             <img src="/static/i/internet.png">
           </a>
-          <h5 class="text-center">Интернет (а да, на этот раз хороший)</h5>
+          <h5 class="text-center">Интернет (и да, на этот раз хороший)</h5>
         </div>
         <div class="large-2 columns">
           <a class="features" href="#">
@@ -417,19 +417,19 @@
           <h5 class="text-center">Мы &mdash; команда организаторов, которая провела в&nbsp;г.&nbsp;Череповце уже 2 таких мероприятия.</h5>
           <div style="margin-top:50px;" class="row">
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/shokhin">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/shokhin">
                 <img src="/static/i/leo.jpg">
               </a>
               <p class="text-center">Шохин Леонид <br>APRiX</p>
             </div>
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/microdata">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/microdata">
                 <img style="" src="/static/i/zae.jpg">
               </a>
               <p class="text-center">Громов Андрей<br>программист-фрилансер</p>
             </div>
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/olga_wisdom">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/olga_wisdom">
                 <img src="/static/i/olga.jpg">
               </a>
               <p class="text-center">Власова Ольга<br>маркетолог-фрилансер</p>
@@ -437,19 +437,19 @@
           </div>
           <div class="row">
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/id393073">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/id393073">
                 <img src="/static/i/roman.jpg">
               </a>
               <p class="text-center">Оксенюк Роман<br>ТРИЛАН</p>
             </div>
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/olesya_voronovich">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/olesya_voronovich">
                 <img src="/static/i/lesy.jpg">
               </a>
               <p class="text-center">Воронович Олеся<br>Universal Sowtware</p>
             </div>
             <div class="large-4 columns">
-              <a class="sample-sponsor radius" target="_blank" href="https://vk.com/blackcat8202">
+              <a class="sample-sponsor radius" target="_blank" rel="nofollow" href="https://vk.com/blackcat8202">
                 <img src="/static/i/ntasha.jpg">
               </a>
               <p class="text-center">Запорожченко Наталья<br>Айкон</p>
@@ -461,7 +461,7 @@
           <div class="row">
             <div class="large-9 push-2 columns">
               <p style="margin:20px 0 0 0;" class="text-center">HackPoint апрель'2013</p>
-              <a class="th large-12" target="_blank" href="https://vk.com/album-51121552_172907206">
+              <a class="th large-12" target="_blank" rel="nofollow" href="https://vk.com/album-51121552_172907206">
                 <img class="" src="{{ STATIC_URL }}i/first_event.jpg">
               </a>
             </div>
@@ -469,7 +469,7 @@
           <div class="row">
             <div class="large-9 push-2 columns">
               <p style="margin:20px 0 0 0;" class="text-center">HackPoint ноябрь'2013</p>
-              <a class="th large-12" target="_blank" href="https://vk.com/album-51121552_182858265">
+              <a class="th large-12" target="_blank" rel="nofollow" href="https://vk.com/album-51121552_182858265">
               <img class="" src="{{ STATIC_URL }}i/second_event.jpg">
               </a>
             </div>
@@ -497,10 +497,10 @@
 
   <div id="copyright">
     <div class="row">
-      <div class="large-8 columns">
-        <p>Точка превращения идеи в прототип &copy; {% now "Y" %} Hackpoint.ru</p>
+      <div class="small-6 large-8 columns">
+        <p>Точка превращения идеи в прототип <br>&copy;&nbsp;{% now "Y" %}&nbsp; Hackpoint.ru</p>
       </div>
-      <div class="large-4 columns">
+      <div class="small-6 large-4 columns">
         <dl class="sub-nav right">
         <dd><a href="/">Главная</a></dd>
         <dd><a href="{% url 'project_list' %}">Проекты</a></dd>
