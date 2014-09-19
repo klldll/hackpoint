@@ -129,7 +129,7 @@
             .text('Хочу в команду')
             .removeClass('team_joined disabled')
             .addClass('team_join');
-            $('.team_join').text('Хочу в команду').show();
+            $('.team_join').html('<i class="foundicon-checkmark"></i>&nbsp;Хочу в команду').show();
           $(target).hide();
         }
       }, 'json');
@@ -148,7 +148,7 @@
       $.post('/accounts/projects/join/', data, function (response) {
         $('.messages').html(response.messages).show();
         if (response.success === true) {
-          $(target).text('Вы в команде')
+          $(target).html('<i class="foundicon-checkmark"></i>&nbsp;Вы в команде')
             .removeClass('team_join')
             .addClass('team_joined disabled')
             .parent()
