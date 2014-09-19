@@ -35,11 +35,11 @@
         {% endifequal %}
 
         {% ifequal user.profile profile %}
-          <a class="button tiny secondary small-12" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i> Редактировать</a>
+          <a class="button tiny secondary small-12" title="Редактировать профиль" href="{% url 'profile_edit' profile.pk %}"><i class="foundicon-edit"></i>&nbsp;Редактировать</a>
         {% endifequal %}
 
         {% if not user.profile.empty and not user.profile.in_team and user.profile = profile %}
-          <a class="button tiny secondary small-12" title="Создать проект" href="{% url 'project_create' %}">Создать проект</a>
+          <a class="button tiny primary small-12" title="Создать проект" href="{% url 'project_create' %}"><i class="foundicon-idea"></i>&nbsp;Создать проект</a>
         {% endif %}
 
       </div>
