@@ -1,4 +1,4 @@
-(function($)    {
+;(function($)    {
     function form_data(form)   {
         return form.find("input[checked], input[type='text'], input[type='hidden'], input[type='password'], input[type='submit'], select, option[selected], textarea").filter(':enabled');
     }
@@ -110,11 +110,9 @@
                     type: 'POST',
                     url: url
                 });
-                //event.preventDefault();
                 return false;
                 return status;
             });
         });
     };
 })(jQuery);
-

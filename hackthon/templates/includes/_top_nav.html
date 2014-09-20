@@ -3,6 +3,11 @@
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
+      <h1>
+        <a href="/">
+          <img src="{{ STATIC_URL }}i/logo-hp.png">
+        </a>
+      </h1>
     </li>
     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Меню</span></a></li>
@@ -15,7 +20,7 @@
     <ul class="right">
       <li class="{% ifstartswith  '/accounts/projects/' %}active{% endifstartswith %}"><a href="{% url 'project_list' %}">Проекты</a></li>
       <li class="{% ifstartswith '/accounts/list/' %}active{% endifstartswith %}"><a href="{% url 'profile_list'%}">Участники</a></li>
-      <li><a href="/#wrapper-register">Место</a></li>
+      <li data-magellan-arrival="wrapper-register"><a href="/#wrapper-register">Место</a></li>
       <li><a href="/#who">Для кого</a></li>
       <li><a href="/#team-hp">О нас</a></li>
       <li class="divider"></li>

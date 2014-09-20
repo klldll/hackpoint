@@ -39,13 +39,8 @@
 
   <div class="wrapper">
   {% block body %}
-    <div class="row">
-      <div class="large-3 medium-5 small-6 columns">
-        <div id="logo" class="left">
-          <a href="/">Hackpont.ru '13</a>
-        </div>
-      </div>
-      <div id="where" class="large-9 medium-7 small-6 columns">
+    <div class="row header-row">
+      <div id="where" class="large-9 medium-7 small-6 columns contain-to-grid sticky">
         {% include 'includes/_top_nav.html' %}
       </div>
     </div>
@@ -225,7 +220,7 @@
     -->
 
     {% block register %}
-    <div class="block-wrapper-register" id="wrapper-register">
+    <div data-magellan-destination="wrapper-register" class="block-wrapper-register" id="wrapper-register">
       <div class="row">
         <div class="large-6 columns">
           <h4>Когда?</h4>
