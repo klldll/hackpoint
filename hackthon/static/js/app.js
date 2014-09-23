@@ -4,7 +4,7 @@
   var $doc = $(document),
       Modernizr = window.Modernizr;
 
-  $doc.ready(function() {
+  $(document).ready(function() {
 
     if (document.location.hash == '#mapModal') {
       $('#mapModal').foundation('reveal', 'open');
@@ -181,11 +181,10 @@
 
     });
 
-    $doc.foundation();
+    $(document).foundation();
 
   });
 
-  // Hide address bar on mobile devices (except if #hash present, so we don't mess up deep linking).
   if (Modernizr.touch && !window.location.hash) {
     $(window).load(function () {
       setTimeout(function () {

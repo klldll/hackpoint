@@ -38,7 +38,6 @@
 
         <label for="id_has_idea">{{ form.has_idea }}&nbsp;У меня есть идея</label>
         {{ form.has_idea.errors }}
-        <br>
 
         {{ form.text_idea|append_attr:"placeholder:Краткое описание вашей идеи. Что или кто требуется для ее реализации?"|add_error_class:"error" }}
         {{ form.text_idea.errors }}

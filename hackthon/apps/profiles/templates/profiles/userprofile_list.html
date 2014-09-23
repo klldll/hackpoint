@@ -12,7 +12,7 @@
     {% regroup profile_list by get_user_role_display|inflect:"мн" as profiles %}
     <dl class="user_list">
       {% for profile in profiles %}
-      <dt><h4>{{ profile.grouper|default:"Не указано" }} <span class="label">{{ profile.list|length}}</span></h4></dt>
+      <dt><h4 class="subheader">{{ profile.grouper|default:"Не указано" }} <span class="label">{{ profile.list|length}}</span></h4></dt>
       <hr>
       {% for item in profile.list %}
         <dd>

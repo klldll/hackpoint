@@ -146,7 +146,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 .header-row {
     height:100px;
-    margin-top:50px;
+    margin-top:20px;
+    margin-bottom:30px;
 }
 .top-bar, .top-bar.expanded .title-area {
     background:transparent;
