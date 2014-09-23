@@ -373,5 +373,18 @@ def sponsorship_register(request):
 @csrf_exempt
 def messages_new(request):
     text = request.POST.get('text', '')
-    Message.objects.create(text=text)
+    title = request.POST.get('title', '')
+    Message.objects.create(text=text, title=title)
     return {'created': True}
+
+
+@login_required
+def messages_zaebee(request, id):
+    msg = get_object_or_None(Message, id=id)
+    text = json.loads(msg.text)
+    text = text.replace('\n', '<br>')
+    data = {
+        'text': text,
+        'title': msg.title
+    }
+    return render(request, 'message_zaebee.html', data)
