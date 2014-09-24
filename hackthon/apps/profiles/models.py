@@ -128,7 +128,10 @@ class Message(models.Model):
         ordering = ('-created',)
 
     def __unicode__(self):
-        return self.title
+        if self.title:
+            return u'%s' % self.title
+        else:
+            return ''
 
 
 def create_user_profile(sender, instance, created, **kwargs):
