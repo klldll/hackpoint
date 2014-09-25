@@ -39,9 +39,11 @@
         {% endifequal %}
 
         <span class="team_actions">
+          {% if not project.is_full %}
           <a style="{% if not user.profile.can_join and not user.profile.team = project %}display:none;{% endif %}" class="button tiny team_join {% ifequal user.profile.team project %}team_joined disabled{% endifequal %}" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Записаться в команду" href="#">
             <i class="foundicon-checkmark"></i> {% if user.profile.can_join %}Хочу в команду{% endif %}{% ifequal user.profile.team project %}Вы в команде{% endifequal %}
           </a>
+          {% endif %}
 
           <a style="{% if not user.profile.can_left or not user.profile.team = project %}display:none;{% endif %}" class="button tiny secondary team_left" data-project-id="{{ project.pk }}" data-profile-id="{{ user.profile.pk }}" title="Выйти из команды">
             <i class="foundicon-remove"></i> Выйти
